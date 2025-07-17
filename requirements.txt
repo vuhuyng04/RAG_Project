@@ -1,5 +1,5 @@
 streamlit==1.42.2
-qdrant-client
+qdrant-client==1.7.1
 google-generativeai==0.8.4
 sentence-transformers==5.0.0
 python-dotenv==1.0.1
