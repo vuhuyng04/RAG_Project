@@ -183,19 +183,18 @@ def main():
     st.markdown("*Chào mừng bạn đến với cửa hàng hoa tươi! Tôi sẽ giúp bạn tìm những bông hoa đẹp nhất.*")
     
     # Sidebar
-    with st.sidebar:
-        # Logo chatbot
-        st.markdown("""
-        <div style="text-align: center; padding: 20px;">
-            <div style="font-size: 80px; margin-bottom: 10px;">🌸</div>
+    st.markdown("""
+        <div style="text-align: center; padding: 10px 0 0 0;">
             <h2 style="margin: 0; color: #FF69B4;">Chatbot Hoa Tươi</h2>
             <p style="margin: 5px 0; color: #666;">Nguyễn Vũ Huy</p>
             <p style="margin: 5px 0;">
                 <a href="https://www.linkedin.com/in/vuhuyng/" target="_blank" style="color: #0e76a8; text-decoration: none;">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="20" style="vertical-align: middle; margin-right: 5px;">
                     LinkedIn
                 </a>
                 &nbsp;|&nbsp;
                 <a href="https://github.com/vuhuyng04" target="_blank" style="color: #333; text-decoration: none;">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub" width="20" style="vertical-align: middle; margin-right: 5px;">
                     GitHub
                 </a>
             </p>
