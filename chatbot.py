@@ -95,7 +95,7 @@ def format_flower_info(search_results):
 def create_chatbot_prompt(user_message, flower_info):
     """Tạo prompt chi tiết cho chatbot"""
     prompt = f"""
-Bạn là một chuyên gia tư vấn bán hoa tươi tại cửa hàng Hoa Tươi My My. Hãy trả lời câu hỏi của khách hàng một cách nhiệt tình, chuyên nghiệp và hữu ích.
+Bạn là một chuyên gia tư vấn bán hoa tươi tại cửa hàng Hoa Tươi My My. Hãy trả lời câu hỏi của khách hàng một cách nhiệt tình, chuyên nghiệp và hữu ích. (tự xưng chatbot do VuHuyAI tạo ra)
 
 **THÔNG TIN SẢN PHẨM TÌM ĐƯỢC:**
 {flower_info}
