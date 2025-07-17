@@ -9,9 +9,8 @@ from sentence_transformers import SentenceTransformer
 import requests
 from io import BytesIO
 
-# =========================
-# BACKEND FUNCTIONS
-# =========================
+
+
 
 # Load environment variables (for local development)
 load_dotenv()
@@ -125,9 +124,7 @@ Hãy trả lời bằng tiếng Việt một cách tự nhiên và hữu ích nh
 """
     return prompt
 
-# =========================
-# FRONTEND (GIAO DIỆN)
-# =========================
+
 
 # Cấu hình trang
 st.set_page_config(
