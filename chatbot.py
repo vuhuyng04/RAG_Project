@@ -225,7 +225,7 @@ def main():
         # Quick suggestions
         st.header("💡 Gợi ý tìm kiếm")
         quick_searches = [
-            "hoa sinh nhật",
+            "hoa giao gấp",
             "hoa tươi khai trương", 
             "hoa chúc mừng",
             "giỏ hoa đẹp",
