@@ -184,10 +184,21 @@ def main():
     
     # Sidebar
     with st.sidebar:
+        # Logo section
+        try:
+            logo_image = Image.open("logo.png")
+            st.image(logo_image, width=200, use_container_width=True)
+        except:
+            st.markdown("""
+                <div style="text-align: center; padding: 10px 0 0 0;">
+                    <h2 style="margin: 0; color: #FF69B4;">Chatbot Hoa Tươi</h2>
+                    <p style="margin: 5px 0; color: #666;">Logo not found</p>
+                </div>
+                """, unsafe_allow_html=True)
+        
+        # Social links
         st.markdown("""
-            <div style="text-align: center; padding: 10px 0 0 0;">
-                <h2 style="margin: 0; color: #FF69B4;">Chatbot Hoa Tươi</h2>
-                <p style="margin: 5px 0; color: #666;">Nguyễn Vũ Huy</p>
+            <div style="text-align: center; padding: 10px 0;">
                 <p style="margin: 5px 0;">
                     <a href="https://www.linkedin.com/in/vuhuyng/" target="_blank" style="color: #0e76a8; text-decoration: none;">
                         <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="20" style="vertical-align: middle; margin-right: 5px;">
