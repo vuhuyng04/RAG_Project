@@ -85,6 +85,7 @@ def format_flower_info(search_results):
         formatted_info += f"**{i}. {payload.get('title', 'Không có tên')}**\n"
         formatted_info += f"   - Giá: {payload.get('price', 'Chưa có giá')}\n"
         formatted_info += f"   - Link: {payload.get('url', 'Không có link')}\n"
+        formatted_info += f"   - khuyến mãi: {payload.get('khuyen_mai', 'không có khuyến mãi')}"
         formatted_info += f"   - Độ phù hợp: {score:.2f}\n"
         if payload.get('description'):
             formatted_info += f"   - Mô tả: {payload.get('description')}\n"
@@ -228,7 +229,8 @@ def main():
             "hoa tươi khai trương", 
             "hoa chúc mừng",
             "giỏ hoa đẹp",
-            "lẵng hoa cao cấp"
+            "hoa viếng",
+            "hoa tặng người yêu"
         ]
         
         for search in quick_searches:
