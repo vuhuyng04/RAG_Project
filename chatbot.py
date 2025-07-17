@@ -11,7 +11,6 @@ from io import BytesIO
 
 
 
-
 # Load environment variables (for local development)
 load_dotenv()
 
@@ -147,14 +146,18 @@ def display_flower_cards(search_results):
         with cols[i % 3]:
             payload = record.payload
             
-            # Hiển thị ảnh
+            # Hiển thị ảnh với size nhỏ và đồng nhất
             if payload.get('image'):
                 try:
                     response = requests.get(payload['image'])
                     img = Image.open(BytesIO(response.content))
-                    st.image(img, use_container_width=True)
+                    # Resize ảnh về kích thước cố định để đồng nhất
+                    img = img.resize((200, 200), Image.Resampling.LANCZOS)
+                    st.image(img, width=200)
                 except:
-                    st.image("https://via.placeholder.com/300x300?text=No+Image", use_container_width=True)
+                    st.image("https://via.placeholder.com/200x200?text=No+Image", width=200)
+            else:
+                st.image("https://via.placeholder.com/200x200?text=No+Image", width=200)
             
             # Thông tin sản phẩm
             st.markdown(f"**{payload.get('title', 'Không có tên')}**")
