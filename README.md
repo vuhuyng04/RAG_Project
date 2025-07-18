@@ -4,15 +4,15 @@
 ```mermaid
 graph TD
     A([📊 Data Source<br/>hoatuoimymy.com]) --> B([🔄 Crawl & Process])
-    B --> C([🧮 Text Embedding])
-    C --> D[(📦 Qdrant Vector DB)]
+    B --> C([🧮 Text Embedding <br/> **gte-multilingual-base**])
+    C --> D[(📦 VectorDB <br/> **Qdrant**)]
     
-    E([❓ User Query]) --> J([🧮 Query Embedding])
-    J --> F([🔍 Vector Search])
+    E([❓ User Query]) --> J([🧮 Text Embedding <br/> **gte-multilingual-base**])
+    J --> F([🔍 Vector Search <br/> **Cosine Similarity**])
     F --> D
     D --> G([📋 Retrieved Context])
     
-    E --> H{{🤖 LLM Generate}}
+    E --> H{{🤖 LLM Generate <br/>**gemini-2.0-flash**}}
     G --> H
     H --> I[✨ Final Answer<br/><a href="https://vuhuy-rag.streamlit.app/" target="_blank">🔗 Demo</a>]
 
