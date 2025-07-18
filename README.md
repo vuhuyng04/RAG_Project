@@ -1,11 +1,14 @@
 # RAG_Project
+# 🚀 [🌐 Demo Project – Try it Live](https://vuhuy-rag.streamlit.app/)
+
 ```mermaid
 graph TD
     A([📊 Data Source<br/>hoatuoimymy.com]) --> B([🔄 Crawl & Process])
     B --> C([🧮 Text Embedding])
     C --> D[(📦 Qdrant Vector DB)]
     
-    E([❓ User Query]) --> F([🔍 Vector Search])
+    E([❓ User Query]) --> J([🧮 Query Embedding])
+    J --> F([🔍 Vector Search])
     F --> D
     D --> G([📋 Retrieved Context])
     
@@ -21,9 +24,10 @@ graph TD
     classDef llm fill:#fce4ec,stroke:#c2185b,stroke-width:2px
 
     class A source
-    class B,C process
+    class B,C,J process
     class D storage
     class E,F,G query
     class H,I llm
-
 ```
+
+
