@@ -14,7 +14,7 @@ graph TD
     
     E --> H{{🤖 LLM Generate}}
     G --> H
-    H --> I>✨ Final Answer]
+    H --> I[✨ Final Answer<br/><a href="https://vuhuy-rag.streamlit.app/" target="_blank">🔗 Demo</a>]
 
     %% Styling
     classDef source fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
