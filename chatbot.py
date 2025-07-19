@@ -225,7 +225,7 @@ def main():
         # Quick suggestions
         st.header("💡 Gợi ý tìm kiếm")
         quick_searches = [
-            "có hoa lan không"
+            "có hoa lan không",
             "shop có giao nhanh không",
             "có freeship không",
             "hoa giao gấp",
