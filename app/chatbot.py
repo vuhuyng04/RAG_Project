@@ -73,8 +73,8 @@ def lab_mode_enabled() -> bool:
 # developer-facing English rationale that ends up in eval/results/ — keeping the
 # two separate stops experiment notes leaking into the UI.
 CONFIG_LABELS_VI = {
-    "baseline": "Tái hiện hệ thống gốc: dense top-5, không ngưỡng, không lọc.",
-    "dense": "Truy hồi dense trên dữ liệu đã làm sạch.",
+    "baseline": "Đối chứng: dense top-5, không ngưỡng, không lọc, không rerank.",
+    "dense": "Truy hồi dense trên dữ liệu đã qua kiểm định schema.",
     "dense_threshold": "Dense + ngưỡng từ chối khi không đủ phù hợp.",
     "dense_budget": "Dense + lọc theo ngân sách. Cấu hình đo tốt nhất và nhẹ nhất.",
     "hybrid": "BM25 + dense, trộn bằng RRF. Đo được là kém hơn dense thuần.",
@@ -148,7 +148,7 @@ def render_sources(answer, lab: bool = False) -> None:
         f"<span>{len(cited)}/{len(answer.hits)} sản phẩm được dùng trong câu trả lời</span></div>",
         unsafe_allow_html=True,
     )
-    _render_grid(answer.hits, cited)
+    _render_grid(answer.hits, cited, lab)
 
 
 def render_answer(answer) -> None:

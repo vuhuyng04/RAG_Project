@@ -98,6 +98,32 @@ def test_experiment_controls_are_gated_behind_lab_mode() -> None:
     assert not ungated, f"selectbox outside lab mode at line(s) {sorted(ungated)}"
 
 
+def test_every_render_call_forwards_the_lab_flag() -> None:
+    """A missed `lab` argument silently disables diagnostics on one path.
+
+    Regression: `_render_grid` was called with the flag on the uncited-sources
+    branch but without it on the cited one, so lab mode showed retrieval scores
+    for refused answers and hid them for real ones. It defaults to False, so
+    nothing raises — the diagnostics just quietly vanish.
+    """
+    tree = ast.parse(_source())
+    lab_aware = {"_render_grid", "render_sources", "render_trace", "card_html"}
+
+    offenders = []
+    for node in ast.walk(tree):
+        if not isinstance(node, ast.Call) or not isinstance(node.func, ast.Name):
+            continue
+        if node.func.id not in lab_aware:
+            continue
+        passes_lab = any(isinstance(a, ast.Name) and a.id == "lab" for a in node.args) or any(
+            kw.arg == "lab" for kw in node.keywords
+        )
+        if not passes_lab:
+            offenders.append((node.func.id, node.lineno))
+
+    assert not offenders, f"call(s) not forwarding `lab`: {offenders}"
+
+
 def test_lab_mode_is_opt_in() -> None:
     source = _source()
     assert "def lab_mode_enabled" in source
