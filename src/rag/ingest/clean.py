@@ -1,8 +1,9 @@
 """Build the text that actually gets embedded.
 
-This module is where the project's central fix lives. Everything else —
-hybrid search, reranking, better prompts — is downstream of getting this right,
-because no retrieval strategy can separate documents that are 96% identical.
+The most consequential module in the pipeline. Everything downstream — hybrid
+search, reranking, prompt design — is bounded by what happens here, because no
+retrieval strategy can separate documents whose embeddings encode mostly the
+same shared text.
 """
 
 from __future__ import annotations
@@ -59,8 +60,8 @@ def build_embed_text(product: Product, *, include_price_band: bool | None = None
     """Compose the string sent to the embedding model.
 
     Deliberately excludes `promo` (byte-identical across the catalogue) and the
-    image URL (the legacy pipeline appended 'xem ảnh tại <url>' to every
-    document, contributing tokens that match every query equally).
+    image URL (appending 'xem ảnh tại <url>' to every document contributes
+    tokens that match every query equally).
 
     The price band is behind a flag. It plausibly helps budget-phrased queries
     ('tầm 1 triệu') by giving them something to align with, but six bands across
@@ -103,9 +104,8 @@ def clean_products(products: list[Product]) -> tuple[list[Product], dict[str, in
         if not p.is_product:
             stats["dropped_non_product_url"] += 1
             continue
-        # The legacy pipeline let NaN titles through, then str()'d them into the
-        # literal "nan" and embedded it. A record with no title is not a usable
-        # product.
+        # A record with no title is not a usable product. Letting nulls through
+        # and stringifying them later yields the literal "nan" in the index.
         if not p.title:
             stats["dropped_no_title"] += 1
             continue

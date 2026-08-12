@@ -42,43 +42,11 @@
     "false_abstentions": 0
   },
   "latency_ms": {
-    "p50": 254.5,
-    "p95": 457.4,
-    "mean": 326.0
+    "p50": 281.1,
+    "p95": 559.6,
+    "mean": 335.8
   },
   "slices": {
-    "source": {
-      "app_sidebar": {
-        "recall@1": 0.0,
-        "hit@1": 0.0,
-        "mrr@1": 0.0,
-        "ndcg@1": 0.0,
-        "recall@5": 0.2667,
-        "hit@5": 1.0,
-        "mrr@5": 0.5,
-        "ndcg@5": 0.6608,
-        "recall@10": 0.2667,
-        "hit@10": 1.0,
-        "mrr@10": 0.5,
-        "ndcg@10": 0.4288,
-        "n": 1
-      },
-      "autocomplete": {
-        "recall@1": 0.0477,
-        "hit@1": 0.2727,
-        "mrr@1": 0.2727,
-        "ndcg@1": 0.2727,
-        "recall@5": 0.2983,
-        "hit@5": 0.7273,
-        "mrr@5": 0.5,
-        "ndcg@5": 0.4326,
-        "recall@10": 0.2983,
-        "hit@10": 0.7273,
-        "mrr@10": 0.5,
-        "ndcg@10": 0.3266,
-        "n": 11
-      }
-    },
     "intent": {
       "attribute": {
         "recall@1": 0.0955,
@@ -178,11 +146,43 @@
         "ndcg@10": 0.0,
         "n": 3
       }
+    },
+    "source": {
+      "app_sidebar": {
+        "recall@1": 0.0,
+        "hit@1": 0.0,
+        "mrr@1": 0.0,
+        "ndcg@1": 0.0,
+        "recall@5": 0.2667,
+        "hit@5": 1.0,
+        "mrr@5": 0.5,
+        "ndcg@5": 0.6608,
+        "recall@10": 0.2667,
+        "hit@10": 1.0,
+        "mrr@10": 0.5,
+        "ndcg@10": 0.4288,
+        "n": 1
+      },
+      "autocomplete": {
+        "recall@1": 0.0477,
+        "hit@1": 0.2727,
+        "mrr@1": 0.2727,
+        "ndcg@1": 0.2727,
+        "recall@5": 0.2983,
+        "hit@5": 0.7273,
+        "mrr@5": 0.5,
+        "ndcg@5": 0.4326,
+        "recall@10": 0.2983,
+        "hit@10": 0.7273,
+        "mrr@10": 0.5,
+        "ndcg@10": 0.3266,
+        "n": 11
+      }
     }
   },
   "config": "dense",
   "state": "corrupt",
-  "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+  "config_description": "Dense retrieval on the validated corpus. Isolates the ingestion design.",
   "golden_reviewed": false,
-  "generated_at": "2026-08-12T11:07:54.492278+00:00"
+  "generated_at": "2026-08-12T16:22:18.632928+00:00"
 }

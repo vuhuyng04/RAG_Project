@@ -17,7 +17,7 @@ the evidence themselves.
 | source | n | what it is |
 |---|---|---|
 | `autocomplete` | most | Real aggregated user queries mined from search-engine autocomplete for Vietnamese flower-buying seeds, expanded one level. These are strings people actually typed. |
-| `app_sidebar` | 8 | The canned questions the original app shipped — the shop author's own model of customer intent. |
+| `app_sidebar` | 8 | Questions written from domain knowledge of what customers ask, covering intents autocomplete does not surface. |
 | `synthetic` | 0 | LLM-generated from product records. Not used: prone to echoing document wording, which inflates retrieval scores. |
 
 Autocomplete is the closest legitimate proxy for production traffic available
@@ -39,9 +39,10 @@ uv run python -m scripts.harvest_queries      # 897 raw queries, no LLM
 ## 2. From 897 raw queries to a labelled set
 
 **Intent, facets and answerability are derived deterministically**
-(`src/rag/evalset/prefilter.py`), not by an LLM. This was originally an LLM step;
-it was dropped because the free tier allows 20 requests/day/model
-(`docs/decisions.md` D7) and the heuristics do the job under test.
+(`src/rag/evalset/prefilter.py`), not by an LLM. An LLM classification stage was
+built first and then dropped: the free tier allows 20 requests/day/model
+(`docs/decisions.md` D4), and the heuristics do the job under test. The whole
+LLM budget goes to gold-URL judging, which heuristics cannot do.
 
 Building them surfaced a bug class worth knowing about: matching keywords
 against **diacritic-folded Vietnamese with substring containment** produces
@@ -122,7 +123,7 @@ would be meaningless. Blocked on quota; see §5.
 
 ```bash
 uv run python -m eval.run_retrieval                     # default matrix
-uv run python -m eval.run_retrieval --configs dense hybrid --states clean legacy
+uv run python -m eval.run_retrieval --configs dense hybrid --states clean baseline
 ```
 
 Writes one JSON per cell plus per-query records to `eval/results/`.
@@ -132,8 +133,8 @@ Writes one JSON per cell plus per-query records to `eval/results/`.
 Stated plainly because they bound every claim made from this data.
 
 1. **n=12 answerable queries.** One query changing outcome moves Recall@5 by
-   ~0.08. No clean-vs-legacy conclusion is supportable at this size, and the
-   current data in fact shows legacy *ahead* (`docs/decisions.md` D10).
+   ~0.08. No clean-vs-baseline conclusion is supportable at this size, and the
+   current data in fact shows the baseline *ahead* (`docs/decisions.md` D9).
 2. **No human review pass yet.** All rows are `reviewed=false`.
 3. **Gold labels are LLM-assigned** over a pooled candidate set, with
    deterministic budget and leakage backstops. They are not expert annotations.
@@ -149,14 +150,14 @@ Stated plainly because they bound every claim made from this data.
 Kept deliberately. A repository that only reports what worked is not evidence of
 measurement.
 
-- **Cosine score spread is not a quality metric.** The 0.02 gap that motivated
-  this project measures nothing useful: when all five results are correct, flat
-  scores are a success. Clean scores *slightly worse* on spread than legacy.
-  (D6)
-- **Clean does not currently beat legacy** on Recall@5 / MRR@5 / nDCG@5 at
-  n=12. (D10)
-- **Cross-encoder reranking cost ~10x p95 latency and lowered Recall@5.** (D11)
+- **Cosine score spread is not a quality metric.** When all five results are
+  correct, flat scores are a success. Measured directly, clean scores *slightly
+  worse* on spread than the baseline. (D7)
+- **Clean does not currently out-retrieve the naive baseline** on Recall@5 /
+  MRR@5 / nDCG@5 at n=12. (D9)
+- **BM25 hybrid cost -0.087 Recall@5** in both pairings, and cross-encoder
+  reranking cost ~10x p95 latency while lowering Recall@5. (D10)
 - **Tuning was stopped deliberately.** One embed-text variant was tried; its
   metrics moved in opposite directions, i.e. noise. Continuing to search for a
   variant that reverses the result would be selecting a configuration by
-  overfitting the evaluation set. (D10)
+  overfitting the evaluation set. (D9)

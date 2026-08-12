@@ -49,17 +49,17 @@ def test_configs_differ_by_one_variable_at_a_time() -> None:
     assert rerank.use_rerank and not threshold.use_rerank
 
 
-def test_legacy_config_never_abstains() -> None:
-    """The legacy baseline must reproduce the original behaviour exactly.
+def test_baseline_config_never_abstains() -> None:
+    """The control must have no abstention mechanism at all.
 
-    The original returned top-5 for every query, including 'có freeship không',
-    which is the failure the abstention metric exists to measure.
+    Returning top-5 for every query, including 'có freeship không', is the
+    behaviour the abstention metric exists to measure against.
     """
-    legacy = CONFIGS["legacy"]
-    assert legacy.score_threshold is None
-    assert not legacy.use_rerank
-    assert not legacy.use_budget_filter
-    assert legacy.top_k == 5
+    baseline = CONFIGS["baseline"]
+    assert baseline.score_threshold is None
+    assert not baseline.use_rerank
+    assert not baseline.use_budget_filter
+    assert baseline.top_k == 5
 
 
 def test_hybrid_configs_do_not_carry_a_cosine_threshold() -> None:

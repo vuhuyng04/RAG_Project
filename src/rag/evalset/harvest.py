@@ -50,10 +50,10 @@ SEEDS: tuple[str, ...] = (
     "hoa 1 triệu",
 )
 
-# The eight canned questions the original app shipped in its sidebar. Included
-# because they are the shop author's own model of customer intent — and because
-# several of them ("có freeship không") are exactly the out-of-scope questions
-# the legacy system answered with five unrelated bouquets.
+# Eight questions written as a shop owner would anticipate them. Included
+# because they encode domain expectations that autocomplete does not surface —
+# and because several ("có freeship không") are policy questions the catalogue
+# cannot answer, which is exactly what the abstention metric needs.
 SIDEBAR_QUERIES: tuple[str, ...] = (
     "shop có giao nhanh không",
     "có freeship không",

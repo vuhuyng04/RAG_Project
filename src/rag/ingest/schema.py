@@ -19,9 +19,9 @@ from pydantic import BaseModel, Field, field_validator
 # Non-product URL detection
 # ---------------------------------------------------------------------------
 
-# The original notebook fed raw sitemap URLs straight into the crawler, so
-# https://hoatuoimymy.com/cua-hang/ (the WooCommerce shop archive) was indexed
-# as row 0 with title=NaN. These are the page families that are not products.
+# Feeding raw sitemap URLs straight into a crawler indexes pages like
+# https://hoatuoimymy.com/cua-hang/ (the WooCommerce shop archive) as though
+# they were products. These are the page families that are not.
 NON_PRODUCT_SEGMENTS: frozenset[str] = frozenset(
     {
         "cua-hang",  # shop archive
@@ -96,8 +96,8 @@ def parse_price_vnd(raw: str | None) -> int | None:
     isolates the correct amount at the selector level (see docs/decisions.md
     D5); this stays as a safety net for strings that slip through.
 
-    The legacy pipeline stored price as a formatted string, which made budget
-    filtering ('dưới 500k') impossible. This is what unlocks it.
+    Storing price as a formatted string makes budget filtering ('dưới 500k')
+    impossible. Parsing it to an integer is what unlocks the payload index.
     """
     if not raw or not isinstance(raw, str):
         return None
@@ -137,8 +137,8 @@ def normalize_text(value: str | None) -> str:
         return ""
     if not isinstance(value, str):
         value = str(value)
-    # Guard against pandas NaN having been stringified upstream — the exact bug
-    # the legacy pipeline shipped to production.
+    # Guard against a null having been stringified upstream, which is how the
+    # literal token "nan" ends up embedded as if it were product copy.
     if value.strip().lower() in {"nan", "none", "null", "<na>"}:
         return ""
     value = unicodedata.normalize("NFC", value)
@@ -153,13 +153,12 @@ def normalize_text(value: str | None) -> str:
 class Product(BaseModel):
     """One crawled product.
 
-    `embed_text` is deliberately NOT the concatenation of every field. The
-    legacy pipeline embedded title + price + description + promo + image URL,
-    and because `promo` was byte-identical across all 741 products and
-    `description` was near-identical boilerplate, ~80% of every embedded string
-    was shared. Cosine scores collapsed into a 0.68-0.71 band where the correct
-    product beat an unrelated one by 0.02. Display metadata lives in the
-    payload; only discriminative text is embedded.
+    `embed_text` is deliberately NOT the concatenation of every field.
+    Concatenating title + price + description + promo + image URL means that
+    when `promo` is byte-identical across the catalogue and `description` is
+    near-identical boilerplate, most of every embedded string is text shared
+    with every other document, and cosine scores collapse into a narrow band.
+    Display metadata lives in the payload; only discriminative text is embedded.
     """
 
     url: str

@@ -1,7 +1,7 @@
 """Run deterministic retrieval evaluation over (config x corpus state).
 
     uv run python -m eval.run_retrieval                       # full matrix
-    uv run python -m eval.run_retrieval --states legacy clean --configs legacy dense
+    uv run python -m eval.run_retrieval --states baseline clean --configs baseline dense
 
 No LLM calls, so the whole matrix is free and repeatable — these are the metrics
 the headline claims rest on.
@@ -24,11 +24,11 @@ from rag.retrieval.search import CONFIGS, RetrievalConfig, search
 
 log = logging.getLogger("run_retrieval")
 
-# Which retrieval config is meaningful for which corpus state. Running `legacy`
-# config against the clean corpus (or vice versa) is possible but muddles the
-# story, so the default matrix pairs them deliberately.
+# Which retrieval config is meaningful for which corpus state. Crossing them is
+# possible but muddles attribution, so the default matrix pairs them
+# deliberately.
 DEFAULT_MATRIX: list[tuple[str, str]] = [
-    ("legacy", "legacy"),  # the "before": old pipeline, old corpus
+    ("baseline", "baseline"),  # the "before": old pipeline, old corpus
     ("dense", "clean"),  # isolates the corpus fix
     ("dense_threshold", "clean"),  # isolates abstention
     ("dense_rerank", "clean"),  # isolates reranking

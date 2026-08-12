@@ -26,7 +26,7 @@ def _load(path: Path) -> dict[str, Any] | None:
 
 
 def quality_table() -> str:
-    states = ["legacy", "clean", "corrupt", "repaired"]
+    states = ["baseline", "clean", "corrupt", "repaired"]
     reports = {s: _load(RESULTS_DIR / f"quality_{s}.json") for s in states}
     present = {s: r for s, r in reports.items() if r}
     if not present:
@@ -99,7 +99,7 @@ def retrieval_table(state: str = "clean") -> str:
 
     # Present in the order the mechanisms stack up, not alphabetically.
     order = [
-        "legacy",
+        "baseline",
         "dense",
         "dense_threshold",
         "dense_budget",
@@ -144,7 +144,7 @@ def state_table(config: str = "dense") -> str:
     if not reports:
         return "_No cross-state results found._\n"
 
-    order = ["legacy", "clean", "corrupt", "repaired"]
+    order = ["baseline", "clean", "corrupt", "repaired"]
     by_state = {r["state"]: r for r in reports}
     ordered = [by_state[s] for s in order if s in by_state]
 

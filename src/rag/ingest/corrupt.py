@@ -1,8 +1,8 @@
 """Deliberate, seeded corpus corruption.
 
-Every corruptor reproduces a defect that was **actually found in this project's
-original pipeline**, so the experiment measures repair against realistic damage
-rather than invented noise:
+Every corruptor models a failure mode that **actually occurs in web-scraped
+product catalogues**, so the experiment measures repair against realistic
+damage rather than invented noise:
 
 | corruptor          | real defect it reproduces                                |
 |--------------------|----------------------------------------------------------|
@@ -36,7 +36,7 @@ from rag.ingest.schema import Product
 
 log = logging.getLogger(__name__)
 
-# The exact boilerplate that made every legacy document look alike.
+# The shared promotional passage that makes catalogue documents look alike.
 BOILERPLATE = (
     "Mẫu hoa sang trọng, tinh tế. Freeship nội thành. Tư vấn nhiệt tình. "
     "Nhận thiết kế lẵng hoa theo ngân sách của khách hàng. "
@@ -54,18 +54,18 @@ NON_PRODUCT_PAGES = [
 
 
 class Corruption:
-    # Originally "nan_injection", writing the literal string "nan" into a field
-    # the way the legacy pipeline did. That turned out to be **impossible to
-    # persist** under the new schema: `Product`'s validator runs
-    # `normalize_text`, which maps "nan"/"none"/"null" to "", so the corruption
-    # was erased on the save/reload round-trip and the detector scored 0/39.
+    # This corruptor originally injected the literal string "nan" into a field.
+    # That turned out to be **impossible to persist**: `Product`'s validator
+    # runs `normalize_text`, which maps "nan"/"none"/"null" to "", so the
+    # damage was erased on the save/reload round-trip and the detector scored
+    # 0/39.
     #
-    # That is a genuine result, not a workaround: the clean schema eliminates
-    # this defect class by construction rather than detecting it after the
-    # fact. The legacy state still demonstrates the original bug directly (52
-    # documents embed as literal "nan"). What remains testable is the symptom
-    # that *does* survive — a required field going empty — so that is what this
-    # corruptor now injects.
+    # That is a genuine result rather than a workaround: the schema eliminates
+    # this defect class by construction instead of detecting it after the fact.
+    # The BASELINE state still exhibits it directly, since it bypasses the
+    # schema. What remains testable downstream is the symptom that *does*
+    # survive validation — a required field going empty — so that is what this
+    # corruptor injects.
     MISSING_FIELD = "missing_field"
     BOILERPLATE = "boilerplate_flood"
     NON_PRODUCT = "non_product_page"

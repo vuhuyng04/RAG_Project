@@ -42,9 +42,9 @@
     "false_abstentions": 0
   },
   "latency_ms": {
-    "p50": 270.3,
-    "p95": 582.1,
-    "mean": 378.7
+    "p50": 256.3,
+    "p95": 470.8,
+    "mean": 279.0
   },
   "slices": {
     "has_budget": {
@@ -79,24 +79,6 @@
         "n": 3
       }
     },
-    "answerable": {
-      "False": {},
-      "True": {
-        "recall@1": 0.2548,
-        "hit@1": 0.8333,
-        "mrr@1": 0.8333,
-        "ndcg@1": 0.8333,
-        "recall@5": 0.6543,
-        "hit@5": 1.0,
-        "mrr@5": 0.9167,
-        "ndcg@5": 0.8784,
-        "recall@10": 0.6543,
-        "hit@10": 1.0,
-        "mrr@10": 0.9167,
-        "ndcg@10": 0.7334,
-        "n": 12
-      }
-    },
     "source": {
       "app_sidebar": {
         "recall@1": 0.0667,
@@ -127,6 +109,24 @@
         "mrr@10": 0.9091,
         "ndcg@10": 0.7411,
         "n": 11
+      }
+    },
+    "answerable": {
+      "False": {},
+      "True": {
+        "recall@1": 0.2548,
+        "hit@1": 0.8333,
+        "mrr@1": 0.8333,
+        "ndcg@1": 0.8333,
+        "recall@5": 0.6543,
+        "hit@5": 1.0,
+        "mrr@5": 0.9167,
+        "ndcg@5": 0.8784,
+        "recall@10": 0.6543,
+        "hit@10": 1.0,
+        "mrr@10": 0.9167,
+        "ndcg@10": 0.7334,
+        "n": 12
       }
     },
     "intent": {
@@ -184,5 +184,5 @@
   "state": "clean",
   "config_description": "Dense + budget filter, no rerank. The control cell for hybrid_budget: without it, a hybrid_budget gain cannot be attributed to hybrid rather than to the filter.",
   "golden_reviewed": false,
-  "generated_at": "2026-08-12T11:02:48.459350+00:00"
+  "generated_at": "2026-08-12T16:15:09.972399+00:00"
 }

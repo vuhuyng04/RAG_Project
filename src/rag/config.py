@@ -1,8 +1,9 @@
 """Single source of truth for settings.
 
-The legacy code duplicated the model name, the collection name and the vector
-helper between craw_data.ipynb and chatbot.py, so changing one silently
-desynced the other. Everything reads from here instead.
+Model names, collection names and retrieval defaults live here and nowhere
+else. Duplicating them between the ingest scripts and the app is how the two
+silently drift apart: one gets updated, the other does not, and the
+evaluation stops describing the deployed system.
 """
 
 from __future__ import annotations
@@ -27,18 +28,18 @@ DATASET_DIR = EVAL_DIR / "dataset"
 class State(StrEnum):
     """The four corpus states the evaluation matrix runs against.
 
-    LEGACY faithfully reproduces the original notebook's indexing logic: every
-    field concatenated into one string (boilerplate promo text included) and
-    the missing-fillna bug that wrote literal "nan" into the index. It is built
-    from the *same crawl* as CLEAN, which makes the comparison a controlled
-    experiment — raw data held constant, only the pipeline varies — and keeps
-    the "before" column reproducible by anyone who clones the repo.
+    BASELINE is the control: every field concatenated into one embedding string
+    with no null handling and no URL filtering — the obvious first approach.
+    CLEAN applies schema validation and discriminative-field selection.
+    CORRUPT applies seeded, deliberate damage to the validated CLEAN records.
+    REPAIRED is CORRUPT after the repair pass.
 
-    CLEAN is the new pipeline. CORRUPT applies seeded, deliberate damage to the
-    validated CLEAN records. REPAIRED is CORRUPT after the repair pass.
+    All four are built from the *same frozen crawl*, which makes every
+    comparison a controlled experiment: raw data held constant, only the
+    pipeline varies, and anyone who clones the repo can rebuild all of them.
     """
 
-    LEGACY = "legacy"
+    BASELINE = "baseline"
     CLEAN = "clean"
     CORRUPT = "corrupt"
     REPAIRED = "repaired"
@@ -85,8 +86,8 @@ class Settings(BaseSettings):
 
     # Pinned deliberately, NOT "gemini-flash-latest": an alias silently changes
     # model underneath and would make committed eval numbers irreproducible.
-    # (The original code used gemini-2.0-flash, which Google has since retired —
-    # it now returns 404.)
+    # Note that gemini-2.0-flash is retired and now returns 404, so any pinned
+    # model needs an occasional liveness check.
     #
     # The *product's* generator — what the chatbot answers with.
     gemini_model: str = "gemini-2.5-flash"
@@ -104,7 +105,7 @@ class Settings(BaseSettings):
     # --- Retrieval defaults ---
     top_k: int = 5
     fetch_k: int = 20  # candidates fetched before reranking
-    score_threshold: float = 0.0  # calibrated in GĐ6; 0.0 reproduces legacy behaviour
+    score_threshold: float = 0.0  # 0.0 disables abstention; calibrated per config
 
     # Whether to append a coarse price phrase ("tầm giá 1 đến 2 triệu") to the
     # embedded text. Plausibly helps budget-phrased queries, but there are only
@@ -124,12 +125,11 @@ class Settings(BaseSettings):
     @model_validator(mode="after")
     def _fill_from_env_and_secrets(self) -> Settings:
         # pydantic-settings already handled .env and the environment. This adds
-        # the Streamlit secrets fallback (for the deployed app) and the
-        # misspelled legacy variable name.
+        # the Streamlit secrets fallback used by the deployed app.
         if not self.gemini_api_key:
-            # GENMINI_KEY is a typo carried over from the original chatbot.py.
-            # The deployed Streamlit Cloud secrets still use it, so dropping the
-            # fallback would break the live demo on the next deploy.
+            # GENMINI_KEY is a misspelling that exists in the deployed Streamlit
+            # Cloud secrets. Accepting it keeps the demo working regardless of
+            # which spelling is configured.
             self.gemini_api_key = _resolve("GEMINI_API_KEY") or _resolve("GENMINI_KEY") or ""
         if not self.qdrant_endpoint:
             self.qdrant_endpoint = _resolve("QDRANT_ENDPOINT") or ""

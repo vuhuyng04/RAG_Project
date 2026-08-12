@@ -59,7 +59,7 @@ TARGET_MIX = {
     Intent.OFF_TOPIC: 0.15,
 }
 
-POOL_STATES = [State.CLEAN, State.LEGACY]
+POOL_STATES = [State.CLEAN, State.BASELINE]
 
 
 def sample_balanced(

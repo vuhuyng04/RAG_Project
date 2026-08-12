@@ -42,9 +42,9 @@
     "false_abstentions": 0
   },
   "latency_ms": {
-    "p50": 266.0,
-    "p95": 603.6,
-    "mean": 758.7
+    "p50": 258.1,
+    "p95": 491.9,
+    "mean": 700.0
   },
   "slices": {
     "has_budget": {
@@ -79,24 +79,6 @@
         "n": 3
       }
     },
-    "answerable": {
-      "False": {},
-      "True": {
-        "recall@1": 0.127,
-        "hit@1": 0.5833,
-        "mrr@1": 0.5833,
-        "ndcg@1": 0.5833,
-        "recall@5": 0.5043,
-        "hit@5": 0.8333,
-        "mrr@5": 0.6833,
-        "ndcg@5": 0.6715,
-        "recall@10": 0.5043,
-        "hit@10": 0.8333,
-        "mrr@10": 0.6833,
-        "ndcg@10": 0.5266,
-        "n": 12
-      }
-    },
     "source": {
       "app_sidebar": {
         "recall@1": 0.0667,
@@ -127,6 +109,24 @@
         "mrr@10": 0.6545,
         "ndcg@10": 0.5155,
         "n": 11
+      }
+    },
+    "answerable": {
+      "False": {},
+      "True": {
+        "recall@1": 0.127,
+        "hit@1": 0.5833,
+        "mrr@1": 0.5833,
+        "ndcg@1": 0.5833,
+        "recall@5": 0.5043,
+        "hit@5": 0.8333,
+        "mrr@5": 0.6833,
+        "ndcg@5": 0.6715,
+        "recall@10": 0.5043,
+        "hit@10": 0.8333,
+        "mrr@10": 0.6833,
+        "ndcg@10": 0.5266,
+        "n": 12
       }
     },
     "intent": {
@@ -180,9 +180,9 @@
       }
     }
   },
-  "config": "legacy",
+  "config": "baseline",
   "state": "clean",
-  "config_description": "Reproduces the original app: plain dense top-5, no threshold, no rerank.",
+  "config_description": "Naive control: plain dense top-5, no threshold, filter or rerank.",
   "golden_reviewed": false,
-  "generated_at": "2026-08-12T11:02:08.322555+00:00"
+  "generated_at": "2026-08-12T16:14:40.705666+00:00"
 }

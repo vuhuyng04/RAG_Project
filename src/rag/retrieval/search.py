@@ -29,26 +29,25 @@ class RetrievalConfig:
     use_rerank: bool = False
     use_budget_filter: bool = False
     use_hybrid: bool = False
-    # None means "never abstain", which is what the legacy system did: it
-    # returned exactly top_k neighbours for every query including
-    # "có freeship không", and the prompt then upsold them.
+    # None means "never abstain": return exactly top_k neighbours for every
+    # query, including ones the catalogue cannot answer.
     score_threshold: float | None = None
     description: str = ""
 
 
 # The A/B ladder. Each step adds exactly one mechanism.
 CONFIGS: dict[str, RetrievalConfig] = {
-    "legacy": RetrievalConfig(
-        name="legacy",
+    "baseline": RetrievalConfig(
+        name="baseline",
         top_k=5,
         score_threshold=None,
-        description="Reproduces the original app: plain dense top-5, no threshold, no rerank.",
+        description="Naive control: plain dense top-5, no threshold, filter or rerank.",
     ),
     "dense": RetrievalConfig(
         name="dense",
         top_k=5,
         score_threshold=None,
-        description="Dense retrieval on the new pipeline. Isolates the corpus fix.",
+        description="Dense retrieval on the validated corpus. Isolates the ingestion design.",
     ),
     "dense_threshold": RetrievalConfig(
         name="dense_threshold",

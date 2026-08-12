@@ -141,8 +141,8 @@ def repair_products(
     detection = Detection()
 
     # Corpus-level pass first: boilerplate is only visible across documents, not
-    # within one. This is the detector that catches the defect the original
-    # pipeline shipped and never noticed.
+    # within one. This is the detector for the defect that is hardest to notice
+    # by inspection, because every individual document looks fine.
     descriptions = [p.description for p in products]
     shared_tokens = detect_boilerplate_tokens(descriptions, boilerplate_threshold)
     repeated = detect_repeated_passages(descriptions)

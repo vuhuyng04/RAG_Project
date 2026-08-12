@@ -51,10 +51,10 @@ def test_ui_module_is_importable_standalone() -> None:
 def test_root_shim_points_at_the_app_file() -> None:
     """The shim must stay a shim.
 
-    The original project kept the whole pipeline in the root file, which is how
-    the notebook and the app drifted apart. Checking for `st.` calls rather than
-    the word "streamlit" — the docstring mentions Streamlit Cloud legitimately,
-    and an earlier version of this test failed on exactly that.
+    Pipeline logic in the root file is how the measured system and the served
+    system drift apart. Checking for `st.` calls rather than the word
+    "streamlit" — the docstring mentions Streamlit Cloud legitimately, and an
+    earlier version of this test failed on exactly that.
     """
     shim = (ROOT / "chatbot.py").read_text(encoding="utf-8")
     assert "app" in shim and "chatbot.py" in shim

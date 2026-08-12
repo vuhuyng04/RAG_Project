@@ -1,34 +1,34 @@
 {
-  "dense@legacy": {
+  "dense@baseline": {
     "n_queries": 33,
     "retrieval_raw": {
-      "recall@1": 0.1374,
-      "hit@1": 0.75,
-      "mrr@1": 0.75,
-      "ndcg@1": 0.75,
-      "recall@5": 0.5202,
+      "recall@1": 0.1883,
+      "hit@1": 0.9167,
+      "mrr@1": 0.9167,
+      "ndcg@1": 0.9167,
+      "recall@5": 0.5136,
       "hit@5": 1.0,
-      "mrr@5": 0.875,
-      "ndcg@5": 0.7501,
-      "recall@10": 0.5202,
+      "mrr@5": 0.9583,
+      "ndcg@5": 0.766,
+      "recall@10": 0.5136,
       "hit@10": 1.0,
-      "mrr@10": 0.875,
-      "ndcg@10": 0.5962,
+      "mrr@10": 0.9583,
+      "ndcg@10": 0.6126,
       "n": 12
     },
     "retrieval_restricted_to_present_golds": {
-      "recall@1": 0.1374,
-      "hit@1": 0.75,
-      "mrr@1": 0.75,
-      "ndcg@1": 0.75,
-      "recall@5": 0.5202,
+      "recall@1": 0.1883,
+      "hit@1": 0.9167,
+      "mrr@1": 0.9167,
+      "ndcg@1": 0.9167,
+      "recall@5": 0.5136,
       "hit@5": 1.0,
-      "mrr@5": 0.875,
-      "ndcg@5": 0.7501,
-      "recall@10": 0.5202,
+      "mrr@5": 0.9583,
+      "ndcg@5": 0.766,
+      "recall@10": 0.5136,
       "hit@10": 1.0,
-      "mrr@10": 0.875,
-      "ndcg@10": 0.5962,
+      "mrr@10": 0.9583,
+      "ndcg@10": 0.6126,
       "n": 12
     },
     "gold_integrity": {
@@ -43,43 +43,11 @@
       "false_abstentions": 0
     },
     "latency_ms": {
-      "p50": 267.9,
-      "p95": 986.8,
-      "mean": 852.6
+      "p50": 811.6,
+      "p95": 2633.0,
+      "mean": 1509.1
     },
     "slices": {
-      "source": {
-        "app_sidebar": {
-          "recall@1": 0.0667,
-          "hit@1": 1.0,
-          "mrr@1": 1.0,
-          "ndcg@1": 1.0,
-          "recall@5": 0.3333,
-          "hit@5": 1.0,
-          "mrr@5": 1.0,
-          "ndcg@5": 1.0,
-          "recall@10": 0.3333,
-          "hit@10": 1.0,
-          "mrr@10": 1.0,
-          "ndcg@10": 0.6489,
-          "n": 1
-        },
-        "autocomplete": {
-          "recall@1": 0.1438,
-          "hit@1": 0.7273,
-          "mrr@1": 0.7273,
-          "ndcg@1": 0.7273,
-          "recall@5": 0.5372,
-          "hit@5": 1.0,
-          "mrr@5": 0.8636,
-          "ndcg@5": 0.7273,
-          "recall@10": 0.5372,
-          "hit@10": 1.0,
-          "mrr@10": 0.8636,
-          "ndcg@10": 0.5914,
-          "n": 11
-        }
-      },
       "intent": {
         "attribute": {
           "recall@1": 0.0955,
@@ -104,64 +72,64 @@
           "recall@5": 0.7556,
           "hit@5": 1.0,
           "mrr@5": 0.8333,
-          "ndcg@5": 0.6859,
+          "ndcg@5": 0.6682,
           "recall@10": 0.7556,
           "hit@10": 1.0,
           "mrr@10": 0.8333,
-          "ndcg@10": 0.6859,
+          "ndcg@10": 0.6682,
           "n": 3
         },
         "off_topic": {},
         "out_of_catalogue": {},
         "policy": {},
         "product_search": {
-          "recall@1": 0.132,
-          "hit@1": 0.7143,
-          "mrr@1": 0.7143,
-          "ndcg@1": 0.7143,
-          "recall@5": 0.4316,
+          "recall@1": 0.2193,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.4202,
           "hit@5": 1.0,
-          "mrr@5": 0.8571,
-          "ndcg@5": 0.7062,
-          "recall@10": 0.4316,
+          "mrr@5": 1.0,
+          "ndcg@5": 0.741,
+          "recall@10": 0.4202,
           "hit@10": 1.0,
-          "mrr@10": 0.8571,
-          "ndcg@10": 0.5427,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.5785,
           "n": 7
         }
       },
       "answerable": {
         "False": {},
         "True": {
-          "recall@1": 0.1374,
-          "hit@1": 0.75,
-          "mrr@1": 0.75,
-          "ndcg@1": 0.75,
-          "recall@5": 0.5202,
+          "recall@1": 0.1883,
+          "hit@1": 0.9167,
+          "mrr@1": 0.9167,
+          "ndcg@1": 0.9167,
+          "recall@5": 0.5136,
           "hit@5": 1.0,
-          "mrr@5": 0.875,
-          "ndcg@5": 0.7501,
-          "recall@10": 0.5202,
+          "mrr@5": 0.9583,
+          "ndcg@5": 0.766,
+          "recall@10": 0.5136,
           "hit@10": 1.0,
-          "mrr@10": 0.875,
-          "ndcg@10": 0.5962,
+          "mrr@10": 0.9583,
+          "ndcg@10": 0.6126,
           "n": 12
         }
       },
       "has_budget": {
         "False": {
-          "recall@1": 0.1239,
-          "hit@1": 0.7778,
-          "mrr@1": 0.7778,
-          "ndcg@1": 0.7778,
-          "recall@5": 0.4418,
+          "recall@1": 0.1918,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.4329,
           "hit@5": 1.0,
-          "mrr@5": 0.8889,
-          "ndcg@5": 0.7715,
-          "recall@10": 0.4418,
+          "mrr@5": 1.0,
+          "ndcg@5": 0.7985,
+          "recall@10": 0.4329,
           "hit@10": 1.0,
-          "mrr@10": 0.8889,
-          "ndcg@10": 0.5663,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.5941,
           "n": 9
         },
         "True": {
@@ -172,20 +140,52 @@
           "recall@5": 0.7556,
           "hit@5": 1.0,
           "mrr@5": 0.8333,
-          "ndcg@5": 0.6859,
+          "ndcg@5": 0.6682,
           "recall@10": 0.7556,
           "hit@10": 1.0,
           "mrr@10": 0.8333,
-          "ndcg@10": 0.6859,
+          "ndcg@10": 0.6682,
           "n": 3
+        }
+      },
+      "source": {
+        "app_sidebar": {
+          "recall@1": 0.0667,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.3333,
+          "hit@5": 1.0,
+          "mrr@5": 1.0,
+          "ndcg@5": 1.0,
+          "recall@10": 0.3333,
+          "hit@10": 1.0,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.6489,
+          "n": 1
+        },
+        "autocomplete": {
+          "recall@1": 0.1994,
+          "hit@1": 0.9091,
+          "mrr@1": 0.9091,
+          "ndcg@1": 0.9091,
+          "recall@5": 0.5299,
+          "hit@5": 1.0,
+          "mrr@5": 0.9545,
+          "ndcg@5": 0.7447,
+          "recall@10": 0.5299,
+          "hit@10": 1.0,
+          "mrr@10": 0.9545,
+          "ndcg@10": 0.6093,
+          "n": 11
         }
       }
     },
     "config": "dense",
-    "state": "legacy",
-    "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+    "state": "baseline",
+    "config_description": "Dense retrieval on the validated corpus. Isolates the ingestion design.",
     "golden_reviewed": false,
-    "generated_at": "2026-08-12T11:07:33.660896+00:00"
+    "generated_at": "2026-08-12T16:21:30.815814+00:00"
   },
   "dense@clean": {
     "n_queries": 33,
@@ -231,43 +231,11 @@
       "false_abstentions": 0
     },
     "latency_ms": {
-      "p50": 253.8,
-      "p95": 271.0,
-      "mean": 264.2
+      "p50": 799.9,
+      "p95": 1625.6,
+      "mean": 934.4
     },
     "slices": {
-      "source": {
-        "app_sidebar": {
-          "recall@1": 0.0667,
-          "hit@1": 1.0,
-          "mrr@1": 1.0,
-          "ndcg@1": 1.0,
-          "recall@5": 0.3333,
-          "hit@5": 1.0,
-          "mrr@5": 1.0,
-          "ndcg@5": 1.0,
-          "recall@10": 0.3333,
-          "hit@10": 1.0,
-          "mrr@10": 1.0,
-          "ndcg@10": 0.6489,
-          "n": 1
-        },
-        "autocomplete": {
-          "recall@1": 0.1325,
-          "hit@1": 0.5455,
-          "mrr@1": 0.5455,
-          "ndcg@1": 0.5455,
-          "recall@5": 0.5198,
-          "hit@5": 0.8182,
-          "mrr@5": 0.6545,
-          "ndcg@5": 0.6417,
-          "recall@10": 0.5198,
-          "hit@10": 0.8182,
-          "mrr@10": 0.6545,
-          "ndcg@10": 0.5155,
-          "n": 11
-        }
-      },
       "intent": {
         "attribute": {
           "recall@1": 0.0955,
@@ -367,13 +335,45 @@
           "ndcg@10": 0.129,
           "n": 3
         }
+      },
+      "source": {
+        "app_sidebar": {
+          "recall@1": 0.0667,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.3333,
+          "hit@5": 1.0,
+          "mrr@5": 1.0,
+          "ndcg@5": 1.0,
+          "recall@10": 0.3333,
+          "hit@10": 1.0,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.6489,
+          "n": 1
+        },
+        "autocomplete": {
+          "recall@1": 0.1325,
+          "hit@1": 0.5455,
+          "mrr@1": 0.5455,
+          "ndcg@1": 0.5455,
+          "recall@5": 0.5198,
+          "hit@5": 0.8182,
+          "mrr@5": 0.6545,
+          "ndcg@5": 0.6417,
+          "recall@10": 0.5198,
+          "hit@10": 0.8182,
+          "mrr@10": 0.6545,
+          "ndcg@10": 0.5155,
+          "n": 11
+        }
       }
     },
     "config": "dense",
     "state": "clean",
-    "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+    "config_description": "Dense retrieval on the validated corpus. Isolates the ingestion design.",
     "golden_reviewed": false,
-    "generated_at": "2026-08-12T11:07:43.056193+00:00"
+    "generated_at": "2026-08-12T16:22:04.444282+00:00"
   },
   "dense@corrupt": {
     "n_queries": 33,
@@ -419,43 +419,11 @@
       "false_abstentions": 0
     },
     "latency_ms": {
-      "p50": 254.5,
-      "p95": 457.4,
-      "mean": 326.0
+      "p50": 281.1,
+      "p95": 559.6,
+      "mean": 335.8
     },
     "slices": {
-      "source": {
-        "app_sidebar": {
-          "recall@1": 0.0,
-          "hit@1": 0.0,
-          "mrr@1": 0.0,
-          "ndcg@1": 0.0,
-          "recall@5": 0.2667,
-          "hit@5": 1.0,
-          "mrr@5": 0.5,
-          "ndcg@5": 0.6608,
-          "recall@10": 0.2667,
-          "hit@10": 1.0,
-          "mrr@10": 0.5,
-          "ndcg@10": 0.4288,
-          "n": 1
-        },
-        "autocomplete": {
-          "recall@1": 0.0477,
-          "hit@1": 0.2727,
-          "mrr@1": 0.2727,
-          "ndcg@1": 0.2727,
-          "recall@5": 0.2983,
-          "hit@5": 0.7273,
-          "mrr@5": 0.5,
-          "ndcg@5": 0.4326,
-          "recall@10": 0.2983,
-          "hit@10": 0.7273,
-          "mrr@10": 0.5,
-          "ndcg@10": 0.3266,
-          "n": 11
-        }
-      },
       "intent": {
         "attribute": {
           "recall@1": 0.0955,
@@ -555,13 +523,45 @@
           "ndcg@10": 0.0,
           "n": 3
         }
+      },
+      "source": {
+        "app_sidebar": {
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "mrr@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@5": 0.2667,
+          "hit@5": 1.0,
+          "mrr@5": 0.5,
+          "ndcg@5": 0.6608,
+          "recall@10": 0.2667,
+          "hit@10": 1.0,
+          "mrr@10": 0.5,
+          "ndcg@10": 0.4288,
+          "n": 1
+        },
+        "autocomplete": {
+          "recall@1": 0.0477,
+          "hit@1": 0.2727,
+          "mrr@1": 0.2727,
+          "ndcg@1": 0.2727,
+          "recall@5": 0.2983,
+          "hit@5": 0.7273,
+          "mrr@5": 0.5,
+          "ndcg@5": 0.4326,
+          "recall@10": 0.2983,
+          "hit@10": 0.7273,
+          "mrr@10": 0.5,
+          "ndcg@10": 0.3266,
+          "n": 11
+        }
       }
     },
     "config": "dense",
     "state": "corrupt",
-    "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+    "config_description": "Dense retrieval on the validated corpus. Isolates the ingestion design.",
     "golden_reviewed": false,
-    "generated_at": "2026-08-12T11:07:54.492278+00:00"
+    "generated_at": "2026-08-12T16:22:18.632928+00:00"
   },
   "dense@repaired": {
     "n_queries": 33,
@@ -607,43 +607,11 @@
       "false_abstentions": 0
     },
     "latency_ms": {
-      "p50": 258.1,
-      "p95": 625.5,
-      "mean": 318.3
+      "p50": 492.5,
+      "p95": 757.6,
+      "mean": 490.0
     },
     "slices": {
-      "source": {
-        "app_sidebar": {
-          "recall@1": 0.0667,
-          "hit@1": 1.0,
-          "mrr@1": 1.0,
-          "ndcg@1": 1.0,
-          "recall@5": 0.2667,
-          "hit@5": 1.0,
-          "mrr@5": 1.0,
-          "ndcg@5": 0.8688,
-          "recall@10": 0.2667,
-          "hit@10": 1.0,
-          "mrr@10": 1.0,
-          "ndcg@10": 0.5638,
-          "n": 1
-        },
-        "autocomplete": {
-          "recall@1": 0.0567,
-          "hit@1": 0.3636,
-          "mrr@1": 0.3636,
-          "ndcg@1": 0.3636,
-          "recall@5": 0.4804,
-          "hit@5": 0.8182,
-          "mrr@5": 0.5636,
-          "ndcg@5": 0.5563,
-          "recall@10": 0.4804,
-          "hit@10": 0.8182,
-          "mrr@10": 0.5636,
-          "ndcg@10": 0.4343,
-          "n": 11
-        }
-      },
       "intent": {
         "attribute": {
           "recall@1": 0.0955,
@@ -743,12 +711,44 @@
           "ndcg@10": 0.129,
           "n": 3
         }
+      },
+      "source": {
+        "app_sidebar": {
+          "recall@1": 0.0667,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.2667,
+          "hit@5": 1.0,
+          "mrr@5": 1.0,
+          "ndcg@5": 0.8688,
+          "recall@10": 0.2667,
+          "hit@10": 1.0,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.5638,
+          "n": 1
+        },
+        "autocomplete": {
+          "recall@1": 0.0567,
+          "hit@1": 0.3636,
+          "mrr@1": 0.3636,
+          "ndcg@1": 0.3636,
+          "recall@5": 0.4804,
+          "hit@5": 0.8182,
+          "mrr@5": 0.5636,
+          "ndcg@5": 0.5563,
+          "recall@10": 0.4804,
+          "hit@10": 0.8182,
+          "mrr@10": 0.5636,
+          "ndcg@10": 0.4343,
+          "n": 11
+        }
       }
     },
     "config": "dense",
     "state": "repaired",
-    "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+    "config_description": "Dense retrieval on the validated corpus. Isolates the ingestion design.",
     "golden_reviewed": false,
-    "generated_at": "2026-08-12T11:08:05.671683+00:00"
+    "generated_at": "2026-08-12T16:22:35.492099+00:00"
   }
 }

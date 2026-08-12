@@ -1,7 +1,7 @@
 """Persist crawled records to disk as JSONL.
 
 The crawl is the slow, network-bound, non-deterministic step. Freezing its
-output means every downstream state (legacy, clean, corrupt, repaired) is built
+output means every downstream state (baseline, clean, corrupt, repaired) is built
 from byte-identical raw data — which is what makes the comparison a controlled
 experiment rather than four different crawls.
 """

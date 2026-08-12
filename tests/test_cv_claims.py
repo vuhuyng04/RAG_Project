@@ -43,12 +43,12 @@ def test_no_overstated_golden_set_size() -> None:
 def test_headline_numbers_match_results() -> None:
     text = _cv()
     repair = _load("repair_detection.json")
-    legacy = _load("quality_legacy.json")
+    baseline = _load("quality_baseline.json")
 
     assert f"{repair['macro_f1']:.3f}" in text
-    assert f"{legacy['repeated_passage_doc_rate']:.0%}" in text
-    assert str(legacy["junk_embed_text"]) in text
-    assert str(legacy["documents"]) in text
+    assert f"{baseline['repeated_passage_doc_rate']:.0%}" in text
+    assert str(baseline["junk_embed_text"]) in text
+    assert str(baseline["documents"]) in text
 
 
 def test_budget_delta_matches() -> None:
@@ -78,16 +78,17 @@ def test_sample_size_caveat_present() -> None:
     assert "provisional" in text.lower()
 
 
-def test_does_not_claim_clean_beats_legacy() -> None:
+def test_does_not_claim_clean_beats_baseline() -> None:
     """Guard the single most tempting unsupported claim.
 
-    dense@clean = 0.504 vs dense@legacy = 0.520 — the clean pipeline does not
-    currently win on retrieval, and the CV must not imply otherwise.
+    The validated pipeline does not currently out-retrieve the naive
+    concatenation baseline, and the CV must not imply otherwise. If a larger
+    golden set later reverses this, the guard relaxes on its own.
     """
     clean = _load("retrieval_dense_clean.json")["retrieval_raw"]["recall@5"]
-    legacy = _load("retrieval_dense_legacy.json")["retrieval_raw"]["recall@5"]
-    if clean <= legacy:
+    baseline = _load("retrieval_dense_baseline.json")["retrieval_raw"]["recall@5"]
+    if clean <= baseline:
         text = _cv().lower()
-        assert "does not currently beat legacy" in text, (
-            "clean does not beat legacy on Recall@5; the CV must say so explicitly"
+        assert "does not currently beat the naive baseline" in text, (
+            "clean does not out-retrieve the baseline; the CV must say so explicitly"
         )

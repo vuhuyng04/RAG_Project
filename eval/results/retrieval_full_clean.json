@@ -42,9 +42,9 @@
     "false_abstentions": 0
   },
   "latency_ms": {
-    "p50": 2832.2,
-    "p95": 5424.8,
-    "mean": 3279.7
+    "p50": 4206.8,
+    "p95": 6094.8,
+    "mean": 4272.5
   },
   "slices": {
     "has_budget": {
@@ -79,24 +79,6 @@
         "n": 3
       }
     },
-    "answerable": {
-      "False": {},
-      "True": {
-        "recall@1": 0.0939,
-        "hit@1": 0.5833,
-        "mrr@1": 0.5833,
-        "ndcg@1": 0.5833,
-        "recall@5": 0.4934,
-        "hit@5": 0.9167,
-        "mrr@5": 0.75,
-        "ndcg@5": 0.7082,
-        "recall@10": 0.4934,
-        "hit@10": 0.9167,
-        "mrr@10": 0.75,
-        "ndcg@10": 0.556,
-        "n": 12
-      }
-    },
     "source": {
       "app_sidebar": {
         "recall@1": 0.0667,
@@ -127,6 +109,24 @@
         "mrr@10": 0.7273,
         "ndcg@10": 0.5476,
         "n": 11
+      }
+    },
+    "answerable": {
+      "False": {},
+      "True": {
+        "recall@1": 0.0939,
+        "hit@1": 0.5833,
+        "mrr@1": 0.5833,
+        "ndcg@1": 0.5833,
+        "recall@5": 0.4934,
+        "hit@5": 0.9167,
+        "mrr@5": 0.75,
+        "ndcg@5": 0.7082,
+        "recall@10": 0.4934,
+        "hit@10": 0.9167,
+        "mrr@10": 0.75,
+        "ndcg@10": 0.556,
+        "n": 12
       }
     },
     "intent": {
@@ -184,5 +184,5 @@
   "state": "clean",
   "config_description": "Rerank + budget filter from the parsed price payload index.",
   "golden_reviewed": false,
-  "generated_at": "2026-08-12T11:06:59.917205+00:00"
+  "generated_at": "2026-08-12T16:20:35.502883+00:00"
 }

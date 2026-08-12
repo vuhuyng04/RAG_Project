@@ -1,8 +1,8 @@
 """Turn a follow-up question into a standalone query.
 
-The original app kept `st.session_state.messages` purely for display and never
-sent it to the model — single-turn RAG behind a chat UI. "Cái nào rẻ hơn?" had
-no antecedent and retrieved on the word "rẻ" alone.
+Chat history that is only rendered, never sent, makes for single-turn RAG
+behind a chat UI: "Cái nào rẻ hơn?" has no antecedent and retrieves on the
+word "rẻ" alone.
 
 Condensation rewrites the follow-up using the history *before* retrieval.
 The alternative — embedding the whole transcript — dilutes the query vector with

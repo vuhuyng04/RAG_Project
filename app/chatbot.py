@@ -1,9 +1,8 @@
 """Streamlit UI.
 
 Thin by design: every retrieval and generation decision lives in `src/rag/` so
-the app and the evaluation harness exercise identical code. The original
-version had the pipeline inline, which is why the notebook and the app drifted
-apart.
+the app and the evaluation harness exercise identical code. Inlining pipeline
+logic here would let the measured system and the served system diverge.
 """
 
 from __future__ import annotations
@@ -49,7 +48,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 # developer-facing English rationale that ends up in eval/results/ — keeping the
 # two separate stops experiment notes leaking into the UI.
 CONFIG_LABELS_VI = {
-    "legacy": "Tái hiện hệ thống gốc: dense top-5, không ngưỡng, không lọc.",
+    "baseline": "Tái hiện hệ thống gốc: dense top-5, không ngưỡng, không lọc.",
     "dense": "Truy hồi dense trên dữ liệu đã làm sạch.",
     "dense_threshold": "Dense + ngưỡng từ chối khi không đủ phù hợp.",
     "dense_budget": "Dense + lọc theo ngân sách. Cấu hình đo tốt nhất và nhẹ nhất.",
@@ -64,8 +63,8 @@ CONFIG_LABELS_VI = {
 def load_image(url: str) -> bytes | None:
     """Fetch a product image once.
 
-    The original downloaded every image on every rerun with no timeout, so each
-    Streamlit interaction re-fetched the whole grid.
+    Without caching, Streamlit re-fetches the whole grid on every interaction;
+    without a timeout, one slow host blocks the render.
     """
     if not url or not url.startswith("http"):
         return None
@@ -228,7 +227,7 @@ def main() -> None:
             "Trạng thái dữ liệu",
             [s.value for s in State],
             index=[s.value for s in State].index("clean"),
-            help="legacy = pipeline gốc; corrupt/repaired dùng cho thí nghiệm sửa lỗi dữ liệu.",
+            help="baseline = nối thẳng mọi field; corrupt/repaired dùng cho thí nghiệm sửa lỗi dữ liệu.",
         )
 
         st.divider()

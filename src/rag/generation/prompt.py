@@ -1,10 +1,10 @@
 """Prompt construction with grounding, citations and abstention.
 
-The original prompt had none of these. It injected five retrieved products with
-no instruction to stay within them, no way to say "I don't know", and an
-explicit directive to "khuyến khích khách hàng đặt hàng" — so the model was
-pushed to upsell whatever came back, relevant or not. Combined with retrieval
-that never abstained, "có freeship không" produced five bouquet recommendations.
+All three matter together. A prompt that injects retrieved products without
+instructing the model to stay within them, without a way to say "I don't
+know", and with a sales directive will upsell whatever retrieval returned —
+relevant or not. Paired with retrieval that never abstains, a policy question
+like "có freeship không" comes back as five bouquet recommendations.
 """
 
 from __future__ import annotations

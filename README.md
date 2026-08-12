@@ -6,41 +6,40 @@ built to be **measured**, not just demonstrated.
 **[🌐 Live demo](https://vuhuy-rag.streamlit.app/)** · [Evaluation methodology](eval/README.md) · [Engineering decisions](docs/decisions.md)
 
 > **Every number in this README is generated from a committed JSON file under
-> `eval/results/` by `uv run python -m eval.compare`.** None is typed by hand.
-> Numbers that cannot be traced that way are not reported.
+> `eval/results/` by `uv run python -m eval.compare`.** None is typed by hand,
+> and `tests/test_readme_numbers.py` fails if any figure drifts from its source.
 
 ---
 
-## The problem this started from
+## The problem
 
-The original version of this project worked — it answered questions, it had a
-demo link — but nothing about it was measured. Reading the code turned up a
-defect that no amount of prompt tuning could fix:
+Product catalogues are a hostile corpus for naive RAG. Marketing copy is written
+to sound the same across an entire store, so the obvious ingestion approach —
+concatenate every field and embed the result — encodes mostly text that every
+document shares.
 
-The indexing pipeline embedded `title + price + description + promo + image_url`
-concatenated into one string. The promo text was **byte-identical across the
-entire catalogue**, and the descriptions were near-identical marketing
-boilerplate. So the majority of every embedded document was text shared with
-every other document.
+This catalogue is a clean example. Its promotional text is byte-identical across
+products and its descriptions are near-identical boilerplate. Measured against a
+naive concatenation baseline:
 
-Measured on the reproduced legacy pipeline: **56% of documents are built
-substantially from passages that recur verbatim across the corpus**, and **52 of
-484 documents (10.7%) embed to the literal string `"nan"`** — a missing
-`.fillna()` in the notebook, `.astype(str)`, and straight into the vector store.
+- **56% of documents** are built substantially from passages that recur verbatim
+  across the corpus
+- **52 of 484 documents (10.7%)** embed as the literal string `"nan"`, because a
+  null in any field poisons the whole concatenation and stringifying it later
+  produces that token
+- the shop archive page is indexed as though it were a product
+- price is stored as a formatted string (`"1.950.000₫"`), which makes budget
+  filtering structurally impossible
 
-Three further defects: the shop archive page was indexed as a product; prices
-were stored as formatted strings so budget filtering was impossible; and
-retrieval never abstained, so *"có freeship không"* ("do you offer free
-shipping?") returned five bouquets which the prompt then instructed the model to
-upsell.
+None of this is visible from the demo. It is visible from measurement.
 
-## What was built
+## Approach
 
 ```mermaid
 graph LR
     A[hoatuoimymy.com<br/>sitemap] --> B[crawl<br/>httpx + lxml]
     B --> C[(data/raw/products.jsonl<br/>frozen crawl)]
-    C --> L[legacy<br/>reproduce old bugs]
+    C --> L[baseline<br/>naive concatenation]
     C --> D[clean<br/>validate · filter · parse]
     D --> E[corrupt<br/>seeded damage + manifest]
     E --> F[repaired<br/>detect · fix · score]
@@ -50,7 +49,7 @@ graph LR
     I --> J[validate citations]
 ```
 
-A **four-state corpus** built from one frozen crawl, so every comparison holds
+Four corpus states built from **one frozen crawl**, so every comparison holds
 the raw data constant and varies only the pipeline.
 
 ---
@@ -59,7 +58,7 @@ the raw data constant and varies only the pipeline.
 
 ### Corpus quality by state
 
-| Metric | legacy | clean | corrupt | repaired |
+| Metric | baseline | clean | corrupt | repaired |
 |---|---|---|---|---|
 | Documents | 484 | 483 | 512 | 470 |
 | Boilerplate tokens (doc-freq ≥60%) | 49.6% | 20.9% | 17.1% | 16.2% |
@@ -74,8 +73,8 @@ the raw data constant and varies only the pipeline.
 `corrupt` applies seeded, deliberate damage to the validated clean records and
 emits a **manifest recording exactly which document received which defect**.
 The repair detectors never see that manifest — they work from the records alone,
-as they would against a corpus of unknown quality. The manifest is used only to
-score them afterwards.
+as they would against a corpus of unknown quality. It is used only to score them
+afterwards.
 
 | Defect | Precision | Recall | F1 |
 |---|---|---|---|
@@ -91,13 +90,12 @@ score them afterwards.
 Macro F1 **0.911**. Downstream, repair recovers **80.0%** of the Recall@5 lost to
 corruption (0.296 → 0.463, clean baseline 0.504).
 
-**This is the part of the project that earned its keep.** Scoring detectors
-against a manifest exposed four bugs that were completely invisible without
-ground truth — `missing_field` scoring 0.000 because the schema sanitised the
-corruption away on reload, `boilerplate_flood` at 0.017 recall because a
-60%-document-frequency threshold cannot see damage confined to a minority of
-documents, plus two attribution errors. Macro F1 went 0.530 → **0.911** after
-fixing them.
+**This design earned its keep.** Scoring detectors against a manifest exposed
+four bugs that were invisible without ground truth — `missing_field` at 0.000
+because the schema sanitised the corruption away on reload, `boilerplate_flood`
+at 0.017 recall because a 60%-document-frequency threshold cannot see damage
+confined to a minority of documents, plus two attribution errors. Macro F1 went
+0.530 → **0.911** after fixing them.
 
 ### Retrieval A/B ladder
 
@@ -105,22 +103,20 @@ Each rung adds exactly one mechanism, so a delta is attributable.
 
 | Config | Recall@5 | MRR@5 | nDCG@5 | Abstention F1 | p95 |
 |---|---|---|---|---|---|
-| `legacy` (reproduces the original) | 0.504 | 0.683 | 0.671 | 0.000 | 604 ms |
-| `dense` | 0.504 | 0.683 | 0.671 | 0.000 | 271 ms |
-| `dense_threshold` | 0.504 | 0.683 | 0.671 | 0.250 | 476 ms |
-| **`dense_budget`** | **0.654** | **0.917** | **0.878** | 0.091 | **582 ms** |
-| `hybrid` (BM25 + RRF) | 0.417 | 0.694 | 0.545 | 0.000 | 932 ms |
-| `hybrid_budget` | 0.567 | 0.903 | 0.732 | 0.091 | 538 ms |
-| `dense_rerank` | 0.405 | 0.646 | 0.614 | 0.250 | 5 894 ms |
-| `full` | 0.493 | 0.750 | 0.708 | **0.320** | 5 425 ms |
+| `baseline` (naive control) | 0.504 | 0.683 | 0.671 | 0.000 | 492 ms |
+| `dense` | 0.504 | 0.683 | 0.671 | 0.000 | 1 626 ms |
+| `dense_threshold` | 0.504 | 0.683 | 0.671 | 0.250 | 276 ms |
+| **`dense_budget`** | **0.654** | **0.917** | **0.878** | 0.091 | **471 ms** |
+| `hybrid` (BM25 + RRF) | 0.417 | 0.694 | 0.545 | 0.000 | 521 ms |
+| `hybrid_budget` | 0.567 | 0.903 | 0.732 | 0.091 | 468 ms |
+| `dense_rerank` | 0.405 | 0.646 | 0.614 | 0.250 | 7 731 ms |
+| `full` | 0.493 | 0.750 | 0.708 | **0.320** | 6 095 ms |
 
 Parsing price into an integer payload index and filtering on it is worth
-**+0.150 Recall@5** — and it is the one thing the legacy pipeline structurally
-could not do, because price was a formatted string.
-
-Abstention F1 moves 0.000 → 0.320 as the threshold and filter are added. The
-0.000 baseline is literal: the original system never declined to answer
-anything.
+**+0.150 Recall@5** — and it is impossible while price remains a formatted
+string. Abstention F1 moves 0.000 → 0.320 as the threshold and filter are added;
+the 0.000 baseline is literal, since a system without a threshold never declines
+to answer anything.
 
 ---
 
@@ -129,26 +125,26 @@ anything.
 Kept deliberately. A repository that reports only what worked is not evidence of
 measurement.
 
-**Cosine score spread is not a quality metric.** The 0.02 gap that motivated
-this whole investigation measures nothing useful — when all five results are
+**Cosine score spread is not a quality metric.** When all five results are
 correct, flat scores are a *success*. Measured directly, the clean corpus scores
-slightly *worse* on spread than legacy. The figure is a symptom worth
-investigating, not evidence of improvement, and it appears nowhere in the claims
-above. ([D6](docs/decisions.md))
+slightly *worse* on spread than the baseline. It appears nowhere in the claims
+above. ([D7](docs/decisions.md))
 
-**Clean does not currently beat legacy on retrieval.** Across corpus states,
-`dense` scores Recall@5 0.520 on legacy vs 0.504 on clean. At n=12 this is
-noise, but it is not a result to hide: the corpus-health numbers are solid, the
-retrieval improvement is **unproven**. ([D10](docs/decisions.md))
+**The validated pipeline does not currently beat the naive baseline on
+retrieval.** `dense` scores Recall@5 0.504 on clean vs 0.514 on baseline. At
+n=12 this is noise, but it is not a result to hide: the corpus-health numbers
+are solid, the retrieval improvement is **unproven**.
+([D9](docs/decisions.md))
 
 **BM25 hybrid hurts** — −0.087 Recall@5 in both pairings. fastembed has no
 Vietnamese analyser (`language="vietnamese"` raises), so BM25 runs an English
 stemmer over Vietnamese text. Adding the `dense_budget` control cell is what
 revealed this: without it, `hybrid_budget` looked like the winner and the gain
-would have been credited to hybrid rather than the filter. ([D13](docs/decisions.md))
+would have been credited to hybrid rather than the filter.
+([D10](docs/decisions.md))
 
 **Cross-encoder reranking costs ~10× p95 latency and lowers Recall@5.**
-([D11](docs/decisions.md))
+([D10](docs/decisions.md))
 
 **Tuning was stopped deliberately.** One embed-text variant was tried; its
 metrics moved in opposite directions. Continuing to search for a variant that
@@ -163,24 +159,26 @@ Full detail in **[eval/README.md](eval/README.md)**. In brief:
 
 - **Queries come from real search behaviour.** No production traffic or support
   logs exist for a publicly crawled third-party catalogue, and none is invented.
-  897 real queries were mined from search-engine autocomplete, which produced
-  query types nobody would have thought to write: budget phrasings
+  897 real queries were mined from search-engine autocomplete, producing query
+  types nobody would have thought to write: budget phrasings
   (`hoa khai trương 500k`), out-of-area requests (`hoa chia buồn đà nẵng` — the
   shop serves HCMC only), and genuinely off-topic queries (`hoa tặng mẹ lớp 4`,
   a school essay assignment). The last two make the unanswerable slice realistic.
 - **Intent and facets are derived deterministically**, covered by regression
   tests, because the free tier allows 20 LLM requests/day/model.
-- **Gold labels come from pooled retrieval** across every corpus state, so the
-  labels are not biased toward whichever system produced them, with
-  deterministic budget and title-leakage backstops.
+- **Gold labels come from pooled retrieval** across every corpus state, so they
+  are not biased toward whichever system produced them, with deterministic
+  budget and title-leakage backstops.
 - **The judge is a different model from the generator**, so the system under
   test does not grade its own output.
 
 ### ⚠️ Current limitations
 
 1. **n = 12 answerable queries.** Labelling stopped mid-run when the daily LLM
-   quota ran out, not because 33 was the target. One query changing outcome
-   moves Recall@5 by ~0.08. **Every retrieval number above is provisional.**
+   quota ran out. One query changing outcome moves Recall@5 by ~0.08.
+   **Every retrieval number above is provisional.** The corpus-quality and
+   repair-detection figures are not affected — they are computed over the full
+   corpus and against a complete manifest.
 2. **No human review pass yet** — all golden rows are `reviewed=false`.
 3. **RAGAS has not been run.** Faithfulness / Answer Relevancy / Context
    Recall / Context Precision need ~1000–1500 calls against a 20/day quota.
@@ -217,14 +215,14 @@ uv sync                                   # bit-identical env from uv.lock
 cp .env.example .env                      # add GEMINI_API_KEY, QDRANT_*
 
 uv run python -m scripts.build_state --state clean
-uv run python -m scripts.build_state --state legacy
+uv run python -m scripts.build_state --state baseline
 uv run python -m scripts.build_state --state corrupt --seed 42
 uv run python -m scripts.build_state --state repaired
 
 uv run python -m eval.run_retrieval       # deterministic metrics, no LLM calls
 uv run python -m eval.compare             # regenerate every table above
 
-uv run pytest                             # 80 tests
+uv run pytest                             # 109 tests
 uv run streamlit run chatbot.py
 ```
 
@@ -242,8 +240,8 @@ sparse vectors and payload indexes · `gemini-2.5-flash` generation,
 `gemini-3.6-flash` judging · Streamlit · `uv` + committed lockfile · pytest ·
 ruff
 
-Notable version constraints, both discovered by hitting them:
-`transformers` is pinned `<5` (on 5.15 the gte models load fine and then crash
-at inference with a garbage-index `IndexError` inside their custom attention),
-and the Gemini model is pinned rather than aliased, because an alias silently
-changes the model underneath committed evaluation numbers.
+Two version constraints worth knowing, both found by hitting them: `transformers`
+is pinned `<5` (on 5.15 the gte models load fine and then crash at inference with
+a garbage-index `IndexError` inside their custom attention), and the Gemini model
+is pinned rather than aliased, because an alias silently changes the model
+underneath committed evaluation numbers.

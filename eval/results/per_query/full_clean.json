@@ -33,7 +33,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 5281.4,
+    "latency_ms": 4389.0,
     "budget_applied": null
   },
   {
@@ -76,7 +76,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2481.9,
+    "latency_ms": 3731.3,
     "budget_applied": 500000
   },
   {
@@ -113,7 +113,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2739.8,
+    "latency_ms": 5255.2,
     "budget_applied": null
   },
   {
@@ -124,7 +124,7 @@
     "gold_urls": [],
     "retrieved": [],
     "abstained": true,
-    "latency_ms": 274.1,
+    "latency_ms": 274.9,
     "budget_applied": 300000
   },
   {
@@ -161,7 +161,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 4921.7,
+    "latency_ms": 3699.3,
     "budget_applied": null
   },
   {
@@ -198,7 +198,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2471.3,
+    "latency_ms": 2671.4,
     "budget_applied": null
   },
   {
@@ -235,7 +235,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 3177.0,
+    "latency_ms": 2815.2,
     "budget_applied": null
   },
   {
@@ -272,7 +272,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 3831.4,
+    "latency_ms": 3229.2,
     "budget_applied": null
   },
   {
@@ -321,7 +321,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 5424.8,
+    "latency_ms": 3319.7,
     "budget_applied": null
   },
   {
@@ -358,7 +358,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 3602.7,
+    "latency_ms": 5532.1,
     "budget_applied": null
   },
   {
@@ -395,7 +395,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2659.8,
+    "latency_ms": 4206.8,
     "budget_applied": 500000
   },
   {
@@ -432,7 +432,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2521.3,
+    "latency_ms": 4633.8,
     "budget_applied": null
   },
   {
@@ -473,7 +473,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2419.3,
+    "latency_ms": 4462.8,
     "budget_applied": null
   },
   {
@@ -512,7 +512,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 4573.5,
+    "latency_ms": 3379.3,
     "budget_applied": 500000
   },
   {
@@ -553,7 +553,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 3458.6,
+    "latency_ms": 6475.5,
     "budget_applied": 500000
   },
   {
@@ -600,7 +600,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2507.5,
+    "latency_ms": 4039.2,
     "budget_applied": null
   },
   {
@@ -641,7 +641,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2629.7,
+    "latency_ms": 3842.4,
     "budget_applied": null
   },
   {
@@ -652,7 +652,7 @@
     "gold_urls": [],
     "retrieved": [],
     "abstained": true,
-    "latency_ms": 2614.0,
+    "latency_ms": 3765.3,
     "budget_applied": null
   },
   {
@@ -700,7 +700,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 3228.1,
+    "latency_ms": 4347.2,
     "budget_applied": null
   },
   {
@@ -753,7 +753,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2526.1,
+    "latency_ms": 3818.8,
     "budget_applied": null
   },
   {
@@ -764,7 +764,7 @@
     "gold_urls": [],
     "retrieved": [],
     "abstained": true,
-    "latency_ms": 5690.9,
+    "latency_ms": 3121.8,
     "budget_applied": null
   },
   {
@@ -804,7 +804,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 3443.7,
+    "latency_ms": 6009.8,
     "budget_applied": null
   },
   {
@@ -841,7 +841,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2832.2,
+    "latency_ms": 5198.5,
     "budget_applied": null
   },
   {
@@ -878,7 +878,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2698.8,
+    "latency_ms": 4870.2,
     "budget_applied": null
   },
   {
@@ -926,7 +926,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2618.5,
+    "latency_ms": 3251.8,
     "budget_applied": null
   },
   {
@@ -963,7 +963,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 5609.3,
+    "latency_ms": 5353.8,
     "budget_applied": null
   },
   {
@@ -1000,7 +1000,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 3633.3,
+    "latency_ms": 4337.9,
     "budget_applied": null
   },
   {
@@ -1011,7 +1011,7 @@
     "gold_urls": [],
     "retrieved": [],
     "abstained": true,
-    "latency_ms": 2347.8,
+    "latency_ms": 5989.0,
     "budget_applied": null
   },
   {
@@ -1048,7 +1048,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 4090.8,
+    "latency_ms": 6094.8,
     "budget_applied": null
   },
   {
@@ -1097,7 +1097,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 3928.3,
+    "latency_ms": 2930.9,
     "budget_applied": null
   },
   {
@@ -1134,7 +1134,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2447.0,
+    "latency_ms": 7261.7,
     "budget_applied": null
   },
   {
@@ -1171,7 +1171,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2849.1,
+    "latency_ms": 5300.7,
     "budget_applied": 500000
   },
   {
@@ -1208,7 +1208,7 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2697.2,
+    "latency_ms": 3383.6,
     "budget_applied": null
   }
 ]

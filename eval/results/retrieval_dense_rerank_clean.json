@@ -42,9 +42,9 @@
     "false_abstentions": 0
   },
   "latency_ms": {
-    "p50": 3263.4,
-    "p95": 5894.3,
-    "mean": 3523.0
+    "p50": 4000.7,
+    "p95": 7730.9,
+    "mean": 4836.8
   },
   "slices": {
     "has_budget": {
@@ -79,24 +79,6 @@
         "n": 3
       }
     },
-    "answerable": {
-      "False": {},
-      "True": {
-        "recall@1": 0.0661,
-        "hit@1": 0.5,
-        "mrr@1": 0.5,
-        "ndcg@1": 0.5,
-        "recall@5": 0.4045,
-        "hit@5": 0.8333,
-        "mrr@5": 0.6458,
-        "ndcg@5": 0.6137,
-        "recall@10": 0.4045,
-        "hit@10": 0.8333,
-        "mrr@10": 0.6458,
-        "ndcg@10": 0.4615,
-        "n": 12
-      }
-    },
     "source": {
       "app_sidebar": {
         "recall@1": 0.0667,
@@ -127,6 +109,24 @@
         "mrr@10": 0.6136,
         "ndcg@10": 0.4445,
         "n": 11
+      }
+    },
+    "answerable": {
+      "False": {},
+      "True": {
+        "recall@1": 0.0661,
+        "hit@1": 0.5,
+        "mrr@1": 0.5,
+        "ndcg@1": 0.5,
+        "recall@5": 0.4045,
+        "hit@5": 0.8333,
+        "mrr@5": 0.6458,
+        "ndcg@5": 0.6137,
+        "recall@10": 0.4045,
+        "hit@10": 0.8333,
+        "mrr@10": 0.6458,
+        "ndcg@10": 0.4615,
+        "n": 12
       }
     },
     "intent": {
@@ -184,5 +184,5 @@
   "state": "clean",
   "config_description": "Fetch 20, cross-encoder rerank to 5. Isolates reranking.",
   "golden_reviewed": false,
-  "generated_at": "2026-08-12T11:05:10.979017+00:00"
+  "generated_at": "2026-08-12T16:18:13.353714+00:00"
 }

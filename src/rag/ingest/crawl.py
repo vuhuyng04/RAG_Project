@@ -9,9 +9,10 @@ documents gave:
     meta[name=description]      15.3% shared  (10/10 unique)
     title                       27.0% shared  (10/10 unique)
 
-The legacy pipeline embedded the first two. That is the mechanical cause of the
-collapsed 0.68-0.71 cosine band. `meta[name=description]` is the discriminative
-product copy and is what `clean.py` embeds.
+Embedding the first two is the mechanical cause of a collapsed cosine band —
+most of every vector encodes text shared with every other document.
+`meta[name=description]` carries the discriminative product copy, and is what
+`clean.py` embeds.
 
 Reproduce with: uv run python -m scripts.probe_boilerplate
 """
@@ -46,13 +47,12 @@ _LOC_RE = re.compile(r"<loc>(.*?)</loc>", re.DOTALL)
 async def fetch_sitemap_urls(client: httpx.AsyncClient, base_url: str) -> list[str]:
     """Collect every URL listed in the product sitemaps, unfiltered.
 
-    Returned *unfiltered* on purpose. The legacy state has to see the same raw
-    sitemap output the notebook saw — including the shop archive page
-    /cua-hang/, which it indexed as a product with a missing title. Filtering
-    here would make the legacy reproduction quietly better than the thing it is
-    supposed to reproduce, and the "before" column would understate the problem.
+    Returned *unfiltered* on purpose. Sitemaps include non-product pages such as
+    the shop archive /cua-hang/, and the BASELINE state has to see them: URL
+    filtering is one of the variables under test, so applying it here would
+    silently apply it to every configuration.
 
-    `clean.clean_products()` applies `is_product_url`; `legacy` does not.
+    `clean.clean_products()` applies `is_product_url`; the baseline does not.
     """
     index = await client.get(f"{base_url}/sitemap.xml")
     index.raise_for_status()
@@ -70,7 +70,7 @@ async def fetch_sitemap_urls(client: httpx.AsyncClient, base_url: str) -> list[s
     unique = [u for u in urls if not (u in seen or seen.add(u))]
     n_non_product = sum(1 for u in unique if not is_product_url(u))
     log.info(
-        "Sitemap: %d urls -> %d unique (%d are non-product pages, kept for the legacy state)",
+        "Sitemap: %d urls -> %d unique (%d non-product pages, kept for the baseline)",
         len(urls),
         len(unique),
         n_non_product,

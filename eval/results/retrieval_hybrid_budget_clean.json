@@ -42,9 +42,9 @@
     "false_abstentions": 0
   },
   "latency_ms": {
-    "p50": 272.7,
-    "p95": 538.1,
-    "mean": 333.2
+    "p50": 296.6,
+    "p95": 468.0,
+    "mean": 323.6
   },
   "slices": {
     "has_budget": {
@@ -79,24 +79,6 @@
         "n": 3
       }
     },
-    "answerable": {
-      "False": {},
-      "True": {
-        "recall@1": 0.2548,
-        "hit@1": 0.8333,
-        "mrr@1": 0.8333,
-        "ndcg@1": 0.8333,
-        "recall@5": 0.5668,
-        "hit@5": 1.0,
-        "mrr@5": 0.9028,
-        "ndcg@5": 0.7319,
-        "recall@10": 0.5668,
-        "hit@10": 1.0,
-        "mrr@10": 0.9028,
-        "ndcg@10": 0.6267,
-        "n": 12
-      }
-    },
     "source": {
       "app_sidebar": {
         "recall@1": 0.0667,
@@ -127,6 +109,24 @@
         "mrr@10": 0.8939,
         "ndcg@10": 0.6473,
         "n": 11
+      }
+    },
+    "answerable": {
+      "False": {},
+      "True": {
+        "recall@1": 0.2548,
+        "hit@1": 0.8333,
+        "mrr@1": 0.8333,
+        "ndcg@1": 0.8333,
+        "recall@5": 0.5668,
+        "hit@5": 1.0,
+        "mrr@5": 0.9028,
+        "ndcg@5": 0.7319,
+        "recall@10": 0.5668,
+        "hit@10": 1.0,
+        "mrr@10": 0.9028,
+        "ndcg@10": 0.6267,
+        "n": 12
       }
     },
     "intent": {
@@ -184,5 +184,5 @@
   "state": "clean",
   "config_description": "Hybrid + budget filter. No reranker (it cost 10x latency for no gain).",
   "golden_reviewed": false,
-  "generated_at": "2026-08-12T11:03:14.240812+00:00"
+  "generated_at": "2026-08-12T16:15:33.060645+00:00"
 }

@@ -19,8 +19,8 @@ from rag.ingest.schema import Product
 
 log = logging.getLogger(__name__)
 
-# Anything embedding to one of these is a poisoned document — the exact failure
-# the legacy pipeline shipped.
+# Anything embedding to one of these is a poisoned document: retrievable, but
+# carrying no product information.
 JUNK_TEXTS = {"nan", "none", "null", ""}
 
 
@@ -56,8 +56,8 @@ def quality_report(
 
     `text_fn` must be the embed-text builder that this state actually indexes
     with. Defaulting every state to the clean builder would report identical
-    numbers for legacy and clean and silently void the comparison — the legacy
-    state's whole point is that its embedded text is different.
+    identical numbers for the baseline and clean states and silently void the
+    comparison — the baseline's whole point is that its embedded text differs.
     """
     n = len(products)
     if n == 0:

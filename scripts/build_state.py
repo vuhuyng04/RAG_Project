@@ -1,7 +1,7 @@
 """Build one corpus state: crawl (once, cached) -> transform -> index.
 
     uv run python -m scripts.build_state --state clean
-    uv run python -m scripts.build_state --state legacy
+    uv run python -m scripts.build_state --state baseline
     uv run python -m scripts.build_state --state corrupt --seed 42
     uv run python -m scripts.build_state --state repaired
 
@@ -16,10 +16,10 @@ import logging
 import sys
 
 from rag.config import DATA_DIR, RESULTS_DIR, STATES_DIR, State, get_settings
+from rag.ingest.baseline import build_baseline_records
 from rag.ingest.clean import clean_products
 from rag.ingest.crawl import crawl_sync
 from rag.ingest.index import builders_for, index_state
-from rag.ingest.legacy import build_legacy_records
 from rag.ingest.quality import assert_clean, quality_report, save_report
 from rag.ingest.store import load_products, save_products
 
@@ -43,10 +43,10 @@ def get_raw(refresh: bool = False):
 def build(state: State, seed: int, refresh: bool, no_index: bool) -> None:
     raw = get_raw(refresh)
 
-    if state is State.LEGACY:
-        # Deliberately unfiltered: the notebook indexed whatever the sitemaps
-        # returned, archive pages included.
-        records = build_legacy_records(raw)
+    if state is State.BASELINE:
+        # Deliberately unfiltered: URL filtering is one of the variables under
+        # test, so the baseline indexes whatever the sitemaps returned.
+        records = build_baseline_records(raw)
 
     elif state is State.CLEAN:
         records, stats = clean_products(raw)
@@ -90,8 +90,8 @@ def build(state: State, seed: int, refresh: bool, no_index: bool) -> None:
 
     save_products(records, STATES_DIR / f"{state.value}.jsonl")
 
-    # Profile with the same text builder this state indexes with, otherwise
-    # legacy would be reported using the clean builder and look identical.
+    # Profile with the same text builder this state indexes with, otherwise the
+    # baseline would be reported using the clean builder and look identical.
     text_fn, _ = builders_for(state)
     report = quality_report(records, state.value, text_fn=text_fn)
     save_report(report, RESULTS_DIR / f"quality_{state.value}.json")

@@ -32,12 +32,12 @@ def _readme() -> str:
 @pytest.mark.parametrize(
     "state,key,fmt",
     [
-        ("legacy", "repeated_passage_doc_rate", "{:.1%}"),
+        ("baseline", "repeated_passage_doc_rate", "{:.1%}"),
         ("clean", "repeated_passage_doc_rate", "{:.1%}"),
         ("corrupt", "repeated_passage_doc_rate", "{:.1%}"),
         ("repaired", "repeated_passage_doc_rate", "{:.1%}"),
-        ("legacy", "junk_embed_text", "{}"),
-        ("legacy", "documents", "{}"),
+        ("baseline", "junk_embed_text", "{}"),
+        ("baseline", "documents", "{}"),
         ("clean", "documents", "{}"),
     ],
 )
@@ -68,7 +68,7 @@ def test_every_per_defect_f1_matches() -> None:
 @pytest.mark.parametrize(
     "config",
     [
-        "legacy",
+        "baseline",
         "dense",
         "dense_threshold",
         "dense_budget",
@@ -113,7 +113,11 @@ def test_readme_states_the_sample_size_limitation() -> None:
 def test_readme_keeps_the_negative_results_section() -> None:
     text = _readme()
     assert "Negative results" in text
-    for claim in ["not currently beat legacy", "hybrid hurts", "spread is not a quality metric"]:
+    for claim in [
+        "does not currently beat the naive baseline",
+        "hybrid hurts",
+        "spread is not a quality metric",
+    ]:
         assert claim.lower() in text.lower(), f"missing negative result: {claim}"
 
 

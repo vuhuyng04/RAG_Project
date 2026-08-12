@@ -10,8 +10,8 @@ from qdrant_client import models
 
 from rag.clients import embed_batch, get_qdrant
 from rag.config import State, get_settings
+from rag.ingest.baseline import baseline_embed_text, baseline_payload
 from rag.ingest.clean import build_embed_text
-from rag.ingest.legacy import legacy_embed_text, legacy_payload
 from rag.ingest.schema import Product
 from rag.retrieval.sparse import SPARSE_VECTOR_NAME, encode_documents
 
@@ -32,8 +32,8 @@ def builders_for(state: State) -> tuple[Callable[[Product], str], Callable[[Prod
     so a state can never be profiled with a different text builder than the one
     it was indexed with.
     """
-    if State(state) is State.LEGACY:
-        return legacy_embed_text, legacy_payload
+    if State(state) is State.BASELINE:
+        return baseline_embed_text, baseline_payload
     return build_embed_text, Product.to_payload
 
 
@@ -62,9 +62,9 @@ def ensure_collection(name: str, *, recreate: bool = False) -> None:
         log.info("Created collection %s (dim=%d, cosine, +bm25 sparse)", name, s.embedding_dim)
 
     # Payload indexes. price_vnd unlocks budget filtering ("dưới 500k"), which
-    # the legacy pipeline could not do at all because price was a formatted
-    # string. The title full-text index is the fallback lexical path if BM25
-    # sparse vectors tokenize Vietnamese poorly (plan §4.4).
+    # is impossible while price is a formatted string. The title full-text index
+    # is the fallback lexical path if BM25 sparse vectors tokenise Vietnamese
+    # poorly.
     for field, schema in (
         ("price_vnd", models.PayloadSchemaType.INTEGER),
         ("url", models.PayloadSchemaType.KEYWORD),
@@ -96,9 +96,9 @@ def index_state(
 ) -> dict[str, object]:
     """Embed and upsert `products` into the collection for `state`.
 
-    The legacy state uses the notebook's text and payload builders; every other
-    state uses the cleaned ones. This is the single place the two pipelines
-    diverge, which keeps the comparison honest.
+    The baseline state uses the naive concatenation builders; every other state
+    uses the validated ones. This is the single place the two pipelines diverge,
+    which is what keeps the comparison attributable.
     """
     s = get_settings()
     collection = s.collection_for(state)

@@ -42,43 +42,11 @@
     "false_abstentions": 0
   },
   "latency_ms": {
-    "p50": 258.1,
-    "p95": 625.5,
-    "mean": 318.3
+    "p50": 492.5,
+    "p95": 757.6,
+    "mean": 490.0
   },
   "slices": {
-    "source": {
-      "app_sidebar": {
-        "recall@1": 0.0667,
-        "hit@1": 1.0,
-        "mrr@1": 1.0,
-        "ndcg@1": 1.0,
-        "recall@5": 0.2667,
-        "hit@5": 1.0,
-        "mrr@5": 1.0,
-        "ndcg@5": 0.8688,
-        "recall@10": 0.2667,
-        "hit@10": 1.0,
-        "mrr@10": 1.0,
-        "ndcg@10": 0.5638,
-        "n": 1
-      },
-      "autocomplete": {
-        "recall@1": 0.0567,
-        "hit@1": 0.3636,
-        "mrr@1": 0.3636,
-        "ndcg@1": 0.3636,
-        "recall@5": 0.4804,
-        "hit@5": 0.8182,
-        "mrr@5": 0.5636,
-        "ndcg@5": 0.5563,
-        "recall@10": 0.4804,
-        "hit@10": 0.8182,
-        "mrr@10": 0.5636,
-        "ndcg@10": 0.4343,
-        "n": 11
-      }
-    },
     "intent": {
       "attribute": {
         "recall@1": 0.0955,
@@ -178,11 +146,43 @@
         "ndcg@10": 0.129,
         "n": 3
       }
+    },
+    "source": {
+      "app_sidebar": {
+        "recall@1": 0.0667,
+        "hit@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@5": 0.2667,
+        "hit@5": 1.0,
+        "mrr@5": 1.0,
+        "ndcg@5": 0.8688,
+        "recall@10": 0.2667,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 0.5638,
+        "n": 1
+      },
+      "autocomplete": {
+        "recall@1": 0.0567,
+        "hit@1": 0.3636,
+        "mrr@1": 0.3636,
+        "ndcg@1": 0.3636,
+        "recall@5": 0.4804,
+        "hit@5": 0.8182,
+        "mrr@5": 0.5636,
+        "ndcg@5": 0.5563,
+        "recall@10": 0.4804,
+        "hit@10": 0.8182,
+        "mrr@10": 0.5636,
+        "ndcg@10": 0.4343,
+        "n": 11
+      }
     }
   },
   "config": "dense",
   "state": "repaired",
-  "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+  "config_description": "Dense retrieval on the validated corpus. Isolates the ingestion design.",
   "golden_reviewed": false,
-  "generated_at": "2026-08-12T11:08:05.671683+00:00"
+  "generated_at": "2026-08-12T16:22:35.492099+00:00"
 }
