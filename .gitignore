@@ -1,0 +1,41 @@
+# Secrets — never commit
+.env
+.env.local
+.streamlit/secrets.toml
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Crawl / ingest artifacts
+data/interim/
+*.csv
+
+# NOTE: data/raw/products.jsonl is deliberately NOT ignored (~460 KB). It is the
+# frozen crawl every corpus state derives from. Committing it is what makes the
+# clean/legacy/corrupt/repaired comparison a controlled experiment reproducible
+# by anyone — re-crawling would sample a live site that changes underneath, so
+# the "same raw data, different pipeline" guarantee would be lost.
+
+# Model + eval caches (regenerable, large)
+.cache/
+eval/.ragas_cache/
+.crawl4ai/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# NOTE: the following are deliberately NOT ignored — they are the evidence
+# base for every number reported in the README:
+#   eval/dataset/*.jsonl
+#   eval/results/**
+#   eval/fixtures/baseline_index_snapshot.jsonl
+#   data/states/*.jsonl  (clean/corrupt/repaired records + corruption manifest)

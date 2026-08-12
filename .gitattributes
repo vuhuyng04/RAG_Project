@@ -1,0 +1,12 @@
+# Normalise line endings so the repo is identical on Windows, macOS and CI.
+# Without this, every file committed from Windows shows up as fully rewritten
+# in diffs on other platforms.
+* text=auto eol=lf
+
+# Data and lock files must stay byte-stable — they are the evidence base and
+# the reproducibility guarantee.
+*.jsonl -text
+uv.lock -text
+
+*.png binary
+*.jpg binary

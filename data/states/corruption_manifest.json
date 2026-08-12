@@ -1,0 +1,839 @@
+{
+  "seed": 42,
+  "rates": {
+    "missing_field": 0.08,
+    "boilerplate_flood": 0.25,
+    "price_corruption": 0.1,
+    "truncation": 0.08,
+    "mojibake": 0.06,
+    "duplication": 0.05
+  },
+  "n_clean_input": 483,
+  "n_corrupt_output": 512,
+  "summary": {
+    "missing_field": 39,
+    "boilerplate_flood": 121,
+    "price_corruption": 48,
+    "truncation": 39,
+    "mojibake": 29,
+    "duplication": 24,
+    "non_product_page": 5
+  },
+  "corrupted": {
+    "https://hoatuoimymy.com/hoa-vieng-dam-tang-tong-vang-m22/": [
+      "missing_field",
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m440/": [
+      "missing_field",
+      "boilerplate_flood",
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m453/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m480/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m417/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-cam-tu-cau-m235/": [
+      "missing_field",
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m238/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m438/": [
+      "missing_field",
+      "boilerplate_flood",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m102/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-cuoi-cam-tay-m277/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/vong-hoa-chia-buon-m17/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-m503/": [
+      "missing_field",
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/lang-hoa-chia-buon-3-tang/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m279/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m345/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m210/": [
+      "missing_field",
+      "boilerplate_flood",
+      "price_corruption",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m287/": [
+      "missing_field",
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m91/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-xanh-m84/": [
+      "missing_field",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m425/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m423/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m397/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m173/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-tulip-m261/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m380/": [
+      "missing_field",
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m244/": [
+      "missing_field",
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m12/": [
+      "missing_field",
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m21/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-thanh-kinh/": [
+      "missing_field",
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m292/": [
+      "missing_field",
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m240/": [
+      "missing_field",
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m38/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m382/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-do-trai-tim/": [
+      "missing_field",
+      "boilerplate_flood",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m359/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m20/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-huong-duong-m95/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-baby-m107/": [
+      "missing_field"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-huong-duong-m114/": [
+      "missing_field",
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m297/": [
+      "boilerplate_flood",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m291/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m341/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m126/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m406/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-do-nhap-khau-m256/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m302/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m407/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m318/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m377/": [
+      "boilerplate_flood",
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m418/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m159/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-m491/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-tulip-lung-linh/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m25/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-tang-nguoi-yeu/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m246/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m196/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m371/": [
+      "boilerplate_flood",
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m433/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m386/": [
+      "boilerplate_flood",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-tulip-m254/": [
+      "boilerplate_flood",
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m229/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m16/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m29/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m336/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m304/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m355/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m364/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-huong-duong-m109/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m446/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-tim-cuc-xinh/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m358/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m412/": [
+      "boilerplate_flood",
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m404/": [
+      "boilerplate_flood",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-cuoi-cam-tay-m308/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m445/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m260/": [
+      "boilerplate_flood",
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m28/": [
+      "boilerplate_flood",
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-dong-tien-m483/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m463/": [
+      "boilerplate_flood",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m464/": [
+      "boilerplate_flood",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m19/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m200/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m402/": [
+      "boilerplate_flood",
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m170/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/ke-hoa-dam-tang-tong-vang/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m436/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-tim-m06/": [
+      "boilerplate_flood",
+      "price_corruption",
+      "truncation",
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m419/": [
+      "boilerplate_flood",
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m103/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m198/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m237/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m137/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/ke-hoa-vieng-1-tang/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m209/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m346/": [
+      "boilerplate_flood",
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m44/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m54/": [
+      "boilerplate_flood",
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m166/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m252/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m272/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m400/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m283/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m482/": [
+      "boilerplate_flood",
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m285/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m319/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m326/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m342/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m432/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m376/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-m495/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-huong-duong-m88/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m296/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m46/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m133/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m207/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m31/": [
+      "boilerplate_flood",
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-cuoi-cam-tay-m311/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m347-bo-hoa-tu-cau/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m282/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m474/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m98/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m75/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m457/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m30/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m367/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/ke-hoa-khai-truong-1-tang-sang-trong-m239/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m202/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m52/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/lang-hoa-de-ban-m60/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m390/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m259/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m251/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-cam-spirit-m257/": [
+      "boilerplate_flood",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m135/": [
+      "boilerplate_flood",
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m372/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/ke-hoa-khai-truong-m128/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-m506-2/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m245/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m36/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m76/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m370/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m415/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m140/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m185/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m361/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m299/": [
+      "boilerplate_flood"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m329/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-m502/": [
+      "price_corruption",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m363/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m456/": [
+      "price_corruption",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m394/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m188/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m454/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m381/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m56/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m35/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-tulip-m262/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m455/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m164/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m127/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m470/": [
+      "price_corruption",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m225/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-cuoi-cam-tay-m312/": [
+      "price_corruption",
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-huong-duong-m275/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m422/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m280/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m284/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m481/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m204/": [
+      "price_corruption",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m129/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m281/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m139/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m396/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m138/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m435/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-m330/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m338/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m268/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m350/": [
+      "price_corruption",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m431/": [
+      "price_corruption",
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m462/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-m494/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m486/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m427/": [
+      "price_corruption"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m429/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m315/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m183/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-m334/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m39/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/lang-hoa-chuc-mung-m120/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-cam-ohara/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m86/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m379/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m356/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m452/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-m99/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-mau-don-tim-m105/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m124/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-ohara/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m68/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m212/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m399/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m241/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m459/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-tulip-m263/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m298/": [
+      "truncation"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m294/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-huong-duong-m74/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-baby-m106/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-m498/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m195/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m26/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m286/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-huong-duong-m180/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m443/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m378/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m349-hoa-cuc-tana/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m395/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m458/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m421/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m243/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m340-bo-hoa-huong-duong/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m01/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-do-99-bong/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m163/": [
+      "mojibake"
+    ],
+    "https://hoatuoimymy.com/hoa-cuoi-cam-tay-m305//": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/ke-hoa-dam-tang-tong-vang/?utm_source=google": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m412/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m455/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m367/?utm_source=google": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-tang-nguoi-yeu/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/gio-hoa-m444/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-tulip-m255/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/hoa-dam-tang-m496//": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m193/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-trai-tim-m278/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m198/?utm_source=google": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m241/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/hoa-chia-buon-m36//": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-tim-m06//": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-hong-do-99-bong/?utm_source=google": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/hoa-khai-truong-m247//": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/hoa-lan-ho-diep-m408//": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-baby-m112/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m281/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-m189//": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-cam-tu-cau-m235/?utm_source=google": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/bo-hoa-sap-m302/?utm_source=google": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/hoa-cuoi-cam-tay-m309/?ref=fb": [
+      "duplication"
+    ],
+    "https://hoatuoimymy.com/cua-hang/": [
+      "non_product_page"
+    ],
+    "https://hoatuoimymy.com/danh-muc/hoa-khai-truong/": [
+      "non_product_page"
+    ],
+    "https://hoatuoimymy.com/gio-hang/": [
+      "non_product_page"
+    ],
+    "https://hoatuoimymy.com/thanh-toan/": [
+      "non_product_page"
+    ],
+    "https://hoatuoimymy.com/tai-khoan/": [
+      "non_product_page"
+    ]
+  }
+}

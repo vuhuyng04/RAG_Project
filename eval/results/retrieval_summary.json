@@ -1,0 +1,754 @@
+{
+  "dense@legacy": {
+    "n_queries": 33,
+    "retrieval_raw": {
+      "recall@1": 0.1374,
+      "hit@1": 0.75,
+      "mrr@1": 0.75,
+      "ndcg@1": 0.75,
+      "recall@5": 0.5202,
+      "hit@5": 1.0,
+      "mrr@5": 0.875,
+      "ndcg@5": 0.7501,
+      "recall@10": 0.5202,
+      "hit@10": 1.0,
+      "mrr@10": 0.875,
+      "ndcg@10": 0.5962,
+      "n": 12
+    },
+    "retrieval_restricted_to_present_golds": {
+      "recall@1": 0.1374,
+      "hit@1": 0.75,
+      "mrr@1": 0.75,
+      "ndcg@1": 0.75,
+      "recall@5": 0.5202,
+      "hit@5": 1.0,
+      "mrr@5": 0.875,
+      "ndcg@5": 0.7501,
+      "recall@10": 0.5202,
+      "hit@10": 1.0,
+      "mrr@10": 0.875,
+      "ndcg@10": 0.5962,
+      "n": 12
+    },
+    "gold_integrity": {
+      "queries_with_missing_golds": 0,
+      "total_missing_gold_docs": 0
+    },
+    "abstention": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "n_unanswerable": 21,
+      "false_abstentions": 0
+    },
+    "latency_ms": {
+      "p50": 267.9,
+      "p95": 986.8,
+      "mean": 852.6
+    },
+    "slices": {
+      "source": {
+        "app_sidebar": {
+          "recall@1": 0.0667,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.3333,
+          "hit@5": 1.0,
+          "mrr@5": 1.0,
+          "ndcg@5": 1.0,
+          "recall@10": 0.3333,
+          "hit@10": 1.0,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.6489,
+          "n": 1
+        },
+        "autocomplete": {
+          "recall@1": 0.1438,
+          "hit@1": 0.7273,
+          "mrr@1": 0.7273,
+          "ndcg@1": 0.7273,
+          "recall@5": 0.5372,
+          "hit@5": 1.0,
+          "mrr@5": 0.8636,
+          "ndcg@5": 0.7273,
+          "recall@10": 0.5372,
+          "hit@10": 1.0,
+          "mrr@10": 0.8636,
+          "ndcg@10": 0.5914,
+          "n": 11
+        }
+      },
+      "intent": {
+        "attribute": {
+          "recall@1": 0.0955,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.4773,
+          "hit@5": 1.0,
+          "mrr@5": 1.0,
+          "ndcg@5": 1.0,
+          "recall@10": 0.4773,
+          "hit@10": 1.0,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.6489,
+          "n": 2
+        },
+        "budget_search": {
+          "recall@1": 0.1778,
+          "hit@1": 0.6667,
+          "mrr@1": 0.6667,
+          "ndcg@1": 0.6667,
+          "recall@5": 0.7556,
+          "hit@5": 1.0,
+          "mrr@5": 0.8333,
+          "ndcg@5": 0.6859,
+          "recall@10": 0.7556,
+          "hit@10": 1.0,
+          "mrr@10": 0.8333,
+          "ndcg@10": 0.6859,
+          "n": 3
+        },
+        "off_topic": {},
+        "out_of_catalogue": {},
+        "policy": {},
+        "product_search": {
+          "recall@1": 0.132,
+          "hit@1": 0.7143,
+          "mrr@1": 0.7143,
+          "ndcg@1": 0.7143,
+          "recall@5": 0.4316,
+          "hit@5": 1.0,
+          "mrr@5": 0.8571,
+          "ndcg@5": 0.7062,
+          "recall@10": 0.4316,
+          "hit@10": 1.0,
+          "mrr@10": 0.8571,
+          "ndcg@10": 0.5427,
+          "n": 7
+        }
+      },
+      "answerable": {
+        "False": {},
+        "True": {
+          "recall@1": 0.1374,
+          "hit@1": 0.75,
+          "mrr@1": 0.75,
+          "ndcg@1": 0.75,
+          "recall@5": 0.5202,
+          "hit@5": 1.0,
+          "mrr@5": 0.875,
+          "ndcg@5": 0.7501,
+          "recall@10": 0.5202,
+          "hit@10": 1.0,
+          "mrr@10": 0.875,
+          "ndcg@10": 0.5962,
+          "n": 12
+        }
+      },
+      "has_budget": {
+        "False": {
+          "recall@1": 0.1239,
+          "hit@1": 0.7778,
+          "mrr@1": 0.7778,
+          "ndcg@1": 0.7778,
+          "recall@5": 0.4418,
+          "hit@5": 1.0,
+          "mrr@5": 0.8889,
+          "ndcg@5": 0.7715,
+          "recall@10": 0.4418,
+          "hit@10": 1.0,
+          "mrr@10": 0.8889,
+          "ndcg@10": 0.5663,
+          "n": 9
+        },
+        "True": {
+          "recall@1": 0.1778,
+          "hit@1": 0.6667,
+          "mrr@1": 0.6667,
+          "ndcg@1": 0.6667,
+          "recall@5": 0.7556,
+          "hit@5": 1.0,
+          "mrr@5": 0.8333,
+          "ndcg@5": 0.6859,
+          "recall@10": 0.7556,
+          "hit@10": 1.0,
+          "mrr@10": 0.8333,
+          "ndcg@10": 0.6859,
+          "n": 3
+        }
+      }
+    },
+    "config": "dense",
+    "state": "legacy",
+    "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+    "golden_reviewed": false,
+    "generated_at": "2026-08-12T11:07:33.660896+00:00"
+  },
+  "dense@clean": {
+    "n_queries": 33,
+    "retrieval_raw": {
+      "recall@1": 0.127,
+      "hit@1": 0.5833,
+      "mrr@1": 0.5833,
+      "ndcg@1": 0.5833,
+      "recall@5": 0.5043,
+      "hit@5": 0.8333,
+      "mrr@5": 0.6833,
+      "ndcg@5": 0.6715,
+      "recall@10": 0.5043,
+      "hit@10": 0.8333,
+      "mrr@10": 0.6833,
+      "ndcg@10": 0.5266,
+      "n": 12
+    },
+    "retrieval_restricted_to_present_golds": {
+      "recall@1": 0.127,
+      "hit@1": 0.5833,
+      "mrr@1": 0.5833,
+      "ndcg@1": 0.5833,
+      "recall@5": 0.5043,
+      "hit@5": 0.8333,
+      "mrr@5": 0.6833,
+      "ndcg@5": 0.6715,
+      "recall@10": 0.5043,
+      "hit@10": 0.8333,
+      "mrr@10": 0.6833,
+      "ndcg@10": 0.5266,
+      "n": 12
+    },
+    "gold_integrity": {
+      "queries_with_missing_golds": 0,
+      "total_missing_gold_docs": 0
+    },
+    "abstention": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "n_unanswerable": 21,
+      "false_abstentions": 0
+    },
+    "latency_ms": {
+      "p50": 253.8,
+      "p95": 271.0,
+      "mean": 264.2
+    },
+    "slices": {
+      "source": {
+        "app_sidebar": {
+          "recall@1": 0.0667,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.3333,
+          "hit@5": 1.0,
+          "mrr@5": 1.0,
+          "ndcg@5": 1.0,
+          "recall@10": 0.3333,
+          "hit@10": 1.0,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.6489,
+          "n": 1
+        },
+        "autocomplete": {
+          "recall@1": 0.1325,
+          "hit@1": 0.5455,
+          "mrr@1": 0.5455,
+          "ndcg@1": 0.5455,
+          "recall@5": 0.5198,
+          "hit@5": 0.8182,
+          "mrr@5": 0.6545,
+          "ndcg@5": 0.6417,
+          "recall@10": 0.5198,
+          "hit@10": 0.8182,
+          "mrr@10": 0.6545,
+          "ndcg@10": 0.5155,
+          "n": 11
+        }
+      },
+      "intent": {
+        "attribute": {
+          "recall@1": 0.0955,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.4773,
+          "hit@5": 1.0,
+          "mrr@5": 1.0,
+          "ndcg@5": 1.0,
+          "recall@10": 0.4773,
+          "hit@10": 1.0,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.6489,
+          "n": 2
+        },
+        "budget_search": {
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "mrr@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@5": 0.3333,
+          "hit@5": 0.3333,
+          "mrr@5": 0.0667,
+          "ndcg@5": 0.129,
+          "recall@10": 0.3333,
+          "hit@10": 0.3333,
+          "mrr@10": 0.0667,
+          "ndcg@10": 0.129,
+          "n": 3
+        },
+        "off_topic": {},
+        "out_of_catalogue": {},
+        "policy": {},
+        "product_search": {
+          "recall@1": 0.1905,
+          "hit@1": 0.7143,
+          "mrr@1": 0.7143,
+          "ndcg@1": 0.7143,
+          "recall@5": 0.5853,
+          "hit@5": 1.0,
+          "mrr@5": 0.8571,
+          "ndcg@5": 0.8102,
+          "recall@10": 0.5853,
+          "hit@10": 1.0,
+          "mrr@10": 0.8571,
+          "ndcg@10": 0.6621,
+          "n": 7
+        }
+      },
+      "answerable": {
+        "False": {},
+        "True": {
+          "recall@1": 0.127,
+          "hit@1": 0.5833,
+          "mrr@1": 0.5833,
+          "ndcg@1": 0.5833,
+          "recall@5": 0.5043,
+          "hit@5": 0.8333,
+          "mrr@5": 0.6833,
+          "ndcg@5": 0.6715,
+          "recall@10": 0.5043,
+          "hit@10": 0.8333,
+          "mrr@10": 0.6833,
+          "ndcg@10": 0.5266,
+          "n": 12
+        }
+      },
+      "has_budget": {
+        "False": {
+          "recall@1": 0.1694,
+          "hit@1": 0.7778,
+          "mrr@1": 0.7778,
+          "ndcg@1": 0.7778,
+          "recall@5": 0.5613,
+          "hit@5": 1.0,
+          "mrr@5": 0.8889,
+          "ndcg@5": 0.8524,
+          "recall@10": 0.5613,
+          "hit@10": 1.0,
+          "mrr@10": 0.8889,
+          "ndcg@10": 0.6592,
+          "n": 9
+        },
+        "True": {
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "mrr@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@5": 0.3333,
+          "hit@5": 0.3333,
+          "mrr@5": 0.0667,
+          "ndcg@5": 0.129,
+          "recall@10": 0.3333,
+          "hit@10": 0.3333,
+          "mrr@10": 0.0667,
+          "ndcg@10": 0.129,
+          "n": 3
+        }
+      }
+    },
+    "config": "dense",
+    "state": "clean",
+    "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+    "golden_reviewed": false,
+    "generated_at": "2026-08-12T11:07:43.056193+00:00"
+  },
+  "dense@corrupt": {
+    "n_queries": 33,
+    "retrieval_raw": {
+      "recall@1": 0.0437,
+      "hit@1": 0.25,
+      "mrr@1": 0.25,
+      "ndcg@1": 0.25,
+      "recall@5": 0.2956,
+      "hit@5": 0.75,
+      "mrr@5": 0.5,
+      "ndcg@5": 0.4516,
+      "recall@10": 0.2956,
+      "hit@10": 0.75,
+      "mrr@10": 0.5,
+      "ndcg@10": 0.3351,
+      "n": 12
+    },
+    "retrieval_restricted_to_present_golds": {
+      "recall@1": 0.0437,
+      "hit@1": 0.25,
+      "mrr@1": 0.25,
+      "ndcg@1": 0.25,
+      "recall@5": 0.2956,
+      "hit@5": 0.75,
+      "mrr@5": 0.5,
+      "ndcg@5": 0.4516,
+      "recall@10": 0.2956,
+      "hit@10": 0.75,
+      "mrr@10": 0.5,
+      "ndcg@10": 0.3351,
+      "n": 12
+    },
+    "gold_integrity": {
+      "queries_with_missing_golds": 0,
+      "total_missing_gold_docs": 0
+    },
+    "abstention": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "n_unanswerable": 21,
+      "false_abstentions": 0
+    },
+    "latency_ms": {
+      "p50": 254.5,
+      "p95": 457.4,
+      "mean": 326.0
+    },
+    "slices": {
+      "source": {
+        "app_sidebar": {
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "mrr@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@5": 0.2667,
+          "hit@5": 1.0,
+          "mrr@5": 0.5,
+          "ndcg@5": 0.6608,
+          "recall@10": 0.2667,
+          "hit@10": 1.0,
+          "mrr@10": 0.5,
+          "ndcg@10": 0.4288,
+          "n": 1
+        },
+        "autocomplete": {
+          "recall@1": 0.0477,
+          "hit@1": 0.2727,
+          "mrr@1": 0.2727,
+          "ndcg@1": 0.2727,
+          "recall@5": 0.2983,
+          "hit@5": 0.7273,
+          "mrr@5": 0.5,
+          "ndcg@5": 0.4326,
+          "recall@10": 0.2983,
+          "hit@10": 0.7273,
+          "mrr@10": 0.5,
+          "ndcg@10": 0.3266,
+          "n": 11
+        }
+      },
+      "intent": {
+        "attribute": {
+          "recall@1": 0.0955,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.4318,
+          "hit@5": 1.0,
+          "mrr@5": 1.0,
+          "ndcg@5": 0.9344,
+          "recall@10": 0.4318,
+          "hit@10": 1.0,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.6064,
+          "n": 2
+        },
+        "budget_search": {
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "mrr@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@5": 0.0,
+          "hit@5": 0.0,
+          "mrr@5": 0.0,
+          "ndcg@5": 0.0,
+          "recall@10": 0.0,
+          "hit@10": 0.0,
+          "mrr@10": 0.0,
+          "ndcg@10": 0.0,
+          "n": 3
+        },
+        "off_topic": {},
+        "out_of_catalogue": {},
+        "policy": {},
+        "product_search": {
+          "recall@1": 0.0476,
+          "hit@1": 0.1429,
+          "mrr@1": 0.1429,
+          "ndcg@1": 0.1429,
+          "recall@5": 0.3834,
+          "hit@5": 1.0,
+          "mrr@5": 0.5714,
+          "ndcg@5": 0.5073,
+          "recall@10": 0.3834,
+          "hit@10": 1.0,
+          "mrr@10": 0.5714,
+          "ndcg@10": 0.4013,
+          "n": 7
+        }
+      },
+      "answerable": {
+        "False": {},
+        "True": {
+          "recall@1": 0.0437,
+          "hit@1": 0.25,
+          "mrr@1": 0.25,
+          "ndcg@1": 0.25,
+          "recall@5": 0.2956,
+          "hit@5": 0.75,
+          "mrr@5": 0.5,
+          "ndcg@5": 0.4516,
+          "recall@10": 0.2956,
+          "hit@10": 0.75,
+          "mrr@10": 0.5,
+          "ndcg@10": 0.3351,
+          "n": 12
+        }
+      },
+      "has_budget": {
+        "False": {
+          "recall@1": 0.0582,
+          "hit@1": 0.3333,
+          "mrr@1": 0.3333,
+          "ndcg@1": 0.3333,
+          "recall@5": 0.3942,
+          "hit@5": 1.0,
+          "mrr@5": 0.6667,
+          "ndcg@5": 0.6022,
+          "recall@10": 0.3942,
+          "hit@10": 1.0,
+          "mrr@10": 0.6667,
+          "ndcg@10": 0.4468,
+          "n": 9
+        },
+        "True": {
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "mrr@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@5": 0.0,
+          "hit@5": 0.0,
+          "mrr@5": 0.0,
+          "ndcg@5": 0.0,
+          "recall@10": 0.0,
+          "hit@10": 0.0,
+          "mrr@10": 0.0,
+          "ndcg@10": 0.0,
+          "n": 3
+        }
+      }
+    },
+    "config": "dense",
+    "state": "corrupt",
+    "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+    "golden_reviewed": false,
+    "generated_at": "2026-08-12T11:07:54.492278+00:00"
+  },
+  "dense@repaired": {
+    "n_queries": 33,
+    "retrieval_raw": {
+      "recall@1": 0.0576,
+      "hit@1": 0.4167,
+      "mrr@1": 0.4167,
+      "ndcg@1": 0.4167,
+      "recall@5": 0.4626,
+      "hit@5": 0.8333,
+      "mrr@5": 0.6,
+      "ndcg@5": 0.5823,
+      "recall@10": 0.4626,
+      "hit@10": 0.8333,
+      "mrr@10": 0.6,
+      "ndcg@10": 0.445,
+      "n": 12
+    },
+    "retrieval_restricted_to_present_golds": {
+      "recall@1": 0.0585,
+      "hit@1": 0.4167,
+      "mrr@1": 0.4167,
+      "ndcg@1": 0.4167,
+      "recall@5": 0.4654,
+      "hit@5": 0.8333,
+      "mrr@5": 0.6,
+      "ndcg@5": 0.5823,
+      "recall@10": 0.4654,
+      "hit@10": 0.8333,
+      "mrr@10": 0.6,
+      "ndcg@10": 0.4476,
+      "n": 12
+    },
+    "gold_integrity": {
+      "queries_with_missing_golds": 1,
+      "total_missing_gold_docs": 1
+    },
+    "abstention": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "n_unanswerable": 21,
+      "false_abstentions": 0
+    },
+    "latency_ms": {
+      "p50": 258.1,
+      "p95": 625.5,
+      "mean": 318.3
+    },
+    "slices": {
+      "source": {
+        "app_sidebar": {
+          "recall@1": 0.0667,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.2667,
+          "hit@5": 1.0,
+          "mrr@5": 1.0,
+          "ndcg@5": 0.8688,
+          "recall@10": 0.2667,
+          "hit@10": 1.0,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.5638,
+          "n": 1
+        },
+        "autocomplete": {
+          "recall@1": 0.0567,
+          "hit@1": 0.3636,
+          "mrr@1": 0.3636,
+          "ndcg@1": 0.3636,
+          "recall@5": 0.4804,
+          "hit@5": 0.8182,
+          "mrr@5": 0.5636,
+          "ndcg@5": 0.5563,
+          "recall@10": 0.4804,
+          "hit@10": 0.8182,
+          "mrr@10": 0.5636,
+          "ndcg@10": 0.4343,
+          "n": 11
+        }
+      },
+      "intent": {
+        "attribute": {
+          "recall@1": 0.0955,
+          "hit@1": 1.0,
+          "mrr@1": 1.0,
+          "ndcg@1": 1.0,
+          "recall@5": 0.4773,
+          "hit@5": 1.0,
+          "mrr@5": 1.0,
+          "ndcg@5": 1.0,
+          "recall@10": 0.4773,
+          "hit@10": 1.0,
+          "mrr@10": 1.0,
+          "ndcg@10": 0.6489,
+          "n": 2
+        },
+        "budget_search": {
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "mrr@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@5": 0.3333,
+          "hit@5": 0.3333,
+          "mrr@5": 0.0667,
+          "ndcg@5": 0.129,
+          "recall@10": 0.3333,
+          "hit@10": 0.3333,
+          "mrr@10": 0.0667,
+          "ndcg@10": 0.129,
+          "n": 3
+        },
+        "off_topic": {},
+        "out_of_catalogue": {},
+        "policy": {},
+        "product_search": {
+          "recall@1": 0.0714,
+          "hit@1": 0.4286,
+          "mrr@1": 0.4286,
+          "ndcg@1": 0.4286,
+          "recall@5": 0.5139,
+          "hit@5": 1.0,
+          "mrr@5": 0.7143,
+          "ndcg@5": 0.6573,
+          "recall@10": 0.5139,
+          "hit@10": 1.0,
+          "mrr@10": 0.7143,
+          "ndcg@10": 0.5223,
+          "n": 7
+        }
+      },
+      "answerable": {
+        "False": {},
+        "True": {
+          "recall@1": 0.0576,
+          "hit@1": 0.4167,
+          "mrr@1": 0.4167,
+          "ndcg@1": 0.4167,
+          "recall@5": 0.4626,
+          "hit@5": 0.8333,
+          "mrr@5": 0.6,
+          "ndcg@5": 0.5823,
+          "recall@10": 0.4626,
+          "hit@10": 0.8333,
+          "mrr@10": 0.6,
+          "ndcg@10": 0.445,
+          "n": 12
+        }
+      },
+      "has_budget": {
+        "False": {
+          "recall@1": 0.0768,
+          "hit@1": 0.5556,
+          "mrr@1": 0.5556,
+          "ndcg@1": 0.5556,
+          "recall@5": 0.5057,
+          "hit@5": 1.0,
+          "mrr@5": 0.7778,
+          "ndcg@5": 0.7334,
+          "recall@10": 0.5057,
+          "hit@10": 1.0,
+          "mrr@10": 0.7778,
+          "ndcg@10": 0.5504,
+          "n": 9
+        },
+        "True": {
+          "recall@1": 0.0,
+          "hit@1": 0.0,
+          "mrr@1": 0.0,
+          "ndcg@1": 0.0,
+          "recall@5": 0.3333,
+          "hit@5": 0.3333,
+          "mrr@5": 0.0667,
+          "ndcg@5": 0.129,
+          "recall@10": 0.3333,
+          "hit@10": 0.3333,
+          "mrr@10": 0.0667,
+          "ndcg@10": 0.129,
+          "n": 3
+        }
+      }
+    },
+    "config": "dense",
+    "state": "repaired",
+    "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+    "golden_reviewed": false,
+    "generated_at": "2026-08-12T11:08:05.671683+00:00"
+  }
+}

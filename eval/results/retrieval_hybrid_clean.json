@@ -1,0 +1,188 @@
+{
+  "n_queries": 33,
+  "retrieval_raw": {
+    "recall@1": 0.127,
+    "hit@1": 0.5833,
+    "mrr@1": 0.5833,
+    "ndcg@1": 0.5833,
+    "recall@5": 0.4168,
+    "hit@5": 0.8333,
+    "mrr@5": 0.6944,
+    "ndcg@5": 0.5454,
+    "recall@10": 0.4168,
+    "hit@10": 0.8333,
+    "mrr@10": 0.6944,
+    "ndcg@10": 0.4402,
+    "n": 12
+  },
+  "retrieval_restricted_to_present_golds": {
+    "recall@1": 0.127,
+    "hit@1": 0.5833,
+    "mrr@1": 0.5833,
+    "ndcg@1": 0.5833,
+    "recall@5": 0.4168,
+    "hit@5": 0.8333,
+    "mrr@5": 0.6944,
+    "ndcg@5": 0.5454,
+    "recall@10": 0.4168,
+    "hit@10": 0.8333,
+    "mrr@10": 0.6944,
+    "ndcg@10": 0.4402,
+    "n": 12
+  },
+  "gold_integrity": {
+    "queries_with_missing_golds": 0,
+    "total_missing_gold_docs": 0
+  },
+  "abstention": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "n_unanswerable": 21,
+    "false_abstentions": 0
+  },
+  "latency_ms": {
+    "p50": 285.7,
+    "p95": 931.9,
+    "mean": 409.3
+  },
+  "slices": {
+    "has_budget": {
+      "False": {
+        "recall@1": 0.1694,
+        "hit@1": 0.7778,
+        "mrr@1": 0.7778,
+        "ndcg@1": 0.7778,
+        "recall@5": 0.4446,
+        "hit@5": 1.0,
+        "mrr@5": 0.8704,
+        "ndcg@5": 0.6572,
+        "recall@10": 0.4446,
+        "hit@10": 1.0,
+        "mrr@10": 0.8704,
+        "ndcg@10": 0.5169,
+        "n": 9
+      },
+      "True": {
+        "recall@1": 0.0,
+        "hit@1": 0.0,
+        "mrr@1": 0.0,
+        "ndcg@1": 0.0,
+        "recall@5": 0.3333,
+        "hit@5": 0.3333,
+        "mrr@5": 0.1667,
+        "ndcg@5": 0.2103,
+        "recall@10": 0.3333,
+        "hit@10": 0.3333,
+        "mrr@10": 0.1667,
+        "ndcg@10": 0.2103,
+        "n": 3
+      }
+    },
+    "answerable": {
+      "False": {},
+      "True": {
+        "recall@1": 0.127,
+        "hit@1": 0.5833,
+        "mrr@1": 0.5833,
+        "ndcg@1": 0.5833,
+        "recall@5": 0.4168,
+        "hit@5": 0.8333,
+        "mrr@5": 0.6944,
+        "ndcg@5": 0.5454,
+        "recall@10": 0.4168,
+        "hit@10": 0.8333,
+        "mrr@10": 0.6944,
+        "ndcg@10": 0.4402,
+        "n": 12
+      }
+    },
+    "source": {
+      "app_sidebar": {
+        "recall@1": 0.0667,
+        "hit@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@5": 0.2,
+        "hit@5": 1.0,
+        "mrr@5": 1.0,
+        "ndcg@5": 0.6164,
+        "recall@10": 0.2,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 0.4,
+        "n": 1
+      },
+      "autocomplete": {
+        "recall@1": 0.1325,
+        "hit@1": 0.5455,
+        "mrr@1": 0.5455,
+        "ndcg@1": 0.5455,
+        "recall@5": 0.4365,
+        "hit@5": 0.8182,
+        "mrr@5": 0.6667,
+        "ndcg@5": 0.539,
+        "recall@10": 0.4365,
+        "hit@10": 0.8182,
+        "mrr@10": 0.6667,
+        "ndcg@10": 0.4439,
+        "n": 11
+      }
+    },
+    "intent": {
+      "attribute": {
+        "recall@1": 0.0955,
+        "hit@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@5": 0.4318,
+        "hit@5": 1.0,
+        "mrr@5": 1.0,
+        "ndcg@5": 0.927,
+        "recall@10": 0.4318,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 0.6015,
+        "n": 2
+      },
+      "budget_search": {
+        "recall@1": 0.0,
+        "hit@1": 0.0,
+        "mrr@1": 0.0,
+        "ndcg@1": 0.0,
+        "recall@5": 0.3333,
+        "hit@5": 0.3333,
+        "mrr@5": 0.1667,
+        "ndcg@5": 0.2103,
+        "recall@10": 0.3333,
+        "hit@10": 0.3333,
+        "mrr@10": 0.1667,
+        "ndcg@10": 0.2103,
+        "n": 3
+      },
+      "off_topic": {},
+      "out_of_catalogue": {},
+      "policy": {},
+      "product_search": {
+        "recall@1": 0.1905,
+        "hit@1": 0.7143,
+        "mrr@1": 0.7143,
+        "ndcg@1": 0.7143,
+        "recall@5": 0.4482,
+        "hit@5": 1.0,
+        "mrr@5": 0.8333,
+        "ndcg@5": 0.5801,
+        "recall@10": 0.4482,
+        "hit@10": 1.0,
+        "mrr@10": 0.8333,
+        "ndcg@10": 0.4927,
+        "n": 7
+      }
+    }
+  },
+  "config": "hybrid",
+  "state": "clean",
+  "config_description": "BM25 sparse + dense, fused with RRF. Isolates lexical matching.",
+  "golden_reviewed": false,
+  "generated_at": "2026-08-12T11:03:02.659770+00:00"
+}

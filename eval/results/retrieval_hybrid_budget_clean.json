@@ -1,0 +1,188 @@
+{
+  "n_queries": 33,
+  "retrieval_raw": {
+    "recall@1": 0.2548,
+    "hit@1": 0.8333,
+    "mrr@1": 0.8333,
+    "ndcg@1": 0.8333,
+    "recall@5": 0.5668,
+    "hit@5": 1.0,
+    "mrr@5": 0.9028,
+    "ndcg@5": 0.7319,
+    "recall@10": 0.5668,
+    "hit@10": 1.0,
+    "mrr@10": 0.9028,
+    "ndcg@10": 0.6267,
+    "n": 12
+  },
+  "retrieval_restricted_to_present_golds": {
+    "recall@1": 0.2548,
+    "hit@1": 0.8333,
+    "mrr@1": 0.8333,
+    "ndcg@1": 0.8333,
+    "recall@5": 0.5668,
+    "hit@5": 1.0,
+    "mrr@5": 0.9028,
+    "ndcg@5": 0.7319,
+    "recall@10": 0.5668,
+    "hit@10": 1.0,
+    "mrr@10": 0.9028,
+    "ndcg@10": 0.6267,
+    "n": 12
+  },
+  "gold_integrity": {
+    "queries_with_missing_golds": 0,
+    "total_missing_gold_docs": 0
+  },
+  "abstention": {
+    "precision": 1.0,
+    "recall": 0.0476,
+    "f1": 0.0909,
+    "n_unanswerable": 21,
+    "false_abstentions": 0
+  },
+  "latency_ms": {
+    "p50": 272.7,
+    "p95": 538.1,
+    "mean": 333.2
+  },
+  "slices": {
+    "has_budget": {
+      "False": {
+        "recall@1": 0.1694,
+        "hit@1": 0.7778,
+        "mrr@1": 0.7778,
+        "ndcg@1": 0.7778,
+        "recall@5": 0.4446,
+        "hit@5": 1.0,
+        "mrr@5": 0.8704,
+        "ndcg@5": 0.6572,
+        "recall@10": 0.4446,
+        "hit@10": 1.0,
+        "mrr@10": 0.8704,
+        "ndcg@10": 0.5169,
+        "n": 9
+      },
+      "True": {
+        "recall@1": 0.5111,
+        "hit@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@5": 0.9333,
+        "hit@5": 1.0,
+        "mrr@5": 1.0,
+        "ndcg@5": 0.9563,
+        "recall@10": 0.9333,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 0.9563,
+        "n": 3
+      }
+    },
+    "answerable": {
+      "False": {},
+      "True": {
+        "recall@1": 0.2548,
+        "hit@1": 0.8333,
+        "mrr@1": 0.8333,
+        "ndcg@1": 0.8333,
+        "recall@5": 0.5668,
+        "hit@5": 1.0,
+        "mrr@5": 0.9028,
+        "ndcg@5": 0.7319,
+        "recall@10": 0.5668,
+        "hit@10": 1.0,
+        "mrr@10": 0.9028,
+        "ndcg@10": 0.6267,
+        "n": 12
+      }
+    },
+    "source": {
+      "app_sidebar": {
+        "recall@1": 0.0667,
+        "hit@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@5": 0.2,
+        "hit@5": 1.0,
+        "mrr@5": 1.0,
+        "ndcg@5": 0.6164,
+        "recall@10": 0.2,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 0.4,
+        "n": 1
+      },
+      "autocomplete": {
+        "recall@1": 0.2719,
+        "hit@1": 0.8182,
+        "mrr@1": 0.8182,
+        "ndcg@1": 0.8182,
+        "recall@5": 0.6001,
+        "hit@5": 1.0,
+        "mrr@5": 0.8939,
+        "ndcg@5": 0.7424,
+        "recall@10": 0.6001,
+        "hit@10": 1.0,
+        "mrr@10": 0.8939,
+        "ndcg@10": 0.6473,
+        "n": 11
+      }
+    },
+    "intent": {
+      "attribute": {
+        "recall@1": 0.0955,
+        "hit@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@5": 0.4318,
+        "hit@5": 1.0,
+        "mrr@5": 1.0,
+        "ndcg@5": 0.927,
+        "recall@10": 0.4318,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 0.6015,
+        "n": 2
+      },
+      "budget_search": {
+        "recall@1": 0.5111,
+        "hit@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@5": 0.9333,
+        "hit@5": 1.0,
+        "mrr@5": 1.0,
+        "ndcg@5": 0.9563,
+        "recall@10": 0.9333,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 0.9563,
+        "n": 3
+      },
+      "off_topic": {},
+      "out_of_catalogue": {},
+      "policy": {},
+      "product_search": {
+        "recall@1": 0.1905,
+        "hit@1": 0.7143,
+        "mrr@1": 0.7143,
+        "ndcg@1": 0.7143,
+        "recall@5": 0.4482,
+        "hit@5": 1.0,
+        "mrr@5": 0.8333,
+        "ndcg@5": 0.5801,
+        "recall@10": 0.4482,
+        "hit@10": 1.0,
+        "mrr@10": 0.8333,
+        "ndcg@10": 0.4927,
+        "n": 7
+      }
+    }
+  },
+  "config": "hybrid_budget",
+  "state": "clean",
+  "config_description": "Hybrid + budget filter. No reranker (it cost 10x latency for no gain).",
+  "golden_reviewed": false,
+  "generated_at": "2026-08-12T11:03:14.240812+00:00"
+}

@@ -1,0 +1,98 @@
+[project]
+name = "rag-flowers"
+version = "0.1.0"
+description = "Evaluated RAG pipeline for Vietnamese e-commerce product Q&A"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+
+dependencies = [
+    # Vector DB. >=1.12 required for the Query API (prefetch + FusionQuery) and
+    # sparse vectors. The legacy code pinned 1.7.1 and called the deprecated
+    # client.search().
+    "qdrant-client[fastembed]>=1.12",
+
+    # Embeddings + reranking (CPU).
+    #
+    # transformers is capped below 5.0 on purpose. The gte-multilingual models
+    # ship custom architecture code (trust_remote_code) written against the 4.x
+    # internals; on transformers 5.15 the weights load fine but inference dies
+    # with a garbage-index IndexError inside the custom attention. Verified on
+    # this machine — see docs/decisions.md.
+    "sentence-transformers>=3.0,<5",
+    "transformers>=4.44,<5",
+    "torch",
+
+    # Generation.
+    "google-generativeai>=0.8.4",
+
+    # Evaluation.
+    "ragas>=0.2",
+    "langchain-google-genai>=2.0",
+
+    # Ingest. Crawl4AI was evaluated and dropped — the site is static HTML and
+    # exposes clean per-product copy in meta[name=description], so a headless
+    # browser bought nothing for ~400MB. See docs/decisions.md D4.
+    "httpx>=0.27",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.0",
+
+    # App + shared.
+    "streamlit>=1.42",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.0",
+    "pandas>=2.0",
+    "tqdm>=4.66",
+    "python-dotenv>=1.0",
+    "Pillow>=11.0",
+    "requests>=2.31",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "nbstripout>=0.7",
+]
+
+# Force CPU-only torch wheels. Without this uv pulls ~2.5GB of CUDA wheels that
+# are useless on this machine.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rag"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "C4", "SIM", "RUF"]
+ignore = [
+    # Broad `except Exception` is deliberate in this codebase and always paired
+    # with a log line: LLM retry loops, optional-import probes, and best-effort
+    # fallbacks that must degrade rather than abort a crawl or a chat turn.
+    "BLE001",
+    "E501",  # line length is enforced by the formatter, not the linter
+]
+
+[tool.ruff.lint.per-file-ignores]
+# Tests reach into private helpers on purpose to pin regression behaviour.
+"tests/*" = ["SLF001"]
+# The Streamlit entrypoints must set sys.path before importing the package,
+# because Streamlit Cloud never pip-installs it (see chatbot.py docstring).
+"app/*" = ["E402"]
+"chatbot.py" = ["E402"]

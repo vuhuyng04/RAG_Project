@@ -1,0 +1,34 @@
+{
+  "state": "repaired",
+  "generated_at": "2026-08-12T11:59:13.353265+00:00",
+  "documents": 470,
+  "null_rate": {
+    "title": 0.0,
+    "description": 0.0234,
+    "price_raw": 0.0319,
+    "price_vnd": 0.1191,
+    "image": 0.0
+  },
+  "null_count": {
+    "title": 0,
+    "description": 11,
+    "price_raw": 15,
+    "price_vnd": 56,
+    "image": 0
+  },
+  "boilerplate_ratio_embed_text": 0.1622,
+  "repeated_passage_doc_rate": 0.0128,
+  "boilerplate_ratio_promo": 0.9193,
+  "boilerplate_ratio_description": 0.128,
+  "duplicate_urls": 0,
+  "duplicate_content_hashes": 0,
+  "non_product_urls": 0,
+  "price_parse_rate": 0.8809,
+  "junk_embed_text": 0,
+  "embed_text_containing_nan_token": 0,
+  "freshness": {
+    "oldest_days": 0,
+    "newest_days": 0,
+    "median_days": 0
+  }
+}

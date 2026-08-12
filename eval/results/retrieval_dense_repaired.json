@@ -1,0 +1,188 @@
+{
+  "n_queries": 33,
+  "retrieval_raw": {
+    "recall@1": 0.0576,
+    "hit@1": 0.4167,
+    "mrr@1": 0.4167,
+    "ndcg@1": 0.4167,
+    "recall@5": 0.4626,
+    "hit@5": 0.8333,
+    "mrr@5": 0.6,
+    "ndcg@5": 0.5823,
+    "recall@10": 0.4626,
+    "hit@10": 0.8333,
+    "mrr@10": 0.6,
+    "ndcg@10": 0.445,
+    "n": 12
+  },
+  "retrieval_restricted_to_present_golds": {
+    "recall@1": 0.0585,
+    "hit@1": 0.4167,
+    "mrr@1": 0.4167,
+    "ndcg@1": 0.4167,
+    "recall@5": 0.4654,
+    "hit@5": 0.8333,
+    "mrr@5": 0.6,
+    "ndcg@5": 0.5823,
+    "recall@10": 0.4654,
+    "hit@10": 0.8333,
+    "mrr@10": 0.6,
+    "ndcg@10": 0.4476,
+    "n": 12
+  },
+  "gold_integrity": {
+    "queries_with_missing_golds": 1,
+    "total_missing_gold_docs": 1
+  },
+  "abstention": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "n_unanswerable": 21,
+    "false_abstentions": 0
+  },
+  "latency_ms": {
+    "p50": 258.1,
+    "p95": 625.5,
+    "mean": 318.3
+  },
+  "slices": {
+    "source": {
+      "app_sidebar": {
+        "recall@1": 0.0667,
+        "hit@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@5": 0.2667,
+        "hit@5": 1.0,
+        "mrr@5": 1.0,
+        "ndcg@5": 0.8688,
+        "recall@10": 0.2667,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 0.5638,
+        "n": 1
+      },
+      "autocomplete": {
+        "recall@1": 0.0567,
+        "hit@1": 0.3636,
+        "mrr@1": 0.3636,
+        "ndcg@1": 0.3636,
+        "recall@5": 0.4804,
+        "hit@5": 0.8182,
+        "mrr@5": 0.5636,
+        "ndcg@5": 0.5563,
+        "recall@10": 0.4804,
+        "hit@10": 0.8182,
+        "mrr@10": 0.5636,
+        "ndcg@10": 0.4343,
+        "n": 11
+      }
+    },
+    "intent": {
+      "attribute": {
+        "recall@1": 0.0955,
+        "hit@1": 1.0,
+        "mrr@1": 1.0,
+        "ndcg@1": 1.0,
+        "recall@5": 0.4773,
+        "hit@5": 1.0,
+        "mrr@5": 1.0,
+        "ndcg@5": 1.0,
+        "recall@10": 0.4773,
+        "hit@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 0.6489,
+        "n": 2
+      },
+      "budget_search": {
+        "recall@1": 0.0,
+        "hit@1": 0.0,
+        "mrr@1": 0.0,
+        "ndcg@1": 0.0,
+        "recall@5": 0.3333,
+        "hit@5": 0.3333,
+        "mrr@5": 0.0667,
+        "ndcg@5": 0.129,
+        "recall@10": 0.3333,
+        "hit@10": 0.3333,
+        "mrr@10": 0.0667,
+        "ndcg@10": 0.129,
+        "n": 3
+      },
+      "off_topic": {},
+      "out_of_catalogue": {},
+      "policy": {},
+      "product_search": {
+        "recall@1": 0.0714,
+        "hit@1": 0.4286,
+        "mrr@1": 0.4286,
+        "ndcg@1": 0.4286,
+        "recall@5": 0.5139,
+        "hit@5": 1.0,
+        "mrr@5": 0.7143,
+        "ndcg@5": 0.6573,
+        "recall@10": 0.5139,
+        "hit@10": 1.0,
+        "mrr@10": 0.7143,
+        "ndcg@10": 0.5223,
+        "n": 7
+      }
+    },
+    "answerable": {
+      "False": {},
+      "True": {
+        "recall@1": 0.0576,
+        "hit@1": 0.4167,
+        "mrr@1": 0.4167,
+        "ndcg@1": 0.4167,
+        "recall@5": 0.4626,
+        "hit@5": 0.8333,
+        "mrr@5": 0.6,
+        "ndcg@5": 0.5823,
+        "recall@10": 0.4626,
+        "hit@10": 0.8333,
+        "mrr@10": 0.6,
+        "ndcg@10": 0.445,
+        "n": 12
+      }
+    },
+    "has_budget": {
+      "False": {
+        "recall@1": 0.0768,
+        "hit@1": 0.5556,
+        "mrr@1": 0.5556,
+        "ndcg@1": 0.5556,
+        "recall@5": 0.5057,
+        "hit@5": 1.0,
+        "mrr@5": 0.7778,
+        "ndcg@5": 0.7334,
+        "recall@10": 0.5057,
+        "hit@10": 1.0,
+        "mrr@10": 0.7778,
+        "ndcg@10": 0.5504,
+        "n": 9
+      },
+      "True": {
+        "recall@1": 0.0,
+        "hit@1": 0.0,
+        "mrr@1": 0.0,
+        "ndcg@1": 0.0,
+        "recall@5": 0.3333,
+        "hit@5": 0.3333,
+        "mrr@5": 0.0667,
+        "ndcg@5": 0.129,
+        "recall@10": 0.3333,
+        "hit@10": 0.3333,
+        "mrr@10": 0.0667,
+        "ndcg@10": 0.129,
+        "n": 3
+      }
+    }
+  },
+  "config": "dense",
+  "state": "repaired",
+  "config_description": "Dense retrieval on the new pipeline. Isolates the corpus fix.",
+  "golden_reviewed": false,
+  "generated_at": "2026-08-12T11:08:05.671683+00:00"
+}

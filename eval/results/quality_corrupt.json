@@ -1,0 +1,34 @@
+{
+  "state": "corrupt",
+  "generated_at": "2026-08-12T11:59:11.077637+00:00",
+  "documents": 512,
+  "null_rate": {
+    "title": 0.0254,
+    "description": 0.0215,
+    "price_raw": 0.041,
+    "price_vnd": 0.127,
+    "image": 0.0098
+  },
+  "null_count": {
+    "title": 13,
+    "description": 11,
+    "price_raw": 21,
+    "price_vnd": 65,
+    "image": 5
+  },
+  "boilerplate_ratio_embed_text": 0.1706,
+  "repeated_passage_doc_rate": 0.1965,
+  "boilerplate_ratio_promo": 0.9184,
+  "boilerplate_ratio_description": 0.1305,
+  "duplicate_urls": 0,
+  "duplicate_content_hashes": 24,
+  "non_product_urls": 22,
+  "price_parse_rate": 0.873,
+  "junk_embed_text": 0,
+  "embed_text_containing_nan_token": 0,
+  "freshness": {
+    "oldest_days": 0,
+    "newest_days": 0,
+    "median_days": 0
+  }
+}

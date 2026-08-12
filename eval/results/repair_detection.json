@@ -1,0 +1,90 @@
+{
+  "seed": 42,
+  "n_clean_input": 483,
+  "n_corrupt_output": 512,
+  "corruption_summary": {
+    "missing_field": 39,
+    "boilerplate_flood": 121,
+    "price_corruption": 48,
+    "truncation": 39,
+    "mojibake": 29,
+    "duplication": 24,
+    "non_product_page": 5
+  },
+  "detection_summary": {
+    "non_product_page": 5,
+    "missing_field": 44,
+    "price_corruption": 65,
+    "truncation": 41,
+    "boilerplate_flood": 97,
+    "mojibake": 32,
+    "duplication": 25
+  },
+  "per_defect": {
+    "missing_field": {
+      "precision": 0.75,
+      "recall": 0.8462,
+      "f1": 0.7952,
+      "tp": 33,
+      "fp": 11,
+      "fn": 6
+    },
+    "boilerplate_flood": {
+      "precision": 0.9278,
+      "recall": 0.7438,
+      "f1": 0.8257,
+      "tp": 90,
+      "fp": 7,
+      "fn": 31
+    },
+    "non_product_page": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "tp": 5,
+      "fp": 0,
+      "fn": 0
+    },
+    "price_corruption": {
+      "precision": 0.7385,
+      "recall": 1.0,
+      "f1": 0.8496,
+      "tp": 48,
+      "fp": 17,
+      "fn": 0
+    },
+    "truncation": {
+      "precision": 0.9512,
+      "recall": 1.0,
+      "f1": 0.975,
+      "tp": 39,
+      "fp": 2,
+      "fn": 0
+    },
+    "mojibake": {
+      "precision": 0.9062,
+      "recall": 1.0,
+      "f1": 0.9508,
+      "tp": 29,
+      "fp": 3,
+      "fn": 0
+    },
+    "duplication": {
+      "precision": 0.96,
+      "recall": 1.0,
+      "f1": 0.9796,
+      "tp": 24,
+      "fp": 1,
+      "fn": 0
+    }
+  },
+  "overall_any_defect": {
+    "precision": 0.9959,
+    "recall": 0.949,
+    "f1": 0.9719,
+    "tp": 242,
+    "fp": 1,
+    "fn": 13
+  },
+  "macro_f1": 0.9108
+}
