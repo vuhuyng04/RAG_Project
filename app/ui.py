@@ -237,8 +237,13 @@ def render_citations(text: str, n_context: int) -> str:
     return re.sub(r"\[(\d{1,2})\]", _sub, text)
 
 
-def card_html(hit, index: int, cited: bool) -> str:
-    """One product card as a self-contained HTML block."""
+def card_html(hit, index: int, cited: bool, *, lab: bool = False) -> str:
+    """One product card as a self-contained HTML block.
+
+    `lab` adds retrieval scores. They are diagnostic values with no meaning to a
+    customer — "dense 0.873" answers a question nobody shopping for flowers is
+    asking — so the product view shows only the freshness date.
+    """
     payload = hit.payload or {}
     title = html.escape(hit.title or "Không có tên")
     price = html.escape(format_vnd(payload.get("price_vnd") or payload.get("price_raw")))
@@ -251,11 +256,13 @@ def card_html(hit, index: int, cited: bool) -> str:
     else:
         media = ""
 
-    tags = [f'<span class="tag">dense {hit.score:.3f}</span>']
-    if hit.rerank_score is not None:
-        tags.append(f'<span class="tag">rerank {hit.rerank_score:.3f}</span>')
+    tags = []
+    if lab:
+        tags.append(f'<span class="tag">dense {hit.score:.3f}</span>')
+        if hit.rerank_score is not None:
+            tags.append(f'<span class="tag">rerank {hit.rerank_score:.3f}</span>')
     if payload.get("crawled_at"):
-        tags.append(f'<span class="tag">{str(payload["crawled_at"])[:10]}</span>')
+        tags.append(f'<span class="tag">cập nhật {str(payload["crawled_at"])[:10]}</span>')
 
     rank_cls = "rank" if cited else "rank unused"
     rank_label = f"[{index}] đã dùng" if cited else f"[{index}]"

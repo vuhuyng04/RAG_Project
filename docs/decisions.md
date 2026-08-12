@@ -348,7 +348,39 @@ alongside it because the two answer different questions:
 | Boilerplate tokens (doc-freq ≥60%) | 49.6% | 20.9% | 17.1% | 16.2% |
 | Docs built from repeated passages | **56.0%** | **0.0%** | 19.7% | 1.3% |
 
-## D15 — Collection naming
+## D15 — The demo serves one configuration; experiment controls live behind `?lab=1`
+
+The app briefly exposed both a retrieval-strategy selector (8 options) and a
+corpus-state selector (4 options) in its main sidebar. That is an evaluation
+console wearing a product's clothes, and it fails on two counts:
+
+1. **Nothing a user can act on.** No customer shopping for flowers can choose
+   between `hybrid_budget` and `dense_rerank`. Presenting the choice implies the
+   answer quality is their responsibility.
+2. **A corpus state that must never be served.** `corrupt` is a deliberately
+   damaged index built for the repair experiment. Offering it in a dropdown next
+   to `clean` is one mis-click away from a real answer grounded in known-bad
+   data.
+
+The demo now serves `dense_budget` on `clean` — the measured-best configuration
+(D10) and also the cheapest of the strong ones. Everything else moved behind
+`?lab=1`, which additionally reveals retrieval scores on the cards and the
+per-stage latency bar. Selecting a non-production corpus in lab mode raises a
+visible warning.
+
+The same split applies inside a turn. A customer sees how their question was
+interpreted, which filters ran, and whether every statement is sourced — trust
+signals. Stage timings, dense/rerank scores and RRF details are diagnostics and
+stay in lab mode. Citation *errors* are the exception and surface in both: a
+user has more right to know an answer cited something non-existent than an
+engineer does.
+
+`tests/test_app_modes.py` parses the app's AST to assert every `selectbox` sits
+inside the `if lab:` branch, and cross-checks the production default against
+`eval/results/` so the demo cannot silently drift away from the configuration
+the numbers describe.
+
+## D16 — Collection naming
 
 Collections are `flowers_{baseline,clean,corrupt,repaired}` via
 `Settings.collection_for()`. Names describe the corpus state, which is what the

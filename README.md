@@ -202,8 +202,16 @@ Full detail in **[eval/README.md](eval/README.md)**. In brief:
   would dilute the query vector. A heuristic gate means self-contained questions
   cost zero LLM calls.
 - **Budget filtering** on a parsed integer price index — `dưới 500k`, `tầm 1 triệu`.
-- **Inspection panel** showing the query actually searched, filters applied,
-  citation validity, and a proportional latency breakdown by stage.
+- **Inspection panel** showing how the question was interpreted, which filters
+  applied, and whether every statement is sourced.
+
+The demo serves one configuration (`dense_budget` on the clean corpus) with no
+knobs. Retrieval strategies and corpus states are evaluation apparatus, not
+product features — an end user cannot meaningfully choose between
+`hybrid_budget` and `dense_rerank`, and `corrupt` is a deliberately damaged
+index that must never serve a real answer. They are reachable at
+[`?lab=1`](https://vuhuy-rag.streamlit.app/?lab=1), which also exposes retrieval
+scores and the per-stage latency breakdown.
 
 ---
 

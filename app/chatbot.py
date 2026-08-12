@@ -44,6 +44,31 @@ st.set_page_config(page_title="Hoa Tươi My My — Trợ lý tư vấn", page_i
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 
+# What the demo serves. `dense_budget` measured best on Recall@5 / MRR@5 /
+# nDCG@5 (docs/decisions.md D10) and is also the cheapest of the strong configs:
+# `full` and `dense_rerank` load a ~1.2GB cross-encoder on top of the embedding
+# model for a *worse* Recall@5 and ~10x the p95 latency.
+PRODUCTION_CONFIG = "dense_budget"
+PRODUCTION_STATE = "clean"
+
+SAMPLE_QUERIES = (
+    "hoa tặng mẹ ngày 20/10",
+    "kệ hoa khai trương dưới 1 triệu",
+    "bó hoa sinh nhật cho nữ",
+    "hoa chia buồn trang trọng",
+    "có freeship không",
+    "hoa cưới cần thơ",
+)
+
+
+def lab_mode_enabled() -> bool:
+    """Experiment controls are opt-in via ?lab=1."""
+    try:
+        return st.query_params.get("lab") in {"1", "true", "yes"}
+    except Exception:
+        return False
+
+
 # User-facing config descriptions. `RetrievalConfig.description` is the
 # developer-facing English rationale that ends up in eval/results/ — keeping the
 # two separate stops experiment notes leaking into the UI.
@@ -77,7 +102,7 @@ def load_image(url: str) -> bytes | None:
         return None
 
 
-def _render_grid(hits, cited: set[int]) -> None:
+def _render_grid(hits, cited: set[int], lab: bool = False) -> None:
     """Lay cards out row by row.
 
     One `st.columns(3)` for the whole list stacks each column independently, so
@@ -94,10 +119,10 @@ def _render_grid(hits, cited: set[int]) -> None:
             # block; st.image cannot participate in a CSS-controlled layout.
             hit.payload["_image_bytes"] = load_image(hit.payload.get("image", ""))
             with cols[offset_in_row]:
-                st.markdown(card_html(hit, index, index in cited), unsafe_allow_html=True)
+                st.markdown(card_html(hit, index, index in cited, lab=lab), unsafe_allow_html=True)
 
 
-def render_sources(answer) -> None:
+def render_sources(answer, lab: bool = False) -> None:
     """Product cards numbered to match the [n] chips in the answer."""
     if not answer.hits:
         return
@@ -106,8 +131,8 @@ def render_sources(answer) -> None:
 
     # When the answer cites nothing — because it refused, or grounded itself out
     # of the retrieved set — a prominent grid of five flower photos under the
-    # words "we don't have that information" reads exactly like the old broken
-    # behaviour it replaced. Demote it to a collapsed expander: still fully
+    # words "we don't have that information" reads as a recommendation the system
+    # explicitly declined to make. Demote it to a collapsed expander: still fully
     # inspectable, no longer presented as an answer.
     if not cited:
         with st.expander(f"Đã truy hồi {len(answer.hits)} sản phẩm — không dùng cái nào"):
@@ -115,7 +140,7 @@ def render_sources(answer) -> None:
                 "Hệ thống có tìm thấy các sản phẩm này nhưng câu trả lời không "
                 "dựa trên chúng. Hiển thị để bạn kiểm chứng."
             )
-            _render_grid(answer.hits, cited)
+            _render_grid(answer.hits, cited, lab)
         return
 
     st.markdown(
@@ -131,45 +156,56 @@ def render_answer(answer) -> None:
     st.markdown(render_citations(answer.text, len(answer.hits)), unsafe_allow_html=True)
 
 
-def render_trace(answer) -> None:
-    """Why these results — the panel that makes the system inspectable."""
-    with st.expander("Chi tiết truy hồi"):
+def render_trace(answer, lab: bool = False) -> None:
+    """Why these results.
+
+    Two audiences, so two levels. A customer needs to know the answer is
+    grounded and how their question was interpreted — that is a trust signal.
+    Stage timings, RRF details and score distributions are diagnostics, shown
+    only in lab mode.
+    """
+    c = answer.citations
+
+    # Correctness problems surface at both levels: a customer has more right to
+    # know the answer cited something that does not exist than an engineer does.
+    if c.invalid:
+        st.error(
+            f"Câu trả lời trích dẫn nguồn không tồn tại ({c.invalid}) — đã đánh dấu gạch ngang."
+        )
+
+    with st.expander("Vì sao có kết quả này"):
         rows = []
         if answer.was_condensed:
             rows.append(
                 trace_row(
-                    "Câu hỏi viết lại",
+                    "Hiểu câu hỏi thành",
                     f"<code>{html_escape(answer.query_used)}</code>"
-                    "<br><span class='tag'>bổ sung ngữ cảnh từ lịch sử hội thoại</span>",
+                    "<br><span class='tag'>bổ sung ngữ cảnh từ hội thoại trước</span>",
                 )
             )
-        else:
-            rows.append(
-                trace_row("Truy vấn tìm kiếm", f"<code>{html_escape(answer.query_used)}</code>")
-            )
-
         if answer.budget_applied:
-            rows.append(trace_row("Lọc ngân sách", f"≤ {format_vnd(answer.budget_applied)}"))
-
+            rows.append(trace_row("Lọc theo ngân sách", f"≤ {format_vnd(answer.budget_applied)}"))
         rows.append(
             trace_row(
-                "Sản phẩm truy hồi", f"{len(answer.hits)} · dùng {len(answer.citations.cited)}"
+                "Sản phẩm tham chiếu",
+                f"{len(c.cited)} trong {len(answer.hits)} sản phẩm tìm được",
             )
         )
-        rows.append(trace_row("Tổng thời gian", f"{answer.latency_ms:.0f} ms"))
+        rows.append(trace_row("Thời gian phản hồi", f"{answer.latency_ms / 1000:.1f} giây"))
         st.markdown("".join(rows), unsafe_allow_html=True)
 
+        if answer.abstained:
+            st.warning("Không sản phẩm nào đủ phù hợp — hệ thống không đưa ra gợi ý.")
+        elif c.is_valid and c.has_citations and not c.uncited_descriptive:
+            st.success("Mọi thông tin trong câu trả lời đều dẫn nguồn từ sản phẩm bên dưới.")
+
+        if not lab:
+            return
+
+        st.divider()
+        st.caption("Chẩn đoán (chế độ thí nghiệm)")
         if answer.timings:
             st.markdown(timing_bar_html(answer.timings), unsafe_allow_html=True)
-
-        c = answer.citations
-        if answer.abstained:
-            st.warning("Không sản phẩm nào vượt ngưỡng phù hợp — hệ thống từ chối trả lời.")
-        if c.invalid:
-            st.error(
-                f"Mô hình trích dẫn nguồn không tồn tại: {c.invalid}. "
-                "Đã đánh dấu gạch ngang trong câu trả lời."
-            )
         if c.uncited_claims:
             st.warning(
                 f"{len(c.uncited_claims)} khẳng định về giá hoặc mã sản phẩm không kèm trích dẫn."
@@ -177,10 +213,8 @@ def render_trace(answer) -> None:
         if c.uncited_descriptive:
             st.info(
                 f"{len(c.uncited_descriptive)} mô tả đặc điểm không kèm trích dẫn "
-                "(phát hiện bằng heuristic, độ chính xác thấp hơn)."
+                "(heuristic từ vựng, độ chính xác thấp hơn)."
             )
-        if c.is_valid and c.has_citations and not c.uncited_descriptive:
-            st.success("Mọi trích dẫn hợp lệ và mọi khẳng định đều có nguồn.")
 
 
 def main() -> None:
@@ -195,62 +229,56 @@ def main() -> None:
         # model.
         st.session_state.history = []
 
+    lab = lab_mode_enabled()
+    config_name, state_name = PRODUCTION_CONFIG, PRODUCTION_STATE
+
     with st.sidebar:
         logo = REPO_ROOT / "logo.png"
         if logo.exists():
             st.image(str(logo), width="stretch")
         st.markdown("### 🌸 Hoa Tươi My My")
-        st.caption("Trợ lý tư vấn sản phẩm — RAG có kiểm chứng")
-
-        st.divider()
-        st.markdown("**Cấu hình**")
-        # Default is dense_budget, not `full`, for two independent reasons:
-        #   1. It measured best on recall@5 / MRR@5 / nDCG@5 (docs/decisions.md D13).
-        #   2. `full` and `dense_rerank` load a ~1.2GB cross-encoder on top of the
-        #      embedding model, which will OOM on Streamlit Community Cloud's
-        #      ~1GB limit. They stay selectable for local A/B work.
-        config_name = st.selectbox(
-            "Chiến lược truy hồi",
-            list(CONFIGS),
-            index=list(CONFIGS).index("dense_budget"),
-            help=(
-                "Mỗi cấu hình chỉ khác nhau một cơ chế, để so sánh A/B được. "
-                "Các cấu hình có rerank cần nhiều RAM và có thể không chạy được trên bản demo."
-            ),
-        )
-        # RetrievalConfig.description is developer-facing English that explains
-        # the experiment design; it belongs in eval/results/, not in a Vietnamese
-        # user interface.
-        st.caption(CONFIG_LABELS_VI.get(config_name, ""))
-
-        state_name = st.selectbox(
-            "Trạng thái dữ liệu",
-            [s.value for s in State],
-            index=[s.value for s in State].index("clean"),
-            help="baseline = nối thẳng mọi field; corrupt/repaired dùng cho thí nghiệm sửa lỗi dữ liệu.",
-        )
+        st.caption("Trợ lý tư vấn sản phẩm")
 
         st.divider()
         st.markdown("**Thử nhanh**")
-        samples = [
-            "hoa tặng mẹ ngày 20/10",
-            "kệ hoa khai trương dưới 1 triệu",
-            "bó hoa sinh nhật cho nữ",
-            "hoa chia buồn trang trọng",
-            "có freeship không",
-            "hoa cưới cần thơ",
-        ]
         clicked = None
-        for s in samples:
+        for s in SAMPLE_QUERIES:
             if st.button(s, width="stretch", key=f"s_{s}"):
                 clicked = s
 
         st.divider()
-        if st.button("🗑️ Xoá hội thoại", width="stretch"):
+        if st.button("Xoá hội thoại", width="stretch"):
             st.session_state.messages = []
             st.session_state.history = []
             st.rerun()
 
+        # Experiment controls are hidden by default. Retrieval strategies and
+        # corpus states are evaluation apparatus, not product features: an end
+        # user has no way to choose between `hybrid_budget` and `dense_rerank`,
+        # and `corrupt` is a deliberately damaged index that must never serve a
+        # real answer. They stay reachable at ?lab=1 so the A/B work can be
+        # demonstrated without cluttering the product.
+        if lab:
+            st.divider()
+            st.markdown("**🔬 Chế độ thí nghiệm**")
+            config_name = st.selectbox(
+                "Chiến lược truy hồi",
+                list(CONFIGS),
+                index=list(CONFIGS).index(PRODUCTION_CONFIG),
+                help="Mỗi cấu hình chỉ khác nhau một cơ chế, để so sánh A/B được.",
+            )
+            st.caption(CONFIG_LABELS_VI.get(config_name, ""))
+
+            state_name = st.selectbox(
+                "Trạng thái dữ liệu",
+                [s.value for s in State],
+                index=[s.value for s in State].index(PRODUCTION_STATE),
+                help="baseline = nối thẳng mọi field; corrupt/repaired là dữ liệu hỏng có chủ đích.",
+            )
+            if state_name != PRODUCTION_STATE:
+                st.warning(f"Đang dùng dữ liệu `{state_name}`, không phải dữ liệu sản xuất.")
+
+        st.divider()
         st.caption(f"Model: `{settings.gemini_model}`")
         st.caption(f"Embedding: `{settings.embedding_model.split('/')[-1]}`")
 
@@ -264,8 +292,8 @@ def main() -> None:
         with st.chat_message(msg["role"]):
             if msg.get("answer") is not None:
                 render_answer(msg["answer"])
-                render_sources(msg["answer"])
-                render_trace(msg["answer"])
+                render_sources(msg["answer"], lab)
+                render_trace(msg["answer"], lab)
             else:
                 st.markdown(msg["content"])
 
@@ -292,8 +320,8 @@ def main() -> None:
                 return
 
         render_answer(answer)
-        render_sources(answer)
-        render_trace(answer)
+        render_sources(answer, lab)
+        render_trace(answer, lab)
 
     st.session_state.messages.append(
         {"role": "assistant", "content": answer.text, "answer": answer}
