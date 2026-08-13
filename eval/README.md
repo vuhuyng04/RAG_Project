@@ -75,10 +75,18 @@ roles draw on separate daily budgets.
 uv run python -m scripts.build_golden --target 80
 ```
 
-> **Current status: the golden set is incomplete.** It stopped at 33 queries
-> (12 answerable) when the daily quota ran out mid-labelling — not because 33
-> was the target. Every row is `reviewed=false`. Retrieval numbers below are
-> **provisional** and the harness prints a warning saying so.
+> **Current status: the golden set is incomplete.** 35 queries (14 answerable)
+> of a 77-query sample. Labelling advances a few queries per run against the
+> 20-request/day/model quota, and **resumes**: already-labelled rows are loaded
+> and skipped, so a run only spends quota on new ones. Every row is
+> `reviewed=false`. Retrieval numbers below are **provisional** and the harness
+> prints a warning saying so.
+>
+> The sample is *monotone* in `--target` — raising it adds queries without
+> reshuffling existing ones — which is what makes daily progress accumulate.
+> An earlier version shuffled the combined list at the end, so each run judged a
+> different first-N and a full day's quota bought exactly one cache hit.
+> `tests/test_golden_sampling.py` pins the property.
 
 ## 3. Metrics
 
@@ -132,9 +140,10 @@ Writes one JSON per cell plus per-query records to `eval/results/`.
 
 Stated plainly because they bound every claim made from this data.
 
-1. **n=12 answerable queries.** One query changing outcome moves Recall@5 by
-   ~0.08. No clean-vs-baseline conclusion is supportable at this size, and the
-   current data in fact shows the baseline *ahead* (`docs/decisions.md` D9).
+1. **n=14 answerable queries.** Growing the set from 12 to 14 moved Recall@5 by
+   0.187 and reversed one A/B conclusion outright. No clean-vs-baseline
+   conclusion is supportable at this size, and the current data in fact shows
+   the baseline *ahead* (`docs/decisions.md` D9).
 2. **No human review pass yet.** All rows are `reviewed=false`.
 3. **Gold labels are LLM-assigned** over a pooled candidate set, with
    deterministic budget and leakage backstops. They are not expert annotations.
@@ -154,9 +163,11 @@ measurement.
   correct, flat scores are a success. Measured directly, clean scores *slightly
   worse* on spread than the baseline. (D7)
 - **Clean does not currently out-retrieve the naive baseline** on Recall@5 /
-  MRR@5 / nDCG@5 at n=12. (D9)
-- **BM25 hybrid cost -0.087 Recall@5** in both pairings, and cross-encoder
-  reranking cost ~10x p95 latency while lowering Recall@5. (D10)
+  MRR@5 / nDCG@5 at n=14, and the gap widened with the larger sample. (D9)
+- **The BM25 hybrid result reversed** between n=12 (-0.087 in both pairings)
+  and n=14 (+0.010 in one, -0.062 in the other). No direction is claimed. (D10)
+- **Cross-encoder reranking cost ~10x p95 latency for no Recall@5 gain.** This
+  one held across both sample sizes. (D10)
 - **Tuning was stopped deliberately.** One embed-text variant was tried; its
   metrics moved in opposite directions, i.e. noise. Continuing to search for a
   variant that reverses the result would be selecting a configuration by

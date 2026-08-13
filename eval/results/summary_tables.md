@@ -34,25 +34,25 @@ Macro F1 across defects: **0.911**
 
 | Config | Recall@5 | MRR@5 | nDCG@5 | Abstention F1 | p95 latency |
 |---|---|---|---|---|---|
-| `baseline` | 0.504 | 0.683 | 0.671 | 0.000 | 492 ms |
-| `dense` | 0.504 | 0.683 | 0.671 | 0.000 | 1626 ms |
-| `dense_threshold` | 0.504 | 0.683 | 0.671 | 0.250 | 276 ms |
-| `dense_budget` | 0.654 | 0.917 | 0.878 | 0.091 | 471 ms |
-| `hybrid` | 0.417 | 0.694 | 0.545 | 0.000 | 521 ms |
-| `hybrid_budget` | 0.567 | 0.903 | 0.732 | 0.091 | 468 ms |
-| `dense_rerank` | 0.405 | 0.646 | 0.614 | 0.250 | 7731 ms |
-| `full` | 0.493 | 0.750 | 0.708 | 0.320 | 6095 ms |
+| `baseline` | 0.317 | 0.524 | 0.455 | 0.000 | 613 ms |
+| `dense` | 0.317 | 0.524 | 0.455 | 0.000 | 553 ms |
+| `dense_threshold` | 0.317 | 0.524 | 0.455 | 0.250 | 607 ms |
+| `dense_budget` | 0.589 | 0.809 | 0.732 | 0.000 | 620 ms |
+| `hybrid` | 0.327 | 0.502 | 0.379 | 0.000 | 582 ms |
+| `hybrid_budget` | 0.527 | 0.752 | 0.610 | 0.000 | 659 ms |
+| `dense_rerank` | 0.313 | 0.482 | 0.438 | 0.250 | 6469 ms |
+| `full` | 0.532 | 0.667 | 0.626 | 0.250 | 8012 ms |
 
-n = 12 answerable queries. **Golden set not yet human-reviewed — provisional.**
+n = 14 answerable queries. **Golden set not yet human-reviewed — provisional.**
 
 
 ## Dense retrieval across corpus states
 
 | Corpus state | Recall@5 | MRR@5 | nDCG@5 |
 |---|---|---|---|
-| `baseline` | 0.514 | 0.958 | 0.766 |
-| `clean` | 0.504 | 0.683 | 0.671 |
-| `corrupt` | 0.296 | 0.500 | 0.452 |
-| `repaired` | 0.463 | 0.600 | 0.582 |
+| `baseline` | 0.476 | 0.893 | 0.676 |
+| `clean` | 0.317 | 0.524 | 0.455 |
+| `corrupt` | 0.223 | 0.429 | 0.339 |
+| `repaired` | 0.288 | 0.464 | 0.391 |
 
-Repair recovered **80.0%** of the Recall@5 lost to corruption (0.296 → 0.463, against a clean baseline of 0.504).
+Repair recovered **68.9%** of the Recall@5 lost to corruption (0.223 → 0.288, against a clean baseline of 0.317).

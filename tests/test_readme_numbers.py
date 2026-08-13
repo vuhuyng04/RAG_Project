@@ -111,14 +111,30 @@ def test_readme_states_the_sample_size_limitation() -> None:
 
 
 def test_readme_keeps_the_negative_results_section() -> None:
-    text = _readme()
-    assert "Negative results" in text
+    """The section must survive, and must carry the claims the data supports.
+
+    Deliberately does *not* pin a hybrid direction: that finding reversed
+    between n=12 and n=14, and a test asserting yesterday's conclusion would
+    have forced the README to keep repeating it.
+    """
+    text = _readme().lower()
+    assert "negative results" in text
     for claim in [
         "does not currently beat the naive baseline",
-        "hybrid hurts",
         "spread is not a quality metric",
+        "reranking costs",
     ]:
-        assert claim.lower() in text.lower(), f"missing negative result: {claim}"
+        assert claim in text, f"missing negative result: {claim}"
+
+
+def test_readme_reports_the_sample_volatility() -> None:
+    """The instability is the headline caveat and must be quantified, not vague."""
+    text = _readme()
+    n12 = 0.504  # dense@clean at n=12, from the previous committed run
+    n14 = _load("retrieval_dense_clean.json")["retrieval_raw"]["recall@5"]
+    assert f"{n12 - n14:.3f}" in text, (
+        f"README should state the {n12 - n14:.3f} swing that two extra queries caused"
+    )
 
 
 def test_no_placeholder_numbers_left() -> None:

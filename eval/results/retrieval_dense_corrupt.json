@@ -1,34 +1,34 @@
 {
-  "n_queries": 33,
+  "n_queries": 35,
   "retrieval_raw": {
-    "recall@1": 0.0437,
-    "hit@1": 0.25,
-    "mrr@1": 0.25,
-    "ndcg@1": 0.25,
-    "recall@5": 0.2956,
-    "hit@5": 0.75,
-    "mrr@5": 0.5,
-    "ndcg@5": 0.4516,
-    "recall@10": 0.2956,
-    "hit@10": 0.75,
-    "mrr@10": 0.5,
-    "ndcg@10": 0.3351,
-    "n": 12
+    "recall@1": 0.0382,
+    "hit@1": 0.2143,
+    "mrr@1": 0.2143,
+    "ndcg@1": 0.2143,
+    "recall@5": 0.2234,
+    "hit@5": 0.6429,
+    "mrr@5": 0.4286,
+    "ndcg@5": 0.3391,
+    "recall@10": 0.2234,
+    "hit@10": 0.6429,
+    "mrr@10": 0.4286,
+    "ndcg@10": 0.2636,
+    "n": 14
   },
   "retrieval_restricted_to_present_golds": {
-    "recall@1": 0.0437,
-    "hit@1": 0.25,
-    "mrr@1": 0.25,
-    "ndcg@1": 0.25,
-    "recall@5": 0.2956,
-    "hit@5": 0.75,
-    "mrr@5": 0.5,
-    "ndcg@5": 0.4516,
-    "recall@10": 0.2956,
-    "hit@10": 0.75,
-    "mrr@10": 0.5,
-    "ndcg@10": 0.3351,
-    "n": 12
+    "recall@1": 0.0382,
+    "hit@1": 0.2143,
+    "mrr@1": 0.2143,
+    "ndcg@1": 0.2143,
+    "recall@5": 0.2234,
+    "hit@5": 0.6429,
+    "mrr@5": 0.4286,
+    "ndcg@5": 0.3391,
+    "recall@10": 0.2234,
+    "hit@10": 0.6429,
+    "mrr@10": 0.4286,
+    "ndcg@10": 0.2636,
+    "n": 14
   },
   "gold_integrity": {
     "queries_with_missing_golds": 0,
@@ -42,25 +42,93 @@
     "false_abstentions": 0
   },
   "latency_ms": {
-    "p50": 281.1,
-    "p95": 559.6,
-    "mean": 335.8
+    "p50": 430.6,
+    "p95": 498.4,
+    "mean": 430.9
   },
   "slices": {
+    "answerable": {
+      "False": {},
+      "True": {
+        "recall@1": 0.0382,
+        "hit@1": 0.2143,
+        "mrr@1": 0.2143,
+        "ndcg@1": 0.2143,
+        "recall@5": 0.2234,
+        "hit@5": 0.6429,
+        "mrr@5": 0.4286,
+        "ndcg@5": 0.3391,
+        "recall@10": 0.2234,
+        "hit@10": 0.6429,
+        "mrr@10": 0.4286,
+        "ndcg@10": 0.2636,
+        "n": 14
+      }
+    },
+    "has_budget": {
+      "False": {
+        "recall@1": 0.0535,
+        "hit@1": 0.3,
+        "mrr@1": 0.3,
+        "ndcg@1": 0.3,
+        "recall@5": 0.3127,
+        "hit@5": 0.9,
+        "mrr@5": 0.6,
+        "ndcg@5": 0.4747,
+        "recall@10": 0.3127,
+        "hit@10": 0.9,
+        "mrr@10": 0.6,
+        "ndcg@10": 0.3691,
+        "n": 10
+      },
+      "True": {
+        "recall@1": 0.0,
+        "hit@1": 0.0,
+        "mrr@1": 0.0,
+        "ndcg@1": 0.0,
+        "recall@5": 0.0,
+        "hit@5": 0.0,
+        "mrr@5": 0.0,
+        "ndcg@5": 0.0,
+        "recall@10": 0.0,
+        "hit@10": 0.0,
+        "mrr@10": 0.0,
+        "ndcg@10": 0.0,
+        "n": 4
+      }
+    },
+    "source": {
+      "app_sidebar": {},
+      "autocomplete": {
+        "recall@1": 0.0382,
+        "hit@1": 0.2143,
+        "mrr@1": 0.2143,
+        "ndcg@1": 0.2143,
+        "recall@5": 0.2234,
+        "hit@5": 0.6429,
+        "mrr@5": 0.4286,
+        "ndcg@5": 0.3391,
+        "recall@10": 0.2234,
+        "hit@10": 0.6429,
+        "mrr@10": 0.4286,
+        "ndcg@10": 0.2636,
+        "n": 14
+      }
+    },
     "intent": {
       "attribute": {
-        "recall@1": 0.0955,
-        "hit@1": 1.0,
-        "mrr@1": 1.0,
-        "ndcg@1": 1.0,
-        "recall@5": 0.4318,
-        "hit@5": 1.0,
-        "mrr@5": 1.0,
-        "ndcg@5": 0.9344,
-        "recall@10": 0.4318,
-        "hit@10": 1.0,
-        "mrr@10": 1.0,
-        "ndcg@10": 0.6064,
+        "recall@1": 0.0714,
+        "hit@1": 0.5,
+        "mrr@1": 0.5,
+        "ndcg@1": 0.5,
+        "recall@5": 0.2143,
+        "hit@5": 0.5,
+        "mrr@5": 0.5,
+        "ndcg@5": 0.3274,
+        "recall@10": 0.2143,
+        "hit@10": 0.5,
+        "mrr@10": 0.5,
+        "ndcg@10": 0.2653,
         "n": 2
       },
       "budget_search": {
@@ -76,107 +144,25 @@
         "hit@10": 0.0,
         "mrr@10": 0.0,
         "ndcg@10": 0.0,
-        "n": 3
+        "n": 4
       },
       "off_topic": {},
       "out_of_catalogue": {},
       "policy": {},
       "product_search": {
-        "recall@1": 0.0476,
-        "hit@1": 0.1429,
-        "mrr@1": 0.1429,
-        "ndcg@1": 0.1429,
-        "recall@5": 0.3834,
-        "hit@5": 1.0,
-        "mrr@5": 0.5714,
-        "ndcg@5": 0.5073,
-        "recall@10": 0.3834,
-        "hit@10": 1.0,
-        "mrr@10": 0.5714,
-        "ndcg@10": 0.4013,
-        "n": 7
-      }
-    },
-    "answerable": {
-      "False": {},
-      "True": {
-        "recall@1": 0.0437,
+        "recall@1": 0.049,
         "hit@1": 0.25,
         "mrr@1": 0.25,
         "ndcg@1": 0.25,
-        "recall@5": 0.2956,
-        "hit@5": 0.75,
-        "mrr@5": 0.5,
-        "ndcg@5": 0.4516,
-        "recall@10": 0.2956,
-        "hit@10": 0.75,
-        "mrr@10": 0.5,
-        "ndcg@10": 0.3351,
-        "n": 12
-      }
-    },
-    "has_budget": {
-      "False": {
-        "recall@1": 0.0582,
-        "hit@1": 0.3333,
-        "mrr@1": 0.3333,
-        "ndcg@1": 0.3333,
-        "recall@5": 0.3942,
+        "recall@5": 0.3373,
         "hit@5": 1.0,
-        "mrr@5": 0.6667,
-        "ndcg@5": 0.6022,
-        "recall@10": 0.3942,
+        "mrr@5": 0.625,
+        "ndcg@5": 0.5116,
+        "recall@10": 0.3373,
         "hit@10": 1.0,
-        "mrr@10": 0.6667,
-        "ndcg@10": 0.4468,
-        "n": 9
-      },
-      "True": {
-        "recall@1": 0.0,
-        "hit@1": 0.0,
-        "mrr@1": 0.0,
-        "ndcg@1": 0.0,
-        "recall@5": 0.0,
-        "hit@5": 0.0,
-        "mrr@5": 0.0,
-        "ndcg@5": 0.0,
-        "recall@10": 0.0,
-        "hit@10": 0.0,
-        "mrr@10": 0.0,
-        "ndcg@10": 0.0,
-        "n": 3
-      }
-    },
-    "source": {
-      "app_sidebar": {
-        "recall@1": 0.0,
-        "hit@1": 0.0,
-        "mrr@1": 0.0,
-        "ndcg@1": 0.0,
-        "recall@5": 0.2667,
-        "hit@5": 1.0,
-        "mrr@5": 0.5,
-        "ndcg@5": 0.6608,
-        "recall@10": 0.2667,
-        "hit@10": 1.0,
-        "mrr@10": 0.5,
-        "ndcg@10": 0.4288,
-        "n": 1
-      },
-      "autocomplete": {
-        "recall@1": 0.0477,
-        "hit@1": 0.2727,
-        "mrr@1": 0.2727,
-        "ndcg@1": 0.2727,
-        "recall@5": 0.2983,
-        "hit@5": 0.7273,
-        "mrr@5": 0.5,
-        "ndcg@5": 0.4326,
-        "recall@10": 0.2983,
-        "hit@10": 0.7273,
-        "mrr@10": 0.5,
-        "ndcg@10": 0.3266,
-        "n": 11
+        "mrr@10": 0.625,
+        "ndcg@10": 0.395,
+        "n": 8
       }
     }
   },
@@ -184,5 +170,5 @@
   "state": "corrupt",
   "config_description": "Dense retrieval on the validated corpus. Isolates the ingestion design.",
   "golden_reviewed": false,
-  "generated_at": "2026-08-12T16:22:18.632928+00:00"
+  "generated_at": "2026-08-12T17:19:52.955778+00:00"
 }

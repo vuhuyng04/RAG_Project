@@ -87,8 +87,8 @@ afterwards.
 | `missing_field` | 0.750 | 0.846 | **0.795** |
 | **any defect** | 0.996 | 0.949 | **0.972** |
 
-Macro F1 **0.911**. Downstream, repair recovers **80.0%** of the Recall@5 lost to
-corruption (0.296 → 0.463, clean baseline 0.504).
+Macro F1 **0.911**. Downstream, repair recovers **68.9%** of the Recall@5 lost to
+corruption (0.223 → 0.288, clean baseline 0.317).
 
 **This design earned its keep.** Scoring detectors against a manifest exposed
 four bugs that were invisible without ground truth — `missing_field` at 0.000
@@ -103,20 +103,21 @@ Each rung adds exactly one mechanism, so a delta is attributable.
 
 | Config | Recall@5 | MRR@5 | nDCG@5 | Abstention F1 | p95 |
 |---|---|---|---|---|---|
-| `baseline` (naive control) | 0.504 | 0.683 | 0.671 | 0.000 | 492 ms |
-| `dense` | 0.504 | 0.683 | 0.671 | 0.000 | 1 626 ms |
-| `dense_threshold` | 0.504 | 0.683 | 0.671 | 0.250 | 276 ms |
-| **`dense_budget`** | **0.654** | **0.917** | **0.878** | 0.091 | **471 ms** |
-| `hybrid` (BM25 + RRF) | 0.417 | 0.694 | 0.545 | 0.000 | 521 ms |
-| `hybrid_budget` | 0.567 | 0.903 | 0.732 | 0.091 | 468 ms |
-| `dense_rerank` | 0.405 | 0.646 | 0.614 | 0.250 | 7 731 ms |
-| `full` | 0.493 | 0.750 | 0.708 | **0.320** | 6 095 ms |
+| `baseline` (naive control) | 0.317 | 0.524 | 0.455 | 0.000 | 613 ms |
+| `dense` | 0.317 | 0.524 | 0.455 | 0.000 | 553 ms |
+| `dense_threshold` | 0.317 | 0.524 | 0.455 | 0.250 | 607 ms |
+| **`dense_budget`** | **0.589** | **0.809** | **0.732** | 0.000 | **620 ms** |
+| `hybrid` (BM25 + RRF) | 0.327 | 0.502 | 0.379 | 0.000 | 582 ms |
+| `hybrid_budget` | 0.527 | 0.752 | 0.610 | 0.000 | 659 ms |
+| `dense_rerank` | 0.313 | 0.482 | 0.438 | 0.250 | 6 469 ms |
+| `full` | 0.532 | 0.667 | 0.626 | 0.250 | 8 012 ms |
 
 Parsing price into an integer payload index and filtering on it is worth
-**+0.150 Recall@5** — and it is impossible while price remains a formatted
-string. Abstention F1 moves 0.000 → 0.320 as the threshold and filter are added;
-the 0.000 baseline is literal, since a system without a threshold never declines
-to answer anything.
+**+0.272 Recall@5** — the largest effect measured, and impossible while price
+remains a formatted string. It is also the only conclusion that has held its
+sign and rough magnitude as the golden set grew.
+
+Reranking costs **~10× p95 latency** (620 ms → 6 469 ms) for no Recall@5 gain.
 
 ---
 
@@ -130,21 +131,28 @@ correct, flat scores are a *success*. Measured directly, the clean corpus scores
 slightly *worse* on spread than the baseline. It appears nowhere in the claims
 above. ([D7](docs/decisions.md))
 
-**The validated pipeline does not currently beat the naive baseline on
-retrieval.** `dense` scores Recall@5 0.504 on clean vs 0.514 on baseline. At
-n=12 this is noise, but it is not a result to hide: the corpus-health numbers
-are solid, the retrieval improvement is **unproven**.
+**Two extra golden queries moved Recall@5 by 0.187.** Growing the labelled set
+from 12 to 14 answerable queries dropped `dense` on the clean corpus from 0.504
+to 0.317 and repair recovery from 80.0% to 68.9%. A 14% larger sample moved the
+headline metric by 37% of its own value. This is the most important fact about
+every retrieval number here, and it is measured rather than asserted.
 ([D9](docs/decisions.md))
 
-**BM25 hybrid hurts** — −0.087 Recall@5 in both pairings. fastembed has no
-Vietnamese analyser (`language="vietnamese"` raises), so BM25 runs an English
-stemmer over Vietnamese text. Adding the `dense_budget` control cell is what
-revealed this: without it, `hybrid_budget` looked like the winner and the gain
-would have been credited to hybrid rather than the filter.
+**The validated pipeline does not currently beat the naive baseline on
+retrieval.** `dense` scores Recall@5 0.317 on clean vs 0.476 on baseline, and
+the gap *widened* with the larger sample. The corpus-health numbers are solid;
+the retrieval improvement is **unproven and currently contradicted**.
+([D9](docs/decisions.md))
+
+**The BM25 hybrid result reversed.** At n=12 it lost 0.087 Recall@5 in both
+pairings — a clean, consistent negative. At n=14 it *gains* 0.010 without the
+budget filter and loses 0.062 with it. The earlier conclusion was reported
+confidently and did not survive two more queries, which is exactly why the
+volatility above matters more than any single finding.
 ([D10](docs/decisions.md))
 
-**Cross-encoder reranking costs ~10× p95 latency and lowers Recall@5.**
-([D10](docs/decisions.md))
+**Cross-encoder reranking costs ~10× p95 latency for no Recall@5 gain.** This
+one has held across both sample sizes. ([D10](docs/decisions.md))
 
 **Tuning was stopped deliberately.** One embed-text variant was tried; its
 metrics moved in opposite directions. Continuing to search for a variant that
@@ -174,9 +182,10 @@ Full detail in **[eval/README.md](eval/README.md)**. In brief:
 
 ### ⚠️ Current limitations
 
-1. **n = 12 answerable queries.** Labelling stopped mid-run when the daily LLM
-   quota ran out. One query changing outcome moves Recall@5 by ~0.08.
-   **Every retrieval number above is provisional.** The corpus-quality and
+1. **n = 14 answerable queries.** Labelling advances a few queries per day
+   against a 20-request/day/model quota. Two additional queries moved Recall@5
+   by 0.187 and reversed one A/B conclusion, so **every retrieval number above
+   is provisional** and should be expected to move again. The corpus-quality and
    repair-detection figures are not affected — they are computed over the full
    corpus and against a complete manifest.
 2. **No human review pass yet** — all golden rows are `reviewed=false`.

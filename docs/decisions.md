@@ -165,20 +165,42 @@ extraction; ambiguous single-syllable keys removed; `giấy` narrowed to
 
 ## D9 — The validated pipeline does not currently out-retrieve the baseline
 
-Measured with the `dense` config across corpus states, n=12 answerable queries:
+Measured with the `dense` config across corpus states, n=14 answerable queries:
 
 | state | recall@5 | mrr@5 | ndcg@5 |
 |---|---|---|---|
-| baseline | **0.514** | **0.958** | **0.766** |
-| clean | 0.504 | 0.683 | 0.671 |
-| corrupt | 0.296 | 0.500 | 0.452 |
-| repaired | 0.463 | 0.600 | 0.582 |
+| baseline | **0.476** | **0.893** | **0.676** |
+| clean | 0.317 | 0.524 | 0.455 |
+| corrupt | 0.223 | 0.429 | 0.339 |
+| repaired | 0.288 | 0.464 | 0.391 |
+
+### How unstable this is, measured
+
+The golden set grew from 12 to 14 answerable queries. **Two queries.** What that
+did to the `dense` config on the clean corpus:
+
+| metric | n=12 | n=14 | Δ |
+|---|---|---|---|
+| recall@5 | 0.504 | 0.317 | **−0.187** |
+| mrr@5 | 0.683 | 0.524 | −0.159 |
+| repair recovery | 80.0% | 68.9% | −11.1pp |
+
+A 14% increase in sample size moved the headline metric by 37% of its own
+value. This is not a subtle caveat — it is the single most important fact about
+every retrieval number in this repository, and it is now measured rather than
+asserted. Any conclusion drawn from these figures today would very likely
+reverse at n=40.
+
+The corpus-quality and repair-detection figures are unaffected: they are
+computed over the full corpus (483–512 documents) and against a complete
+corruption manifest, not sampled.
 
 Two things follow, neither negotiable:
 
-**1. No clean-vs-baseline claim at this sample size.** A 0.010 gap on n=12 is
-noise; one query changing outcome moves recall@5 by ~0.08. The golden set has to
-grow before this comparison means anything.
+**1. No clean-vs-baseline claim at this sample size.** The gap widened from
+0.010 to 0.159 when two queries were added — in the same direction, but the
+magnitude is clearly not stable. The golden set has to grow before this
+comparison means anything either way.
 
 **2. Tuning stopped deliberately.** The obvious next move was hunting for a
 variant that reverses the result. One was tried — rebuilding `clean` without the
@@ -195,9 +217,12 @@ Continuing would be selecting a configuration by overfitting the evaluation set
 experiments are deferred until the golden set is adequate, and any variant
 chosen this way would have to be reported as such.
 
-**What the data does support:** corrupt 0.296 → repaired 0.463 against a clean
-baseline of 0.504, i.e. **80.0% of the lost retrieval quality restored**. That
-axis does not depend on the LLM quota at all.
+**What the data does support:** corrupt 0.223 → repaired 0.288 against a clean
+baseline of 0.317, i.e. **68.9% of the lost retrieval quality restored**. That
+axis does not depend on the LLM quota at all — though the ratio itself is
+computed from three sampled numbers and moved 11 points when the sample grew, so
+the *detection* F1 scores (measured against the full manifest) are the sturdier
+half of the repair story.
 
 A hypothesis worth testing once n is adequate: the baseline embeds promo
 boilerplate, which is flower-vocabulary-rich. Against *generic* queries that
@@ -212,38 +237,55 @@ Full A/B ladder on the clean corpus. Each rung adds exactly one mechanism.
 
 | config | recall@5 | mrr@5 | ndcg@5 | abstain F1 | p95 |
 |---|---|---|---|---|---|
-| baseline | 0.504 | 0.683 | 0.671 | 0.000 | 492 ms |
-| dense | 0.504 | 0.683 | 0.671 | 0.000 | 1 626 ms |
-| dense_threshold | 0.504 | 0.683 | 0.671 | 0.250 | 276 ms |
-| **dense_budget** | **0.654** | **0.917** | **0.878** | 0.091 | **471 ms** |
-| hybrid | 0.417 | 0.694 | 0.545 | 0.000 | 521 ms |
-| hybrid_budget | 0.567 | 0.903 | 0.732 | 0.091 | 468 ms |
-| dense_rerank | 0.405 | 0.646 | 0.614 | 0.250 | 7 731 ms |
-| full | 0.493 | 0.750 | 0.708 | **0.320** | 6 095 ms |
+| baseline | 0.317 | 0.524 | 0.455 | 0.000 | 613 ms |
+| dense | 0.317 | 0.524 | 0.455 | 0.000 | 553 ms |
+| dense_threshold | 0.317 | 0.524 | 0.455 | 0.250 | 607 ms |
+| **dense_budget** | **0.589** | **0.809** | **0.732** | 0.000 | **620 ms** |
+| hybrid | 0.327 | 0.502 | 0.379 | 0.000 | 582 ms |
+| hybrid_budget | 0.527 | 0.752 | 0.610 | 0.000 | 659 ms |
+| dense_rerank | 0.313 | 0.482 | 0.438 | 0.250 | 6 469 ms |
+| full | 0.532 | 0.667 | 0.626 | **0.250** | 8 012 ms |
 
-**BM25 hybrid consistently hurts**: dense 0.504 → hybrid 0.417 (−0.087), and
-dense_budget 0.654 → hybrid_budget 0.567 (−0.087). Likely cause: fastembed has
-no Vietnamese analyser (`language="vietnamese"` raises), so BM25 applies an
-English stemmer and English stopwords to Vietnamese text, surfacing weak lexical
-matches that RRF then promotes into the top-5.
+**The BM25 hybrid result did not survive a larger sample.** At n=12 it lost
+0.087 Recall@5 in *both* pairings — consistent enough to look like a real
+effect, and it was written up as one. At n=14:
+
+| pairing | n=12 | n=14 |
+|---|---|---|
+| dense → hybrid | −0.087 | **+0.010** |
+| dense_budget → hybrid_budget | −0.087 | −0.062 |
+
+The sign flipped in one pairing. The mechanism proposed for it — fastembed has
+no Vietnamese analyser (`language="vietnamese"` raises), so BM25 applies English
+stemming and stopwords to Vietnamese text — remains plausible, but the data no
+longer supports the conclusion it was invented to explain.
+
+Kept here as a worked example of the failure mode this project is about: a
+consistent-looking result across two cells of one small sample is still one
+small sample.
 
 ### The control cell that changed the conclusion
 
 `dense_budget` was **added after the first run**, which had only `dense`,
-`hybrid` and `hybrid_budget`. On that evidence `hybrid_budget` (0.567) was the
-top scorer and the natural write-up was "hybrid retrieval improved recall".
+`hybrid` and `hybrid_budget`. On that evidence `hybrid_budget` was the top
+scorer and the natural write-up was "hybrid retrieval improved recall".
 
-That would have been wrong. The control shows `dense_budget` (0.654) beats it,
-and the entire gain belongs to the **budget filter** — parsing `price_vnd` into
-an integer payload index and filtering on it.
+That would have been wrong. The control shows `dense_budget` (0.589) beats it
+(0.527), and the gain belongs to the **budget filter** — parsing `price_vnd`
+into an integer payload index and filtering on it.
 
 The lesson generalises: an A/B ladder missing one rung will attribute a gain to
 whichever mechanism happened to be bundled with it.
 
+Unlike the hybrid finding above, this one **strengthened** as the sample grew:
+the budget filter's advantage over plain dense went from +0.150 to +0.272, the
+same sign and a larger magnitude. It is the only retrieval conclusion here that
+has been stable across both sample sizes.
+
 The best configuration is also nearly the cheapest — `dense_budget` wins on all
-three quality metrics at 471 ms p95, an order of magnitude below the reranking
-configs. `full` retains one advantage, the best abstention F1 (0.320), being the
-only config combining a cosine threshold with the filter.
+three quality metrics at 620 ms p95, an order of magnitude below the reranking
+configs (6 469 ms). `full` retains an abstention advantage, being the only
+config combining a cosine threshold with the filter.
 
 ## D11 — Hybrid retrieval was not reproducible until ties were broken explicitly
 

@@ -7,6 +7,7 @@ logic here would let the measured system and the served system diverge.
 
 from __future__ import annotations
 
+import itertools
 import logging
 import sys
 from html import escape as html_escape
@@ -34,7 +35,7 @@ from ui import (
 )
 
 from rag.config import State, get_settings
-from rag.generation.answer import answer_question
+from rag.generation.answer import answer_question_stream
 from rag.retrieval.search import CONFIGS
 
 logging.basicConfig(level=logging.INFO)
@@ -77,7 +78,7 @@ CONFIG_LABELS_VI = {
     "dense": "Truy hồi dense trên dữ liệu đã qua kiểm định schema.",
     "dense_threshold": "Dense + ngưỡng từ chối khi không đủ phù hợp.",
     "dense_budget": "Dense + lọc theo ngân sách. Cấu hình đo tốt nhất và nhẹ nhất.",
-    "hybrid": "BM25 + dense, trộn bằng RRF. Đo được là kém hơn dense thuần.",
+    "hybrid": "BM25 + dense, trộn bằng RRF. Kết quả đo chưa ổn định giữa các lần.",
     "hybrid_budget": "Hybrid + lọc ngân sách.",
     "dense_rerank": "Lấy 20 rồi rerank còn 5. Chậm hơn ~10 lần, chất lượng không tăng.",
     "full": "Rerank + lọc ngân sách + ngưỡng. Từ chối tốt nhất nhưng nặng.",
@@ -306,20 +307,43 @@ def main() -> None:
         st.markdown(question)
 
     with st.chat_message("assistant"):
-        with st.spinner("Đang tìm sản phẩm phù hợp..."):
-            try:
-                answer = answer_question(
+        slot = st.empty()
+        answer = None
+        try:
+            # Retrieval runs before the first chunk arrives, so the spinner
+            # covers only that phase; generation then streams into `slot`.
+            with st.spinner("Đang tìm sản phẩm phù hợp..."):
+                stream = answer_question_stream(
                     question,
                     history=st.session_state.history,
                     state=State(state_name),
                     config=config_name,
                 )
-            except Exception as exc:
-                log.exception("Turn failed")
-                st.error(f"Lỗi: {exc}")
-                return
+                first = next(stream)
 
-        render_answer(answer)
+            parts = []
+            for item in itertools.chain([first], stream):
+                if isinstance(item, str):
+                    parts.append(item)
+                    # Render partial text through the same citation pass as the
+                    # final answer, so markers do not flicker between raw
+                    # brackets and chips as the text arrives.
+                    slot.markdown(render_citations("".join(parts), 99), unsafe_allow_html=True)
+                else:
+                    answer = item
+        except Exception as exc:
+            log.exception("Turn failed")
+            st.error(f"Lỗi: {exc}")
+            return
+
+        if answer is None:
+            st.error("Không nhận được câu trả lời hoàn chỉnh. Bạn thử lại giúp mình nhé.")
+            return
+
+        # Repaint from the validated text: streaming showed the raw output, and
+        # validation may have struck through citations that point nowhere.
+        with slot:
+            render_answer(answer)
         render_sources(answer, lab)
         render_trace(answer, lab)
 

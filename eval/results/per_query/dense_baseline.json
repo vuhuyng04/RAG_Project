@@ -1,43 +1,6 @@
 [
   {
-    "id": "q0002",
-    "question": "hoa tặng mẹ bài đọc",
-    "intent": "off_topic",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m480/",
-        "title": "Giỏ Hoa M480",
-        "score": 0.6559
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m445/",
-        "title": "Giỏ Hoa M445",
-        "score": 0.6559
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m470/",
-        "title": "Giỏ Hoa M470",
-        "score": 0.6527
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m56/",
-        "title": "Hoa Chia Buồn M56",
-        "score": 0.649
-      },
-      {
-        "url": "https://hoatuoimymy.com/lang-hoa-chuc-mung-m120/",
-        "title": "Lẵng Hoa Chúc Mừng M120",
-        "score": 0.6488
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 16830.1,
-    "budget_applied": null
-  },
-  {
-    "id": "q0003",
+    "id": "q0001",
     "question": "bó hoa hồng 500k",
     "intent": "budget_search",
     "answerable": true,
@@ -76,319 +39,48 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 565.1,
+    "latency_ms": 15327.9,
     "budget_applied": null
   },
   {
-    "id": "q0004",
-    "question": "điều hoà 1 triệu",
-    "intent": "off_topic",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m133/",
-        "title": "Hoa Khai Trương M133",
-        "score": 0.6456
-      },
-      {
-        "url": "https://hoatuoimymy.com/ke-hoa-khai-truong-1-tang-sang-trong-m239/",
-        "title": "Kệ Hoa Khai Trương 1 Tầng Sang Trọng M239",
-        "score": 0.6418
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-hong-tim-m06/",
-        "title": "Bó Hoa Hồng Tím M06",
-        "score": 0.6382
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-hong-tim-cuc-xinh/",
-        "title": "Bó Hoa Hồng Tím Cực Xinh",
-        "score": 0.631
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m127/",
-        "title": "Hoa Khai Trương M127",
-        "score": 0.6175
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 355.3,
-    "budget_applied": null
-  },
-  {
-    "id": "q0005",
-    "question": "giỏ hoa khai trương 300k",
+    "id": "q0002",
+    "question": "bó hoa tiền 500k 10 tờ",
     "intent": "budget_search",
     "answerable": false,
     "gold_urls": [],
     "retrieved": [
       {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m201/",
-        "title": "Hoa Khai Trương M201",
-        "score": 0.7615
+        "url": "https://hoatuoimymy.com/bo-hoa-m102/",
+        "title": "Bó Hoa M102",
+        "score": 0.755
       },
       {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m203/",
-        "title": "Hoa Khai Trương M203",
-        "score": 0.7546
+        "url": "https://hoatuoimymy.com/bo-hoa-sap-m292/",
+        "title": "Bó Hoa Sáp M292",
+        "score": 0.7448
       },
       {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m130/",
-        "title": "Hoa Khai Trương M130",
-        "score": 0.7479
+        "url": "https://hoatuoimymy.com/bo-hoa-m100/",
+        "title": "Bó Hoa M100",
+        "score": 0.7443
       },
       {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m198/",
-        "title": "Hoa Khai Trương M198",
-        "score": 0.7476
+        "url": "https://hoatuoimymy.com/bo-hoa-m272/",
+        "title": "Bó Hoa M272",
+        "score": 0.7409
       },
       {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m125/",
-        "title": "Hoa Khai Trương M125",
-        "score": 0.7454
+        "url": "https://hoatuoimymy.com/bo-hoa-sap-m289/",
+        "title": "Bó Hoa Sáp M289",
+        "score": 0.7398
       }
     ],
     "abstained": false,
-    "latency_ms": 411.0,
+    "latency_ms": 521.6,
     "budget_applied": null
   },
   {
-    "id": "q0006",
-    "question": "hoa đám tang quận gò vấp bảo hân",
-    "intent": "off_topic",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m38/",
-        "title": "Hoa Chia Buồn M38",
-        "score": 0.7593
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-dam-tang-thanh-kinh/",
-        "title": "Hoa Đám Tang Thành Kính",
-        "score": 0.7575
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-dam-tang-m511/",
-        "title": "Hoa Đám Tang M511",
-        "score": 0.7498
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m42/",
-        "title": "Hoa Chia Buồn M42",
-        "score": 0.7497
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m41/",
-        "title": "Hoa Chia Buồn M41",
-        "score": 0.7492
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 355.6,
-    "budget_applied": null
-  },
-  {
-    "id": "q0007",
-    "question": "đặt hoa online thanh hóa",
-    "intent": "out_of_catalogue",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-tang-nguoi-yeu/",
-        "title": "Bó Hoa Tặng Người Yêu",
-        "score": 0.6923
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m101/",
-        "title": "Bó Hoa M101",
-        "score": 0.6903
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m270/",
-        "title": "Bó Hoa M270",
-        "score": 0.6892
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m113/",
-        "title": "Bó Hoa M113",
-        "score": 0.688
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m117/",
-        "title": "Bó Hoa M117",
-        "score": 0.6876
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 1151.7,
-    "budget_applied": null
-  },
-  {
-    "id": "q0008",
-    "question": "hoa tặng khai trương ý nghĩa",
-    "intent": "off_topic",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m129/",
-        "title": "Hoa Khai Trương M129",
-        "score": 0.7689
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m130/",
-        "title": "Hoa Khai Trương M130",
-        "score": 0.767
-      },
-      {
-        "url": "https://hoatuoimymy.com/ke-hoa-khai-truong-m128/",
-        "title": "Kệ Hoa Khai Trương M128",
-        "score": 0.7522
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m133/",
-        "title": "Hoa Khai Trương M133",
-        "score": 0.7497
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m126/",
-        "title": "Hoa Khai Trương M126",
-        "score": 0.7437
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 404.7,
-    "budget_applied": null
-  },
-  {
-    "id": "q0009",
-    "question": "hoa tặng bà tiếng việt lớp 1",
-    "intent": "off_topic",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/lang-hoa-chuc-mung-m120/",
-        "title": "Lẵng Hoa Chúc Mừng M120",
-        "score": 0.7058
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m101/",
-        "title": "Bó Hoa M101",
-        "score": 0.7
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m451/",
-        "title": "Giỏ Hoa M451",
-        "score": 0.6912
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m113/",
-        "title": "Bó Hoa M113",
-        "score": 0.6908
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m381/",
-        "title": "Hoa Lan Hồ Điệp M381",
-        "score": 0.6887
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 414.2,
-    "budget_applied": null
-  },
-  {
-    "id": "q0010",
-    "question": "kệ hoa khai trương màu vàng",
-    "intent": "attribute",
-    "answerable": true,
-    "gold_urls": [
-      "https://hoatuoimymy.com/hoa-khai-truong-m191/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m198/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m357/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m355/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m356/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m139/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m358/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m375/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m362/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m125/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m129/"
-    ],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m191/",
-        "title": "Hoa Khai Trương M191",
-        "score": 0.831
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m198/",
-        "title": "Hoa Khai Trương M198",
-        "score": 0.8194
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m139/",
-        "title": "Hoa Khai Trương M139",
-        "score": 0.8177
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m125/",
-        "title": "Hoa Khai Trương M125",
-        "score": 0.7789
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m129/",
-        "title": "Hoa Khai Trương M129",
-        "score": 0.7747
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 940.3,
-    "budget_applied": null
-  },
-  {
-    "id": "q0011",
-    "question": "đặt hoa online vũng tàu",
-    "intent": "out_of_catalogue",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m113/",
-        "title": "Bó Hoa M113",
-        "score": 0.6451
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m117/",
-        "title": "Bó Hoa M117",
-        "score": 0.6422
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m225/",
-        "title": "Hoa Lan Hồ Điệp M225",
-        "score": 0.6393
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m325/",
-        "title": "Hoa Lan Hồ Điệp M325",
-        "score": 0.6383
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m188/",
-        "title": "Bó Hoa M188",
-        "score": 0.6382
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 727.1,
-    "budget_applied": null
-  },
-  {
-    "id": "q0012",
+    "id": "q0003",
     "question": "bó hoa tiền 500k 100 tờ",
     "intent": "budget_search",
     "answerable": false,
@@ -421,128 +113,198 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 2662.6,
+    "latency_ms": 367.4,
     "budget_applied": null
   },
   {
-    "id": "q0013",
-    "question": "giỏ hoa quả hải phòng",
-    "intent": "out_of_catalogue",
+    "id": "q0004",
+    "question": "bó hoa tiền 500k giá bao nhiều",
+    "intent": "budget_search",
     "answerable": false,
     "gold_urls": [],
     "retrieved": [
       {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m325/",
-        "title": "Hoa Lan Hồ Điệp M325",
-        "score": 0.6268
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m171/",
-        "title": "Giỏ Hoa M171",
-        "score": 0.6238
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m215/",
-        "title": "Hoa Lan Hồ Điệp M215",
-        "score": 0.6191
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m210/",
-        "title": "Hoa Lan Hồ Điệp M210",
-        "score": 0.6157
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m321/",
-        "title": "Hoa Lan Hồ Điệp M321",
-        "score": 0.6153
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 716.2,
-    "budget_applied": null
-  },
-  {
-    "id": "q0014",
-    "question": "hoa tặng mẹ mới sinh",
-    "intent": "product_search",
-    "answerable": true,
-    "gold_urls": [
-      "https://hoatuoimymy.com/bo-hoa-baby-m82/",
-      "https://hoatuoimymy.com/bo-hoa-baby-m115/",
-      "https://hoatuoimymy.com/bo-hoa-baby-nhieu-mau/"
-    ],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-baby-m82/",
-        "title": "Bó Hoa Baby M82",
-        "score": 0.6928
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-baby-m115/",
-        "title": "Bó Hoa Baby M115",
-        "score": 0.6805
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m130/",
-        "title": "Hoa Khai Trương M130",
-        "score": 0.6749
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m129/",
-        "title": "Hoa Khai Trương M129",
-        "score": 0.6741
-      },
-      {
-        "url": "https://hoatuoimymy.com/ke-hoa-khai-truong-m128/",
-        "title": "Kệ Hoa Khai Trương M128",
-        "score": 0.6716
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 628.9,
-    "budget_applied": null
-  },
-  {
-    "id": "q0015",
-    "question": "hoa đồng tiền 500k",
-    "intent": "budget_search",
-    "answerable": true,
-    "gold_urls": [
-      "https://hoatuoimymy.com/gio-hoa-m460/"
-    ],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-dong-tien-m483/",
-        "title": "Giỏ Hoa Đồng Tiền M483",
-        "score": 0.7739
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m460/",
-        "title": "Giỏ Hoa M460",
-        "score": 0.7501
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-dam-tang-m500/",
-        "title": "Hoa Đám Tang M500",
-        "score": 0.7415
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-dam-tang-m496/",
-        "title": "Hoa Đám Tang M496",
-        "score": 0.7368
+        "url": "https://hoatuoimymy.com/bo-hoa-sap-m292/",
+        "title": "Bó Hoa Sáp M292",
+        "score": 0.7618
       },
       {
         "url": "https://hoatuoimymy.com/bo-hoa-m272/",
         "title": "Bó Hoa M272",
-        "score": 0.7348
+        "score": 0.7611
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m102/",
+        "title": "Bó Hoa M102",
+        "score": 0.7587
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m100/",
+        "title": "Bó Hoa M100",
+        "score": 0.7569
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-sap-m289/",
+        "title": "Bó Hoa Sáp M289",
+        "score": 0.7555
       }
     ],
     "abstained": false,
-    "latency_ms": 1566.1,
+    "latency_ms": 474.5,
     "budget_applied": null
   },
   {
-    "id": "q0016",
+    "id": "q0005",
+    "question": "cách làm hoa tặng mẹ ngày 8 tháng 3",
+    "intent": "off_topic",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m482/",
+        "title": "Giỏ Hoa M482",
+        "score": 0.6357
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m383/",
+        "title": "Hoa Lan Hồ Điệp M383",
+        "score": 0.6261
+      },
+      {
+        "url": "https://hoatuoimymy.com/lang-hoa-chuc-mung-m120/",
+        "title": "Lẵng Hoa Chúc Mừng M120",
+        "score": 0.6207
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m113/",
+        "title": "Bó Hoa M113",
+        "score": 0.6163
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-huong-duong-m87/",
+        "title": "Bó Hoa Hướng Dương M87",
+        "score": 0.6158
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 399.2,
+    "budget_applied": null
+  },
+  {
+    "id": "q0006",
+    "question": "có freeship không",
+    "intent": "policy",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m51/",
+        "title": "Hoa Chia Buồn M51",
+        "score": 0.5685
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-sap-m297/",
+        "title": "Bó Hoa Sáp M297",
+        "score": 0.5252
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m470/",
+        "title": "Giỏ Hoa M470",
+        "score": 0.5243
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m246/",
+        "title": "Hoa Khai Trương M246",
+        "score": 0.5241
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m229/",
+        "title": "Hoa Lan Hồ Điệp M229",
+        "score": 0.5172
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 342.3,
+    "budget_applied": null
+  },
+  {
+    "id": "q0007",
+    "question": "giao hàng tạp hóa tận nơi",
+    "intent": "policy",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m407/",
+        "title": "Hoa Lan Hồ Điệp Mini M407",
+        "score": 0.5325
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m401/",
+        "title": "Hoa Lan Hồ Điệp M401",
+        "score": 0.5285
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-cam-tu-cau-m235/",
+        "title": "Bó Hoa Cẩm Tú Cầu M235",
+        "score": 0.5256
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m389/",
+        "title": "Hoa Lan Hồ Điệp M389",
+        "score": 0.5223
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m413/",
+        "title": "Hoa Lan Hồ Điệp M413",
+        "score": 0.5217
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 350.9,
+    "budget_applied": null
+  },
+  {
+    "id": "q0008",
+    "question": "giỏ hoa hồng 500k",
+    "intent": "budget_search",
+    "answerable": true,
+    "gold_urls": [
+      "https://hoatuoimymy.com/gio-hoa-m150/"
+    ],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m150/",
+        "title": "Giỏ Hoa M150",
+        "score": 0.7503
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m454/",
+        "title": "Giỏ Hoa M454",
+        "score": 0.7484
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m460/",
+        "title": "Giỏ Hoa M460",
+        "score": 0.743
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m471/",
+        "title": "Giỏ Hoa M471",
+        "score": 0.7328
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m102/",
+        "title": "Bó Hoa M102",
+        "score": 0.7293
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 353.7,
+    "budget_applied": null
+  },
+  {
+    "id": "q0009",
     "question": "giỏ hoa tươi 500k",
     "intent": "budget_search",
     "answerable": true,
@@ -579,58 +341,369 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 1399.1,
+    "latency_ms": 329.8,
+    "budget_applied": null
+  },
+  {
+    "id": "q0010",
+    "question": "hoa chia buồn đà nẵng",
+    "intent": "out_of_catalogue",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m27/",
+        "title": "Hoa Chia Buồn M27",
+        "score": 0.7534
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m20/",
+        "title": "Hoa Chia Buồn M20",
+        "score": 0.7481
+      },
+      {
+        "url": "https://hoatuoimymy.com/lang-hoa-chia-buon-3-tang/",
+        "title": "Lẵng Hoa Chia Buồn 3 Tầng",
+        "score": 0.7432
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m38/",
+        "title": "Hoa Chia Buồn M38",
+        "score": 0.7428
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m19/",
+        "title": "Hoa Chia Buồn M19",
+        "score": 0.7423
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 574.3,
+    "budget_applied": null
+  },
+  {
+    "id": "q0011",
+    "question": "hoa cưới cẩm tú cầu",
+    "intent": "attribute",
+    "answerable": true,
+    "gold_urls": [
+      "https://hoatuoimymy.com/hoa-cuoi-cam-tay-m04/"
+    ],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m352-bo-hoa-cam-tu-cau/",
+        "title": "Bó Hoa M352 – Bó Hoa Cẩm Tú Cầu",
+        "score": 0.7694
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-cam-tu-cau-nhap-m236/",
+        "title": "Bó Hoa Cẩm Tú Cầu Nhập M236",
+        "score": 0.7352
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-cam-tu-cau-xanh/",
+        "title": "Bó Hoa Cẩm Tú Cầu Xanh",
+        "score": 0.7298
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m347-bo-hoa-tu-cau/",
+        "title": "Bó Hoa M347 – Bó Hoa Tú Cầu",
+        "score": 0.7165
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-cam-tu-cau-m253/",
+        "title": "Bó Hoa Cẩm Tú Cầu M253",
+        "score": 0.7117
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 367.0,
+    "budget_applied": null
+  },
+  {
+    "id": "q0012",
+    "question": "hoa cẩm tú cầu có ý nghĩa là gì",
+    "intent": "off_topic",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m352-bo-hoa-cam-tu-cau/",
+        "title": "Bó Hoa M352 – Bó Hoa Cẩm Tú Cầu",
+        "score": 0.7445
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-cam-tu-cau-xanh/",
+        "title": "Bó Hoa Cẩm Tú Cầu Xanh",
+        "score": 0.7086
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-cam-tu-cau-nhap-m236/",
+        "title": "Bó Hoa Cẩm Tú Cầu Nhập M236",
+        "score": 0.7034
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-cam-tu-cau-m253/",
+        "title": "Bó Hoa Cẩm Tú Cầu M253",
+        "score": 0.7032
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m347-bo-hoa-tu-cau/",
+        "title": "Bó Hoa M347 – Bó Hoa Tú Cầu",
+        "score": 0.6889
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 325.9,
+    "budget_applied": null
+  },
+  {
+    "id": "q0013",
+    "question": "hoa khai trương tân phú",
+    "intent": "product_search",
+    "answerable": true,
+    "gold_urls": [
+      "https://hoatuoimymy.com/hoa-khai-truong-m129/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m429/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m356/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m353/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m355/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m130/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m358/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m428/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m126/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m141/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m125/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m205/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m133/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m139/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m242/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m241/",
+      "https://hoatuoimymy.com/hoa-khai-truong-1-tang-m131/"
+    ],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m129/",
+        "title": "Hoa Khai Trương M129",
+        "score": 0.7579
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m130/",
+        "title": "Hoa Khai Trương M130",
+        "score": 0.7369
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m125/",
+        "title": "Hoa Khai Trương M125",
+        "score": 0.7344
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m205/",
+        "title": "Hoa Khai Trương M205",
+        "score": 0.7333
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m133/",
+        "title": "Hoa Khai Trương M133",
+        "score": 0.7297
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 344.7,
+    "budget_applied": null
+  },
+  {
+    "id": "q0014",
+    "question": "hoa lan hồ điệp hồng",
+    "intent": "attribute",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m213/",
+        "title": "Hoa Lan Hồ Điệp M213",
+        "score": 0.7856
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m209/",
+        "title": "Hoa Lan Hồ Điệp M209",
+        "score": 0.7813
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m211/",
+        "title": "Hoa Lan Hồ Điệp M211",
+        "score": 0.7805
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m222/",
+        "title": "Hoa Lan Hồ Điệp M222",
+        "score": 0.7745
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m417/",
+        "title": "Hoa Lan Hồ Điệp M417",
+        "score": 0.7711
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 332.6,
+    "budget_applied": null
+  },
+  {
+    "id": "q0015",
+    "question": "hoa lan hồ điệp đà nẵng",
+    "intent": "out_of_catalogue",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m209/",
+        "title": "Hoa Lan Hồ Điệp M209",
+        "score": 0.7381
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m211/",
+        "title": "Hoa Lan Hồ Điệp M211",
+        "score": 0.7318
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m213/",
+        "title": "Hoa Lan Hồ Điệp M213",
+        "score": 0.7317
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m222/",
+        "title": "Hoa Lan Hồ Điệp M222",
+        "score": 0.7295
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m210/",
+        "title": "Hoa Lan Hồ Điệp M210",
+        "score": 0.7287
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 304.2,
+    "budget_applied": null
+  },
+  {
+    "id": "q0016",
+    "question": "hoa tiền 500k sinh nhật",
+    "intent": "budget_search",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/hoa-bo-tang-nguoi-yeu-m09/",
+        "title": "Hoa Bó Tặng Người Yêu M09",
+        "score": 0.7507
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m93/",
+        "title": "Bó Hoa M93",
+        "score": 0.7333
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-dong-tien-m483/",
+        "title": "Giỏ Hoa Đồng Tiền M483",
+        "score": 0.7286
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m272/",
+        "title": "Bó Hoa M272",
+        "score": 0.7258
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m69/",
+        "title": "Bó Hoa M69",
+        "score": 0.7222
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 351.1,
     "budget_applied": null
   },
   {
     "id": "q0017",
-    "question": "hoa tặng sinh nhật em gái",
-    "intent": "product_search",
+    "question": "hoa tiền 500k đẹp",
+    "intent": "budget_search",
     "answerable": true,
     "gold_urls": [
-      "https://hoatuoimymy.com/gio-hoa-sinh-nhat-vip-m155/",
-      "https://hoatuoimymy.com/lang-hoa-sinh-nhat-m65/",
-      "https://hoatuoimymy.com/bo-hoa-m62/",
-      "https://hoatuoimymy.com/bo-hoa-m86/",
-      "https://hoatuoimymy.com/bo-hoa-m97/",
-      "https://hoatuoimymy.com/bo-hoa-m98/",
-      "https://hoatuoimymy.com/bo-hoa-m61/",
-      "https://hoatuoimymy.com/bo-hoa-m69/",
-      "https://hoatuoimymy.com/bo-hoa-m89/"
+      "https://hoatuoimymy.com/gio-hoa-m460/"
     ],
     "retrieved": [
       {
-        "url": "https://hoatuoimymy.com/bo-hoa-m97/",
-        "title": "Bó Hoa M97",
-        "score": 0.6665
+        "url": "https://hoatuoimymy.com/gio-hoa-dong-tien-m483/",
+        "title": "Giỏ Hoa Đồng Tiền M483",
+        "score": 0.7535
       },
       {
-        "url": "https://hoatuoimymy.com/hoa-bo-tang-nguoi-yeu-m09/",
-        "title": "Hoa Bó Tặng Người Yêu M09",
-        "score": 0.6648
+        "url": "https://hoatuoimymy.com/gio-hoa-m460/",
+        "title": "Giỏ Hoa M460",
+        "score": 0.7393
       },
       {
-        "url": "https://hoatuoimymy.com/bo-hoa-m98/",
-        "title": "Bó Hoa M98",
-        "score": 0.6628
+        "url": "https://hoatuoimymy.com/bo-hoa-m272/",
+        "title": "Bó Hoa M272",
+        "score": 0.7364
       },
       {
-        "url": "https://hoatuoimymy.com/bo-hoa-m89/",
-        "title": "Bó Hoa M89",
-        "score": 0.661
+        "url": "https://hoatuoimymy.com/hoa-dam-tang-m500/",
+        "title": "Hoa Đám Tang M500",
+        "score": 0.7287
       },
       {
-        "url": "https://hoatuoimymy.com/bo-hoa-m86/",
-        "title": "Bó Hoa M86",
-        "score": 0.6608
+        "url": "https://hoatuoimymy.com/bo-hoa-sap-m292/",
+        "title": "Bó Hoa Sáp M292",
+        "score": 0.72
       }
     ],
     "abstained": false,
-    "latency_ms": 795.9,
+    "latency_ms": 339.5,
     "budget_applied": null
   },
   {
     "id": "q0018",
+    "question": "hoa tặng bạn trai",
+    "intent": "product_search",
+    "answerable": true,
+    "gold_urls": [
+      "https://hoatuoimymy.com/bo-hoa-tang-nguoi-yeu/",
+      "https://hoatuoimymy.com/hoa-bo-tang-nguoi-yeu-m09/"
+    ],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-tang-nguoi-yeu/",
+        "title": "Bó Hoa Tặng Người Yêu",
+        "score": 0.6904
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m479/",
+        "title": "Giỏ Hoa M479",
+        "score": 0.6899
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m465/",
+        "title": "Giỏ Hoa M465",
+        "score": 0.6892
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m451/",
+        "title": "Giỏ Hoa M451",
+        "score": 0.6824
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m486/",
+        "title": "Giỏ Hoa M486",
+        "score": 0.681
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 315.3,
+    "budget_applied": null
+  },
+  {
+    "id": "q0019",
     "question": "hoa tặng lễ trưởng thành",
     "intent": "product_search",
     "answerable": true,
@@ -667,314 +740,24 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 810.6,
+    "latency_ms": 359.8,
     "budget_applied": null
   },
   {
-    "id": "q0019",
-    "question": "giao hàng tạp hóa tận nơi",
-    "intent": "policy",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m407/",
-        "title": "Hoa Lan Hồ Điệp Mini M407",
-        "score": 0.5325
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m401/",
-        "title": "Hoa Lan Hồ Điệp M401",
-        "score": 0.5285
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-cam-tu-cau-m235/",
-        "title": "Bó Hoa Cẩm Tú Cầu M235",
-        "score": 0.5256
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m389/",
-        "title": "Hoa Lan Hồ Điệp M389",
-        "score": 0.5223
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m413/",
-        "title": "Hoa Lan Hồ Điệp M413",
-        "score": 0.5217
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 2633.0,
-    "budget_applied": null
-  },
-  {
-    "id": "q0021",
-    "question": "bó hoa sinh nhật mẹ",
-    "intent": "attribute",
-    "answerable": true,
-    "gold_urls": [
-      "https://hoatuoimymy.com/bo-hoa-m67/",
-      "https://hoatuoimymy.com/bo-hoa-m61/",
-      "https://hoatuoimymy.com/bo-hoa-m69/",
-      "https://hoatuoimymy.com/bo-hoa-m86/",
-      "https://hoatuoimymy.com/bo-hoa-m97/",
-      "https://hoatuoimymy.com/bo-hoa-m98/",
-      "https://hoatuoimymy.com/bo-hoa-m62/",
-      "https://hoatuoimymy.com/bo-hoa-m89/",
-      "https://hoatuoimymy.com/bo-hoa-m93/",
-      "https://hoatuoimymy.com/bo-hoa-m76/"
-    ],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m61/",
-        "title": "Bó Hoa M61",
-        "score": 0.7791
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m67/",
-        "title": "Bó Hoa M67",
-        "score": 0.7684
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m86/",
-        "title": "Bó Hoa M86",
-        "score": 0.7654
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m93/",
-        "title": "Bó Hoa M93",
-        "score": 0.7619
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m97/",
-        "title": "Bó Hoa M97",
-        "score": 0.761
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 752.5,
-    "budget_applied": null
-  },
-  {
-    "id": "q0022",
-    "question": "hoa khai trương giá bao nhiêu",
-    "intent": "product_search",
-    "answerable": true,
-    "gold_urls": [
-      "https://hoatuoimymy.com/hoa-khai-truong-m198/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m429/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m130/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m141/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m241/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m370/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m129/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m372/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m353/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m240/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m242/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m133/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m244/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m125/",
-      "https://hoatuoimymy.com/hoa-khai-truong-m245/"
-    ],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m242/",
-        "title": "Hoa Khai Trương M242",
-        "score": 0.81
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m130/",
-        "title": "Hoa Khai Trương M130",
-        "score": 0.8094
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m129/",
-        "title": "Hoa Khai Trương M129",
-        "score": 0.8091
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m198/",
-        "title": "Hoa Khai Trương M198",
-        "score": 0.8061
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m133/",
-        "title": "Hoa Khai Trương M133",
-        "score": 0.8032
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 811.6,
-    "budget_applied": null
-  },
-  {
-    "id": "q0023",
-    "question": "có freeship không",
-    "intent": "policy",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m51/",
-        "title": "Hoa Chia Buồn M51",
-        "score": 0.5685
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-sap-m297/",
-        "title": "Bó Hoa Sáp M297",
-        "score": 0.5252
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m470/",
-        "title": "Giỏ Hoa M470",
-        "score": 0.5243
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m246/",
-        "title": "Hoa Khai Trương M246",
-        "score": 0.5241
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m229/",
-        "title": "Hoa Lan Hồ Điệp M229",
-        "score": 0.5172
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 2358.6,
-    "budget_applied": null
-  },
-  {
-    "id": "q0024",
-    "question": "hoa tặng bạn trai",
-    "intent": "product_search",
-    "answerable": true,
-    "gold_urls": [
-      "https://hoatuoimymy.com/bo-hoa-tang-nguoi-yeu/",
-      "https://hoatuoimymy.com/hoa-bo-tang-nguoi-yeu-m09/"
-    ],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-tang-nguoi-yeu/",
-        "title": "Bó Hoa Tặng Người Yêu",
-        "score": 0.6904
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m479/",
-        "title": "Giỏ Hoa M479",
-        "score": 0.6899
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m465/",
-        "title": "Giỏ Hoa M465",
-        "score": 0.6892
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m451/",
-        "title": "Giỏ Hoa M451",
-        "score": 0.6824
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m486/",
-        "title": "Giỏ Hoa M486",
-        "score": 0.681
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 2007.0,
-    "budget_applied": null
-  },
-  {
-    "id": "q0025",
-    "question": "đặt hoa theo yêu cầu được không",
-    "intent": "policy",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m188/",
-        "title": "Bó Hoa M188",
-        "score": 0.6421
-      },
-      {
-        "url": "https://hoatuoimymy.com/lang-hoa-chuc-mung-m120/",
-        "title": "Lẵng Hoa Chúc Mừng M120",
-        "score": 0.6415
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m49/",
-        "title": "Hoa Chia Buồn M49",
-        "score": 0.6411
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m46/",
-        "title": "Hoa Chia Buồn M46",
-        "score": 0.6411
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m48/",
-        "title": "Hoa Chia Buồn M48",
-        "score": 0.6408
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 876.0,
-    "budget_applied": null
-  },
-  {
-    "id": "q0026",
-    "question": "giỏ hoa sen đá",
-    "intent": "attribute",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m344-bo-hoa-sen-da/",
-        "title": "Bó Hoa M344 – Bó Hoa Sen Đá",
-        "score": 0.8211
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m171/",
-        "title": "Giỏ Hoa M171",
-        "score": 0.6928
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m159/",
-        "title": "Giỏ Hoa M159",
-        "score": 0.6659
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m486/",
-        "title": "Giỏ Hoa M486",
-        "score": 0.6572
-      },
-      {
-        "url": "https://hoatuoimymy.com/gio-hoa-m457/",
-        "title": "Giỏ Hoa M457",
-        "score": 0.6442
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 859.3,
-    "budget_applied": null
-  },
-  {
-    "id": "q0027",
+    "id": "q0020",
     "question": "hoa tặng mẹ 8/3",
     "intent": "product_search",
     "answerable": true,
     "gold_urls": [
-      "https://hoatuoimymy.com/bo-hoa-m343-bo-hoa-cuc-tana/",
       "https://hoatuoimymy.com/bo-hoa-m340-bo-hoa-huong-duong/",
-      "https://hoatuoimymy.com/lang-hoa-chuc-mung-m120/",
       "https://hoatuoimymy.com/bo-hoa-huong-duong-m87/",
       "https://hoatuoimymy.com/gio-hoa-m485/",
       "https://hoatuoimymy.com/gio-hoa-m480/",
       "https://hoatuoimymy.com/gio-hoa-m158/",
       "https://hoatuoimymy.com/gio-hoa-m482/",
       "https://hoatuoimymy.com/hoa-lan-ho-diep-m383/",
-      "https://hoatuoimymy.com/gio-hoa-m486/"
+      "https://hoatuoimymy.com/gio-hoa-m486/",
+      "https://hoatuoimymy.com/bo-hoa-m113/"
     ],
     "retrieved": [
       {
@@ -1004,48 +787,281 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 571.6,
+    "latency_ms": 320.5,
     "budget_applied": null
   },
   {
-    "id": "q0028",
-    "question": "hoa tặng khai trương đà nẵng",
-    "intent": "out_of_catalogue",
-    "answerable": false,
-    "gold_urls": [],
+    "id": "q0021",
+    "question": "hoa tặng mẹ mới sinh",
+    "intent": "product_search",
+    "answerable": true,
+    "gold_urls": [
+      "https://hoatuoimymy.com/bo-hoa-baby-m82/",
+      "https://hoatuoimymy.com/bo-hoa-baby-m115/",
+      "https://hoatuoimymy.com/bo-hoa-baby-nhieu-mau/",
+      "https://hoatuoimymy.com/gio-hoa-m458/"
+    ],
     "retrieved": [
       {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m129/",
-        "title": "Hoa Khai Trương M129",
-        "score": 0.7499
+        "url": "https://hoatuoimymy.com/bo-hoa-baby-m82/",
+        "title": "Bó Hoa Baby M82",
+        "score": 0.6928
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-baby-m115/",
+        "title": "Bó Hoa Baby M115",
+        "score": 0.6805
       },
       {
         "url": "https://hoatuoimymy.com/hoa-khai-truong-m130/",
         "title": "Hoa Khai Trương M130",
-        "score": 0.747
+        "score": 0.6749
       },
       {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m242/",
-        "title": "Hoa Khai Trương M242",
-        "score": 0.7374
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m129/",
+        "title": "Hoa Khai Trương M129",
+        "score": 0.6741
       },
       {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m241/",
-        "title": "Hoa Khai Trương M241",
-        "score": 0.7374
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-khai-truong-m133/",
-        "title": "Hoa Khai Trương M133",
-        "score": 0.7297
+        "url": "https://hoatuoimymy.com/ke-hoa-khai-truong-m128/",
+        "title": "Kệ Hoa Khai Trương M128",
+        "score": 0.6716
       }
     ],
     "abstained": false,
-    "latency_ms": 1232.0,
+    "latency_ms": 317.7,
     "budget_applied": null
   },
   {
-    "id": "q0029",
+    "id": "q0022",
+    "question": "hoa tặng mẹ ngày 8 tháng 3",
+    "intent": "product_search",
+    "answerable": true,
+    "gold_urls": [
+      "https://hoatuoimymy.com/bo-hoa-m340-bo-hoa-huong-duong/",
+      "https://hoatuoimymy.com/bo-hoa-m345/",
+      "https://hoatuoimymy.com/gio-hoa-m123/",
+      "https://hoatuoimymy.com/gio-hoa-m473/",
+      "https://hoatuoimymy.com/bo-hoa-huong-duong-m87/",
+      "https://hoatuoimymy.com/gio-hoa-m482/",
+      "https://hoatuoimymy.com/hoa-lan-ho-diep-m383/",
+      "https://hoatuoimymy.com/gio-hoa-m486/"
+    ],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m482/",
+        "title": "Giỏ Hoa M482",
+        "score": 0.6557
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m383/",
+        "title": "Hoa Lan Hồ Điệp M383",
+        "score": 0.646
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m53/",
+        "title": "Hoa Chia Buồn M53",
+        "score": 0.6459
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-dam-tang-m503/",
+        "title": "Hoa Đám Tang M503",
+        "score": 0.6398
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-dam-tang-m493/",
+        "title": "Hoa Đám Tang M493",
+        "score": 0.6381
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 348.3,
+    "budget_applied": null
+  },
+  {
+    "id": "q0023",
+    "question": "hoa tặng sinh nhật con gái",
+    "intent": "product_search",
+    "answerable": true,
+    "gold_urls": [
+      "https://hoatuoimymy.com/bo-hoa-m86/",
+      "https://hoatuoimymy.com/gio-hoa-sinh-nhat-vip-m155/",
+      "https://hoatuoimymy.com/bo-hoa-baby-m82/",
+      "https://hoatuoimymy.com/bo-hoa-m67/",
+      "https://hoatuoimymy.com/bo-hoa-m61/",
+      "https://hoatuoimymy.com/bo-hoa-m69/",
+      "https://hoatuoimymy.com/bo-hoa-m62/",
+      "https://hoatuoimymy.com/lang-hoa-sinh-nhat-m65/",
+      "https://hoatuoimymy.com/bo-hoa-baby-m107/",
+      "https://hoatuoimymy.com/bo-hoa-m97/",
+      "https://hoatuoimymy.com/bo-hoa-m98/",
+      "https://hoatuoimymy.com/bo-hoa-baby-m115/",
+      "https://hoatuoimymy.com/bo-hoa-m89/",
+      "https://hoatuoimymy.com/bo-hoa-m93/"
+    ],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m86/",
+        "title": "Bó Hoa M86",
+        "score": 0.6879
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m61/",
+        "title": "Bó Hoa M61",
+        "score": 0.6781
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m97/",
+        "title": "Bó Hoa M97",
+        "score": 0.6699
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-baby-m82/",
+        "title": "Bó Hoa Baby M82",
+        "score": 0.6694
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m98/",
+        "title": "Bó Hoa M98",
+        "score": 0.6669
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 318.2,
+    "budget_applied": null
+  },
+  {
+    "id": "q0024",
+    "question": "hoa tặng sinh nhật em gái",
+    "intent": "product_search",
+    "answerable": true,
+    "gold_urls": [
+      "https://hoatuoimymy.com/gio-hoa-sinh-nhat-vip-m155/",
+      "https://hoatuoimymy.com/lang-hoa-sinh-nhat-m65/",
+      "https://hoatuoimymy.com/bo-hoa-m62/",
+      "https://hoatuoimymy.com/bo-hoa-m86/",
+      "https://hoatuoimymy.com/bo-hoa-m97/",
+      "https://hoatuoimymy.com/bo-hoa-m98/",
+      "https://hoatuoimymy.com/bo-hoa-m61/",
+      "https://hoatuoimymy.com/bo-hoa-m69/",
+      "https://hoatuoimymy.com/bo-hoa-m89/",
+      "https://hoatuoimymy.com/bo-hoa-m93/"
+    ],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m97/",
+        "title": "Bó Hoa M97",
+        "score": 0.6665
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-bo-tang-nguoi-yeu-m09/",
+        "title": "Hoa Bó Tặng Người Yêu M09",
+        "score": 0.6648
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m98/",
+        "title": "Bó Hoa M98",
+        "score": 0.6628
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m89/",
+        "title": "Bó Hoa M89",
+        "score": 0.661
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m86/",
+        "title": "Bó Hoa M86",
+        "score": 0.6608
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 380.4,
+    "budget_applied": null
+  },
+  {
+    "id": "q0025",
+    "question": "hoa đám tang quận gò vấp bảo hân",
+    "intent": "off_topic",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m38/",
+        "title": "Hoa Chia Buồn M38",
+        "score": 0.7593
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-dam-tang-thanh-kinh/",
+        "title": "Hoa Đám Tang Thành Kính",
+        "score": 0.7575
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-dam-tang-m511/",
+        "title": "Hoa Đám Tang M511",
+        "score": 0.7498
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m42/",
+        "title": "Hoa Chia Buồn M42",
+        "score": 0.7497
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m41/",
+        "title": "Hoa Chia Buồn M41",
+        "score": 0.7492
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 401.2,
+    "budget_applied": null
+  },
+  {
+    "id": "q0026",
+    "question": "kệ hoa khai trương màu vàng",
+    "intent": "attribute",
+    "answerable": true,
+    "gold_urls": [
+      "https://hoatuoimymy.com/hoa-khai-truong-m191/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m198/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m357/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m355/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m356/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m362/",
+      "https://hoatuoimymy.com/hoa-khai-truong-m125/"
+    ],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m191/",
+        "title": "Hoa Khai Trương M191",
+        "score": 0.831
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m198/",
+        "title": "Hoa Khai Trương M198",
+        "score": 0.8194
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m139/",
+        "title": "Hoa Khai Trương M139",
+        "score": 0.8177
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m125/",
+        "title": "Hoa Khai Trương M125",
+        "score": 0.7789
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-khai-truong-m129/",
+        "title": "Hoa Khai Trương M129",
+        "score": 0.7747
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 331.7,
+    "budget_applied": null
+  },
+  {
+    "id": "q0027",
     "question": "mua hoa tươi hà nội",
     "intent": "out_of_catalogue",
     "answerable": false,
@@ -1078,11 +1094,11 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 557.2,
+    "latency_ms": 764.1,
     "budget_applied": null
   },
   {
-    "id": "q0030",
+    "id": "q0028",
     "question": "shop có giao nhanh không",
     "intent": "policy",
     "answerable": false,
@@ -1115,171 +1131,11 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 1802.7,
+    "latency_ms": 490.0,
     "budget_applied": null
   },
   {
-    "id": "q0031",
-    "question": "hoa tươi giá rẻ cần thơ",
-    "intent": "out_of_catalogue",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m352-bo-hoa-cam-tu-cau/",
-        "title": "Bó Hoa M352 – Bó Hoa Cẩm Tú Cầu",
-        "score": 0.7327
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m348-hoa-cuc-mau-don/",
-        "title": "Bó Hoa M348 – Hoa Cúc Mẫu Đơn",
-        "score": 0.7244
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m351-bo-hoa-cuc-mau-don/",
-        "title": "Bó Hoa M351 – Bó Hoa Cúc Mẫu Đơn",
-        "score": 0.7198
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m391/",
-        "title": "Hoa Lan Hồ Điệp M391",
-        "score": 0.7171
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m343-bo-hoa-cuc-tana/",
-        "title": "Bó Hoa M343 – Bó Hoa Cúc Tana",
-        "score": 0.7162
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 899.1,
-    "budget_applied": null
-  },
-  {
-    "id": "q0032",
-    "question": "hoa tặng sinh nhật bạn",
-    "intent": "product_search",
-    "answerable": true,
-    "gold_urls": [
-      "https://hoatuoimymy.com/lang-hoa-sinh-nhat-m65/",
-      "https://hoatuoimymy.com/gio-hoa-sinh-nhat-vip-m155/",
-      "https://hoatuoimymy.com/bo-hoa-m61/",
-      "https://hoatuoimymy.com/bo-hoa-m69/",
-      "https://hoatuoimymy.com/bo-hoa-m86/",
-      "https://hoatuoimymy.com/bo-hoa-m76/",
-      "https://hoatuoimymy.com/bo-hoa-m62/",
-      "https://hoatuoimymy.com/bo-hoa-m67/",
-      "https://hoatuoimymy.com/bo-hoa-m97/",
-      "https://hoatuoimymy.com/bo-hoa-m89/",
-      "https://hoatuoimymy.com/bo-hoa-m93/"
-    ],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m61/",
-        "title": "Bó Hoa M61",
-        "score": 0.7268
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m86/",
-        "title": "Bó Hoa M86",
-        "score": 0.7231
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m97/",
-        "title": "Bó Hoa M97",
-        "score": 0.7211
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-bo-tang-nguoi-yeu-m09/",
-        "title": "Hoa Bó Tặng Người Yêu M09",
-        "score": 0.7195
-      },
-      {
-        "url": "https://hoatuoimymy.com/lang-hoa-sinh-nhat-m65/",
-        "title": "Lẵng Hoa Sinh Nhật M65",
-        "score": 0.7166
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 819.2,
-    "budget_applied": null
-  },
-  {
-    "id": "q0033",
-    "question": "hoa chia buồn đà nẵng",
-    "intent": "out_of_catalogue",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m27/",
-        "title": "Hoa Chia Buồn M27",
-        "score": 0.7534
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m20/",
-        "title": "Hoa Chia Buồn M20",
-        "score": 0.7481
-      },
-      {
-        "url": "https://hoatuoimymy.com/lang-hoa-chia-buon-3-tang/",
-        "title": "Lẵng Hoa Chia Buồn 3 Tầng",
-        "score": 0.7432
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m38/",
-        "title": "Hoa Chia Buồn M38",
-        "score": 0.7428
-      },
-      {
-        "url": "https://hoatuoimymy.com/hoa-chia-buon-m19/",
-        "title": "Hoa Chia Buồn M19",
-        "score": 0.7423
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 712.2,
-    "budget_applied": null
-  },
-  {
-    "id": "q0034",
-    "question": "bó hoa tiền 500k 20 tờ",
-    "intent": "budget_search",
-    "answerable": false,
-    "gold_urls": [],
-    "retrieved": [
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-sap-m289/",
-        "title": "Bó Hoa Sáp M289",
-        "score": 0.7496
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-sap-m292/",
-        "title": "Bó Hoa Sáp M292",
-        "score": 0.7438
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m102/",
-        "title": "Bó Hoa M102",
-        "score": 0.7383
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m100/",
-        "title": "Bó Hoa M100",
-        "score": 0.7382
-      },
-      {
-        "url": "https://hoatuoimymy.com/bo-hoa-m272/",
-        "title": "Bó Hoa M272",
-        "score": 0.7344
-      }
-    ],
-    "abstained": false,
-    "latency_ms": 1558.9,
-    "budget_applied": null
-  },
-  {
-    "id": "q0035",
+    "id": "q0029",
     "question": "shop hoa tươi cần thơ",
     "intent": "out_of_catalogue",
     "answerable": false,
@@ -1312,7 +1168,229 @@
       }
     ],
     "abstained": false,
-    "latency_ms": 614.9,
+    "latency_ms": 281.7,
+    "budget_applied": null
+  },
+  {
+    "id": "q0030",
+    "question": "văn bản hoa hồng tặng mẹ của tác giả nào",
+    "intent": "off_topic",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m467/",
+        "title": "Giỏ Hoa M467",
+        "score": 0.6703
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m445/",
+        "title": "Giỏ Hoa M445",
+        "score": 0.6619
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m480/",
+        "title": "Giỏ Hoa M480",
+        "score": 0.6585
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m486/",
+        "title": "Giỏ Hoa M486",
+        "score": 0.6576
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m482/",
+        "title": "Giỏ Hoa M482",
+        "score": 0.654
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 475.0,
+    "budget_applied": null
+  },
+  {
+    "id": "q0031",
+    "question": "đặt hoa online buôn ma thuột",
+    "intent": "out_of_catalogue",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-tulip-m266/",
+        "title": "Bó Hoa Tulip M266",
+        "score": 0.6803
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m101/",
+        "title": "Bó Hoa M101",
+        "score": 0.68
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m102/",
+        "title": "Bó Hoa M102",
+        "score": 0.6796
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-tulip-m265/",
+        "title": "Bó Hoa Tulip M265",
+        "score": 0.6785
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m270/",
+        "title": "Bó Hoa M270",
+        "score": 0.6784
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 338.1,
+    "budget_applied": null
+  },
+  {
+    "id": "q0032",
+    "question": "đặt hoa online hà nội",
+    "intent": "out_of_catalogue",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-tang-nguoi-yeu/",
+        "title": "Bó Hoa Tặng Người Yêu",
+        "score": 0.699
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m401/",
+        "title": "Hoa Lan Hồ Điệp M401",
+        "score": 0.6981
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m383/",
+        "title": "Hoa Lan Hồ Điệp M383",
+        "score": 0.6978
+      },
+      {
+        "url": "https://hoatuoimymy.com/ke-hoa-dam-tang-tong-vang/",
+        "title": "Kệ Hoa Đám Tang Tông Vàng",
+        "score": 0.6968
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m270/",
+        "title": "Bó Hoa M270",
+        "score": 0.6944
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 447.2,
+    "budget_applied": null
+  },
+  {
+    "id": "q0033",
+    "question": "đặt hoa online vũng tàu",
+    "intent": "out_of_catalogue",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m113/",
+        "title": "Bó Hoa M113",
+        "score": 0.6451
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m117/",
+        "title": "Bó Hoa M117",
+        "score": 0.6422
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m225/",
+        "title": "Hoa Lan Hồ Điệp M225",
+        "score": 0.6393
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-lan-ho-diep-m325/",
+        "title": "Hoa Lan Hồ Điệp M325",
+        "score": 0.6383
+      },
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m188/",
+        "title": "Bó Hoa M188",
+        "score": 0.6382
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 278.7,
+    "budget_applied": null
+  },
+  {
+    "id": "q0034",
+    "question": "đặt hoa theo yêu cầu được không",
+    "intent": "policy",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/bo-hoa-m188/",
+        "title": "Bó Hoa M188",
+        "score": 0.6421
+      },
+      {
+        "url": "https://hoatuoimymy.com/lang-hoa-chuc-mung-m120/",
+        "title": "Lẵng Hoa Chúc Mừng M120",
+        "score": 0.6415
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m49/",
+        "title": "Hoa Chia Buồn M49",
+        "score": 0.6411
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m46/",
+        "title": "Hoa Chia Buồn M46",
+        "score": 0.6411
+      },
+      {
+        "url": "https://hoatuoimymy.com/hoa-chia-buon-m48/",
+        "title": "Hoa Chia Buồn M48",
+        "score": 0.6408
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 274.2,
+    "budget_applied": null
+  },
+  {
+    "id": "q0035",
+    "question": "đọc hiểu văn bản hoa tặng mẹ",
+    "intent": "off_topic",
+    "answerable": false,
+    "gold_urls": [],
+    "retrieved": [
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m445/",
+        "title": "Giỏ Hoa M445",
+        "score": 0.6936
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m480/",
+        "title": "Giỏ Hoa M480",
+        "score": 0.6851
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m470/",
+        "title": "Giỏ Hoa M470",
+        "score": 0.6789
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m482/",
+        "title": "Giỏ Hoa M482",
+        "score": 0.6746
+      },
+      {
+        "url": "https://hoatuoimymy.com/gio-hoa-m486/",
+        "title": "Giỏ Hoa M486",
+        "score": 0.6727
+      }
+    ],
+    "abstained": false,
+    "latency_ms": 447.9,
     "budget_applied": null
   }
 ]

@@ -103,6 +103,72 @@ def answer_question(
     )
 
 
+def answer_question_stream(
+    question: str,
+    *,
+    history: list[tuple[str, str]] | None = None,
+    state: State | str = State.CLEAN,
+    config: RetrievalConfig | str = "full",
+    llm: GeminiClient | None = None,
+):
+    """Same pipeline, but yields answer text as it arrives.
+
+    Yields `str` chunks, then a final `Answer` as the last item. Citation
+    validation needs the complete text, so it runs after the stream closes —
+    which means a chunk can briefly display a citation that validation later
+    strikes through. That is the right trade: the alternative is withholding the
+    entire answer for several seconds to guarantee markup that is correct on
+    ~99% of turns.
+    """
+    t0 = time.perf_counter()
+    history = history or []
+    config = CONFIGS[config] if isinstance(config, str) else config
+    state = State(state)
+    llm = llm or GeminiClient()
+
+    query, was_condensed = condense(question, history, llm)
+    result = search(query, state, config)
+    timings = dict(result.timings)
+
+    prompt = build_prompt(
+        question,
+        result.hits,
+        history="" if was_condensed else _short_history(history),
+    )
+
+    t_llm = time.perf_counter()
+    parts: list[str] = []
+    try:
+        for chunk in llm.stream(prompt):
+            parts.append(chunk)
+            yield chunk
+    except Exception as exc:
+        log.error("Streaming generation failed: %s", exc)
+        if not parts:
+            fallback = "Xin lỗi, hệ thống đang gặp sự cố. Bạn vui lòng thử lại sau ít phút."
+            parts.append(fallback)
+            yield fallback
+    timings["llm_ms"] = (time.perf_counter() - t_llm) * 1000
+
+    text = "".join(parts)
+    citations = validate_citations(text, len(result.hits))
+    if citations.invalid:
+        log.warning("Answer cited non-existent sources %s", citations.invalid)
+        text = strip_invalid_citations(text, len(result.hits))
+
+    yield Answer(
+        text=text,
+        hits=result.hits,
+        abstained=result.abstained,
+        citations=citations,
+        query_used=query,
+        was_condensed=was_condensed,
+        budget_applied=result.budget_applied,
+        timings=timings,
+        latency_ms=(time.perf_counter() - t0) * 1000,
+    )
+
+
 def _short_history(history: list[tuple[str, str]], max_turns: int = 2) -> str:
     if not history:
         return ""

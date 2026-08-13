@@ -28,11 +28,13 @@ log = logging.getLogger("run_retrieval")
 # possible but muddles attribution, so the default matrix pairs them
 # deliberately.
 DEFAULT_MATRIX: list[tuple[str, str]] = [
-    ("baseline", "baseline"),  # the "before": old pipeline, old corpus
-    ("dense", "clean"),  # isolates the corpus fix
+    ("baseline", "baseline"),  # control: naive concatenation, unfiltered corpus
+    ("dense", "clean"),  # isolates the ingestion design
     ("dense_threshold", "clean"),  # isolates abstention
+    ("dense_budget", "clean"),  # isolates budget filtering
     ("dense_rerank", "clean"),  # isolates reranking
-    ("full", "clean"),  # + budget filtering
+    ("hybrid", "clean"),  # isolates lexical matching
+    ("full", "clean"),  # all mechanisms combined
 ]
 
 

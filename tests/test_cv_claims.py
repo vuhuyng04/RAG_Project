@@ -57,18 +57,39 @@ def test_budget_delta_matches() -> None:
     assert f"{budget - dense:.3f}" in _cv()
 
 
-def test_hybrid_penalty_matches() -> None:
+def test_no_hybrid_direction_claimed_while_the_pairings_disagree() -> None:
+    """Hybrid may only be claimed to help or hurt if both pairings agree.
+
+    At n=12 both pairings lost 0.087 and the CV stated "BM25 hybrid hurts". At
+    n=14 one pairing gained and the other lost, so no direction is supportable.
+    This guard follows the data instead of pinning yesterday's conclusion.
+    """
     dense = _load("retrieval_dense_clean.json")["retrieval_raw"]["recall@5"]
     hybrid = _load("retrieval_hybrid_clean.json")["retrieval_raw"]["recall@5"]
-    assert f"{dense - hybrid:.3f}" in _cv()
+    dense_b = _load("retrieval_dense_budget_clean.json")["retrieval_raw"]["recall@5"]
+    hybrid_b = _load("retrieval_hybrid_budget_clean.json")["retrieval_raw"]["recall@5"]
+
+    unfiltered = hybrid - dense
+    filtered = hybrid_b - dense_b
+    agree = (unfiltered > 0) == (filtered > 0)
+
+    text = _cv().lower()
+    if not agree:
+        assert "reversed at n=" in text or "pairings" in text, (
+            "the two hybrid pairings disagree; the CV must say the result is unstable "
+            "rather than assert a direction"
+        )
+    else:
+        direction = "hurts" if unfiltered < 0 else "helps"
+        assert direction in text, f"pairings agree that hybrid {direction}; say so"
 
 
 def test_forbidden_claims_section_survives() -> None:
     """The 'what not to claim' table is the point of the document."""
-    text = _cv()
-    assert "What NOT to claim" in text
-    for must_mention in ["RAGAS", "cosine separation", "Hybrid search improved"]:
-        assert must_mention.lower() in text.lower()
+    text = _cv().lower()
+    assert "what not to claim" in text
+    for must_mention in ["ragas", "cosine separation", "hybrid", "reranking"]:
+        assert must_mention in text, f"missing forbidden-claim entry: {must_mention}"
 
 
 def test_sample_size_caveat_present() -> None:

@@ -16,12 +16,12 @@ Written as a project, in the present tense of what was built: **"Built"**,
 **"Designed"**. The naive concatenation configuration is described as a
 **baseline** — which is exactly what it is technically: embedding every field
 concatenated together, the obvious first approach, kept as the experimental
-control. Describing it that way is accurate.
+control.
 
-One constraint worth stating: do not claim "greenfield" or "from scratch" in
-any medium where the repository's commit history is visible alongside it. Simply
-not narrating the project's development is normal; asserting a history that
-contradicts the record is not. Nothing below requires either.
+One constraint: do not claim "greenfield" or "from scratch" in any medium where
+the repository's commit history is visible alongside it. Simply not narrating
+the project's development is normal; asserting a history that contradicts the
+record is not. Nothing below requires either.
 
 ---
 
@@ -39,17 +39,16 @@ contradicts the record is not. Nothing below requires either.
 > - Designed a **four-state corpus experiment** (baseline → clean → seeded
 >   corruption → repaired) in which a corruption manifest serves as ground
 >   truth, making data repair a *measurable* task rather than a judgement call:
->   **macro F1 0.911** across seven defect types, recovering **80% of the
->   Recall@5** lost to corruption. Scoring against the manifest exposed four
->   detector bugs invisible without ground truth, lifting macro F1 from
->   **0.530 → 0.911**.
+>   **macro F1 0.911** across seven defect types. Scoring against the manifest
+>   exposed four detector bugs invisible without ground truth, lifting macro F1
+>   from **0.530 → 0.911**.
 > - Built a deterministic evaluation harness over a golden set mined from
->   **897 real search-engine autocomplete queries** (Recall@k, MRR, nDCG,
->   abstention F1, citation validity, staged latency) and ran a single-variable
->   A/B ladder across 8 retrieval configs: parsed-price budget filtering gained
->   **+0.150 Recall@5**, while **BM25 hybrid cost −0.087** and cross-encoder
->   reranking cost **~10× p95 latency for no gain** — both reported as negative
->   results.
+>   **897 real search-engine autocomplete queries** and ran a single-variable
+>   A/B ladder across 8 retrieval configs. Parsed-price budget filtering gained
+>   **+0.272 Recall@5**; cross-encoder reranking cost **~10× p95 latency for no
+>   gain**. Growing the labelled set by two queries moved Recall@5 by **0.187**
+>   and reversed one A/B conclusion — so the harness reports every retrieval
+>   figure as provisional rather than as a result.
 
 ## Shorter — 2 bullets
 
@@ -59,10 +58,11 @@ contradicts the record is not. Nothing below requires either.
 >   indexed as literal `"nan"`**; schema validation with discriminative-field
 >   selection holds both at **0%**.
 > - Made data quality measurable via a **seeded corruption/repair experiment**
->   scored against a ground-truth manifest (**macro F1 0.911**, 80% of lost
->   Recall@5 recovered) plus a single-variable A/B ladder over 8 retrieval
->   configs — reporting negative results (BM25 hybrid −0.087 Recall@5,
->   reranking ~10× latency for no gain) alongside the wins.
+>   scored against a ground-truth manifest (**macro F1 0.911**) plus a
+>   single-variable A/B ladder over 8 retrieval configs — surfacing that budget
+>   filtering gains **+0.272 Recall@5**, that reranking costs ~10× latency for
+>   nothing, and that two additional eval queries move Recall@5 by 0.187, which
+>   the write-up reports rather than hides.
 
 ## One-liner
 
@@ -80,42 +80,42 @@ contradicts the record is not. Nothing below requires either.
 
 ## What NOT to claim
 
-These are tempting and unsupported. Using them will not survive a repo read.
-
 | Do not claim | Why |
 |---|---|
-| "Improved Recall@5 by X% over the baseline" | **`dense` scores 0.504 on clean vs 0.514 on the baseline.** The validated pipeline **does not currently beat the naive baseline** on retrieval. The corpus-health numbers are solid; the retrieval improvement is unproven. (D9) |
+| "Improved Recall@5 by X% over the baseline" | **`dense` scores 0.317 on clean vs 0.476 on the baseline.** The validated pipeline **does not currently beat the naive baseline** on retrieval, and the gap *widened* with a larger sample. (D9) |
+| "BM25 hybrid hurts retrieval" | Held at n=12 (−0.087 in both pairings), **reversed at n=14** (+0.010 in one). Do not state it in either direction. (D10) |
 | "Improved cosine separation" | Score spread is not a quality metric — when all five results are correct, flat scores are a success. Measured directly, clean scores *slightly worse*. (D7) |
-| "Hybrid search improved retrieval" | It measured **worse** in both pairings (−0.087). (D10) |
-| "Reranking improved relevance" | Recall@5 dropped 0.504 → 0.405 at ~10× the latency. (D10) |
+| "Reranking improved relevance" | Recall@5 0.313 vs 0.317 for plain dense, at ~10× the latency. (D10) |
 | Any RAGAS metric | Not run. The free tier allows 20 requests/day/model; the matrix needs ~1000–1500. |
 | "Reduced hallucination by X%" | Citation validity is measured, but there is no before/after hallucination rate — the baseline has no citations to validate. |
+| "80% of lost quality recovered" | That was the n=12 figure. It is **68.9%** at n=14 and will move again. Quote the detection F1 instead — it is measured against the full manifest, not a sample. |
 
 ## Caveats to state if asked
 
-- **n = 12 answerable queries.** Labelling stopped mid-run at the daily LLM
-  quota. One query changing outcome moves Recall@5 by ~0.08, so every retrieval
-  figure is provisional. The corpus-quality and repair-detection numbers are
-  **not** subject to this — they are computed over the full corpus (483–512
-  documents) and against a complete manifest.
+- **n = 14 answerable queries.** Two extra queries moved Recall@5 by 0.187 and
+  flipped the sign of one A/B result. Every retrieval figure is provisional.
+- **The corpus-quality and repair-detection numbers are not sampled** — computed
+  over the full corpus (483–512 documents) and against a complete corruption
+  manifest. They are the sturdy half of the project.
+- **Latency figures are not sample estimates** — per-query timings, so the ~10×
+  reranking cost stands independently of sample size.
 - **Golden labels are LLM-assigned** over a pooled candidate set with
   deterministic budget and leakage backstops; not expert annotations, and not
   yet human-reviewed.
-- **Latency figures are not sample estimates** — they are per-query timings, so
-  the ~10× reranking cost stands independently of the sample size.
 
 ## Questions this project answers well
 
-- *"How do you know your retrieval improved?"* → On retrieval it isn't proven
-  yet, and here is the exact sample size that makes it unprovable. What *is*
-  proven is the corpus repair, and here is the ground truth it was scored
-  against.
+- *"How do you know your retrieval improved?"* → On retrieval it isn't proven,
+  and the data currently points the other way. Here is the sample size that
+  makes it unprovable, and here is what moving from 12 to 14 queries did to
+  every number. What *is* proven is the corpus repair, scored against ground
+  truth.
 - *"How did you build the eval set without production data?"* → Mined real
   autocomplete queries rather than inventing them; the out-of-scope slice comes
-  from genuine out-of-area and off-topic searches. Provenance is recorded per
-  row.
+  from genuine out-of-area and off-topic searches. Provenance recorded per row.
 - *"What went wrong?"* → Four detector bugs found by manifest scoring; three
   citation-validator revisions, one of which made the metric nearly unable to
-  fail; a hybrid-retrieval conclusion that reversed once the missing control
-  cell was added; and a rank-metric reproducibility bug that only appeared on
-  the third identical run.
+  fail; a hybrid conclusion that reversed on two extra queries after looking
+  consistent across two cells; a rank-metric reproducibility bug that only
+  appeared on the third identical run; and a golden-set sampler that reshuffled
+  on every run, so a day's LLM quota bought one cache hit.
